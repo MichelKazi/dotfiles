@@ -4,8 +4,14 @@ set PATH $HOME/.rbenv/shims $PATH
 rbenv rehash >/dev/null ^&1
 
 source /home/michelkazi/.config/fish/passwords.fish
+
+alias ls='exa'
+alias vi='vim'
 alias vrc='vim ~/dotfiles/.vimrc'
-alias cfish='vim ~/dotfile/config.fish'
+alias cfish='vim ~/dotfiles/config.fish'
+alias :wq='echo "You\'re not using VIM, pal"'
+alias :q='echo "You\'re not using VIM, pal"'
+alias :q!='echo "You\'re not using VIM, pal"'
 
 
 test -s /home/michelkazi/.nvm-fish/nvm.fish; and source /home/michelkazi/.nvm-fish/nvm.fish

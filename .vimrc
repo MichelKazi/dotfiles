@@ -30,6 +30,10 @@ colorscheme monokai-bold
 "	custom theme
 hi Normal guibg=NONE ctermbg=NONE 
 
+"	remaps
+map q: <Nop>
+nnoremap Q <nop>
+
 
 filetype plugin indent on
 set clipboard=unnamedplus
