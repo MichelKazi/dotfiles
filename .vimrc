@@ -1,8 +1,22 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype plugin indent on
 
-" set the runtime path to include Vundle and initialize
+set nocompatible              " be iMproved, required
+set clipboard=unnamedplus
+set nofoldenable
+set nospell
+set softtabstop=2
+set sw=2
+set ts=2
+set cursorline
+set number
+set shell=sh
+set rtp+=/home/michelkazi/.local/lib/python2.7/site-packages/powerline/bindings/vim
+set laststatus=2
+set t_Co=256
 set rtp+=~/.vim/bundle/Vundle.vim
+set nowrap
+
+" Plugins
 call vundle#begin()
 
 Plugin 'dag/vim-fish'
@@ -19,39 +33,43 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
 
-
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+"	Themes and colors
 colorscheme monokai-bold
-
-"	Keep terminal background color to GNOME terminal preferences even with a
-"	custom theme
 hi Normal guibg=NONE ctermbg=NONE 
+hi Visual ctermfg=255 guifg=#eeeeee ctermbg=96  guibg=#875f87
 
-"	remaps
+
+"	Remaps
 map q: <Nop>
+map <C-n> :NERDTreeToggle<CR>
+noremap <up>    :echom 'STUPID. USE K TO GO UP'<CR>
+noremap <down>  :echom 'STUPID. USE J TO GO DOWN'<CR>
+noremap <left>  :echom 'STUPID. USE H TO GO LEFT'<CR>
+noremap <right> :echom 'STUPID. USE L TO GO RIGHT'<CR>
 nnoremap Q <nop>
+nnoremap <leader>nt :call NumberToggle()<cr>
+inoremap <up>    <ESC>:echom 'STUPID. USE K TO GO UP'<CR> 
+inoremap <down>  <ESC>:echom 'STUPID. USE J TO GO DOWN'<CR>
+inoremap <right> <ESC>:echom 'STUPID. USE L TO GO RIGHT'<CR>
+inoremap <left>  <ESC>:echom 'STUPID. USE H TO GO LEFT'<CR>    
 
-
-filetype plugin indent on
-set clipboard=unnamedplus
-set nofoldenable
-set nospell
-set softtabstop=2
-set sw=2
-set ts=2
-set cursorline
-
+"	Macros
 let @j = '0i//j0' 
 let @u = '0xxj0'
 
-set rtp+=/home/michelkazi/.local/lib/python2.7/site-packages/powerline/bindings/vim
-set laststatus=2
-set t_Co=256
+"	Cool functions and shit
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
 
-
+"	"	plugin configurations
 
 let g:NERDTreeShowLineNumbers=1
 autocmd StdinReadPre * let s:std_in=1
@@ -63,7 +81,3 @@ augroup pandoc_syntax
 		au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
 
-map <C-n> :NERDTreeToggle<CR>
-
-set number
-set shell=sh
