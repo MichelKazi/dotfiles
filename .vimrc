@@ -1,7 +1,6 @@
 filetype plugin indent on
 
 set nocompatible              " be iMproved, required
-set clipboard=unnamedplus
 set nofoldenable
 set nospell
 set softtabstop=2
@@ -9,6 +8,7 @@ set sw=2
 set ts=2
 set cursorline
 set number
+set relativenumber
 set shell=sh
 set rtp+=/home/michelkazi/.local/lib/python2.7/site-packages/powerline/bindings/vim
 set laststatus=2
@@ -19,6 +19,14 @@ set nowrap
 " Plugins
 call vundle#begin()
 
+Plugin 'matze/vim-move'
+Plugin 'ervandew/supertab'
+Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'mlaursen/vim-react-snippets'
+Plugin 'nikvdp/ejs-syntax'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'dense-analysis/ale'
 Plugin 'dag/vim-fish'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
@@ -61,17 +69,43 @@ let @j = '0i//j0'
 let @u = '0xxj0'
 
 "	Cool functions and shit
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set norelativenumber
-  else
-    set relativenumber
-  endif
-endfunc
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 "	"	plugin configurations
 
-let g:NERDTreeShowLineNumbers=1
+
+let g:move_key_modifier = 'C'
+
+
+""	Ultisnip
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+
+"	ALE Config
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠️'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_fixers = {
+\  'javascript': ['eslint'],
+\}
+let g:ale_fix_on_save = 1
+
+"	let g:NERDTreeShowLineNumbers=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 

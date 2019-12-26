@@ -5,10 +5,14 @@ rbenv rehash >/dev/null ^&1
 
 source /home/michelkazi/.config/fish/passwords.fish
 
-alias 
+ 
+alias back='cd -'
+alias ex='exit'
+alias ga='git add .'
 alias vi='vim'
 alias vrc='vim ~/dotfiles/.vimrc'
 alias dotfiles='cd ~/dotfiles'
+alias dotpush='dotfiles; and ./deploy.bash; and back'
 alias ..='cd ..'
 alias cfish='vim ~/dotfiles/config.fish'
 alias :wq='echo "You\'re not using VIM, pal"'
