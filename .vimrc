@@ -10,7 +10,6 @@ set cursorline
 set number
 set relativenumber
 set shell=sh
-set rtp+=/home/michelkazi/.local/lib/python2.7/site-packages/powerline/bindings/vim
 set laststatus=2
 set t_Co=256
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -19,6 +18,7 @@ set nowrap
 " Plugins
 call vundle#begin()
 
+Plugin 'airblade/vim-gitgutter'
 Plugin 'matze/vim-move'
 Plugin 'ervandew/supertab'
 Plugin 'honza/vim-snippets'
@@ -40,6 +40,9 @@ Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax' 
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -76,13 +79,23 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-"	"	plugin configurations
+""""""
+"""	plugin configurations
+""""""
+
+"""
+" Airline
+"""
+let g:airline_powerline_fonts = 1
+
 
 
 let g:move_key_modifier = 'C'
 
+"""
+"	Ultisnip
+"""
 
-""	Ultisnip
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -94,8 +107,10 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-
+"""
 "	ALE Config
+"""
+
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠️'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
@@ -104,8 +119,13 @@ let g:ale_fixers = {
 \  'javascript': ['eslint'],
 \}
 let g:ale_fix_on_save = 1
+let g:airline#extensions#ale#enabled = 1
 
-"	let g:NERDTreeShowLineNumbers=1
+"""
+"	NERDTree
+"""
+
+let g:NERDTreeShowLineNumbers=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -115,3 +135,7 @@ augroup pandoc_syntax
 		au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
 
+"""
+"Gitgutter
+"""
+let g:gitgutter_async=0
