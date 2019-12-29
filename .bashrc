@@ -122,6 +122,7 @@ POWERLINE_BASH_SELECT=1
 
 
 fish
+export TERM=xterm-256color
 
 
 export NVM_DIR="$HOME/.nvm"

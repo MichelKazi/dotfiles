@@ -6,6 +6,7 @@ rbenv rehash >/dev/null ^&1
 source /home/michelkazi/.config/fish/passwords.fish
 
  
+alias ckitty='vim ~/dotfiles/kitty.conf'
 alias back='cd -'
 alias ex='exit'
 alias ga='git add .'
@@ -28,3 +29,4 @@ set NPM_PACKAGES "$HOME/.npm-packages"
 set PATH $NPM_PACKAGES/bin $PATH
 
 set MANPATH $NPM_PACKAGES/share/man $MANPATH  
+export TERM=xterm-256color

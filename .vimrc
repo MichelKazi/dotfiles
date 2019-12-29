@@ -12,12 +12,15 @@ set relativenumber
 set shell=sh
 set laststatus=2
 set t_Co=256
+set encoding=UTF-8
 set rtp+=~/.vim/bundle/Vundle.vim
 set nowrap
 
 " Plugins
 call vundle#begin()
 
+Plugin 'wincent/command-t'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'matze/vim-move'
 Plugin 'ervandew/supertab'
@@ -86,7 +89,10 @@ augroup END
 """
 " Airline
 """
+
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline_theme='luna'
 
 
 
@@ -111,7 +117,7 @@ let g:UltiSnipsEditSplit="vertical"
 "	ALE Config
 """
 
-let g:ale_sign_error = '✘'
+let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
