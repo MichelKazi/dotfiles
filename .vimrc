@@ -19,6 +19,7 @@ set nowrap
 " Plugins
 call vundle#begin()
 
+Plugin 'vwxyutarooo/nerdtree-devicons-syntax'
 Plugin 'wincent/command-t'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'airblade/vim-gitgutter'
@@ -53,8 +54,8 @@ filetype plugin indent on    " required
 "	Themes and colors
 colorscheme monokai-bold
 hi Normal guibg=NONE ctermbg=NONE 
-hi Visual ctermfg=255 guifg=#eeeeee ctermbg=96  guibg=#875f87
-
+hi Visual ctermfg=255 guifg=#eeeeee ctermbg=54  guibg=#875f87
+highlight CursorLine ctermbg=53
 
 "	Remaps
 map q: <Nop>
