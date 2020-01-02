@@ -15,6 +15,7 @@ set t_Co=256
 set encoding=UTF-8
 set rtp+=~/.vim/bundle/Vundle.vim
 set nowrap
+set numberwidth=5
 
 " Plugins
 call vundle#begin()
@@ -118,8 +119,8 @@ let g:UltiSnipsEditSplit="vertical"
 "	ALE Config
 """
 
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = '👺'
+let g:ale_sign_warning = '😰'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_fixers = {

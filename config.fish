@@ -6,6 +6,7 @@ rbenv rehash >/dev/null ^&1
 source /home/michelkazi/.config/fish/passwords.fish
 
  
+alias ls='exa'
 alias projects='cd ~/projects'
 alias ckitty='vim ~/dotfiles/kitty.conf'
 alias back='cd -'
