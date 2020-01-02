@@ -6,6 +6,7 @@ rbenv rehash >/dev/null ^&1
 source /home/michelkazi/.config/fish/passwords.fish
 
  
+alias py3='python3'
 alias ls='exa'
 alias projects='cd ~/projects'
 alias ckitty='vim ~/dotfiles/kitty.conf'
@@ -17,6 +18,7 @@ alias vrc='vim ~/dotfiles/.vimrc'
 alias dotfiles='cd ~/dotfiles'
 alias dotpush='dotfiles; and ./deploy.bash; and back'
 alias ..='cd ..'
+alias ctmux='vim ~/dotfiles/.tmux.conf.local'
 alias cfish='vim ~/dotfiles/config.fish'
 alias :wq='echo "You\'re not using VIM, pal"'
 alias :q='echo "You\'re not using VIM, pal"'
