@@ -20,6 +20,7 @@ set numberwidth=5
 " Plugins
 call vundle#begin()
 
+Plugin 'alvan/vim-closetag'
 Plugin 'vwxyutarooo/nerdtree-devicons-syntax'
 Plugin 'wincent/command-t'
 Plugin 'ryanoasis/vim-devicons'
@@ -61,16 +62,16 @@ highlight CursorLine ctermbg=53
 "	Remaps
 map q: <Nop>
 map <C-n> :NERDTreeToggle<CR>
-noremap <up>    :echom 'STUPID. USE K TO GO UP'<CR>
-noremap <down>  :echom 'STUPID. USE J TO GO DOWN'<CR>
-noremap <left>  :echom 'STUPID. USE H TO GO LEFT'<CR>
-noremap <right> :echom 'STUPID. USE L TO GO RIGHT'<CR>
+noremap <up>    :echom 'HEY STUPID. USE K TO GO UP'<CR>
+noremap <down>  :echom 'HEY STUPID. USE J TO GO DOWN'<CR>
+noremap <left>  :echom 'HEY STUPID. USE H TO GO LEFT'<CR>
+noremap <right> :echom 'HEY STUPID. USE L TO GO RIGHT'<CR>
 nnoremap Q <nop>
 nnoremap <leader>nt :call NumberToggle()<cr>
-inoremap <up>    <ESC>:echom 'STUPID. USE K TO GO UP'<CR> 
-inoremap <down>  <ESC>:echom 'STUPID. USE J TO GO DOWN'<CR>
-inoremap <right> <ESC>:echom 'STUPID. USE L TO GO RIGHT'<CR>
-inoremap <left>  <ESC>:echom 'STUPID. USE H TO GO LEFT'<CR>    
+inoremap <up>    <ESC>:echom 'HEY STUPID. USE K TO GO UP'<CR> 
+inoremap <down>  <ESC>:echom 'HEY STUPID. USE J TO GO DOWN'<CR>
+inoremap <right> <ESC>:echom 'HEY STUPID. USE L TO GO RIGHT'<CR>
+inoremap <left>  <ESC>:echom 'HEY STUPID. USE H TO GO LEFT'<CR>    
 
 "	Macros
 let @j = '0i//j0' 
@@ -147,3 +148,10 @@ augroup END
 "Gitgutter
 """
 let g:gitgutter_async=0
+
+"""
+"" Closetag
+"""
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx'
+
