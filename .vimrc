@@ -152,6 +152,4 @@ let g:gitgutter_async=0
 """
 "" Closetag
 """
-
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx'
-
