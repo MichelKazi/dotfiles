@@ -24,6 +24,7 @@ alias :wq='echo "You\'re not using VIM, pal"'
 alias :q='echo "You\'re not using VIM, pal"'
 alias :q!='echo "You\'re not using VIM, pal"'
 
+source ~/.config/fish/functions/bobthefish_colors.fish
 
 test -s /home/michelkazi/.nvm-fish/nvm.fish; and source /home/michelkazi/.nvm-fish/nvm.fish
 

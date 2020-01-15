@@ -20,6 +20,7 @@ set numberwidth=5
 " Plugins
 call vundle#begin()
 
+Plugin 'relastle/bluewery.vim'
 Plugin 'alvan/vim-closetag'
 Plugin 'vwxyutarooo/nerdtree-devicons-syntax'
 Plugin 'wincent/command-t'
@@ -54,10 +55,11 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 "	Themes and colors
-colorscheme monokai-bold
+"colorscheme monokai-bold
+colorscheme bluewery
 hi Normal guibg=NONE ctermbg=NONE 
-hi Visual ctermfg=255 guifg=#eeeeee ctermbg=54  guibg=#875f87
-highlight CursorLine ctermbg=53
+hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
+highlight CursorLine ctermbg=23
 
 "	Remaps
 map q: <Nop>
