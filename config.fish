@@ -6,7 +6,11 @@ rbenv rehash >/dev/null ^&1
 source /home/michelkazi/.config/fish/passwords.fish
 
  
+alias learnshit='cd~/Documents/education'
+alias yearup='cd ~/Documents/education/YearUp'
+alias docs='cd ~/Documents'
 alias py3='python3'
+alias npmfix='npm audit fix'
 alias ls='exa'
 alias projects='cd ~/projects'
 alias ckitty='vim ~/dotfiles/kitty.conf'
@@ -22,7 +26,7 @@ alias ctmux='vim ~/dotfiles/.tmux.conf.local'
 alias cfish='vim ~/dotfiles/config.fish'
 alias :wq='echo "You\'re not using VIM, pal"'
 alias :q='echo "You\'re not using VIM, pal"'
-alias :q!='echo "You\'re not using VIM, pal"'
+alias :w='echo "You\'re not using VIM, pal"'
 
 source ~/.config/fish/functions/bobthefish_colors.fish
 
