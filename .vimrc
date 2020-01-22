@@ -57,8 +57,8 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 "	Themes and colors
-"colorscheme monokai-bold
-colorscheme sv
+colorscheme monokai-bold
+"colorscheme sv
 hi Normal guibg=NONE ctermbg=NONE 
 hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
 highlight CursorLine ctermbg=23

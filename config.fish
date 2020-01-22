@@ -6,7 +6,8 @@ rbenv rehash >/dev/null ^&1
 source /home/michelkazi/.config/fish/passwords.fish
 
  
-alias learnshit='cd~/Documents/education'
+alias javacall='javac *.java'
+alias learnshit='cd ~/Documents/education'
 alias yearup='cd ~/Documents/education/YearUp'
 alias docs='cd ~/Documents'
 alias py3='python3'
@@ -18,6 +19,7 @@ alias back='cd -'
 alias ex='exit'
 alias ga='git add .'
 alias vi='vim'
+alias ivrc='vim ~/.ideavimrc'
 alias vrc='vim ~/dotfiles/.vimrc'
 alias dotfiles='cd ~/dotfiles'
 alias dotpush='dotfiles; and ./deploy.bash; and back'
