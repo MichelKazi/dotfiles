@@ -61,7 +61,7 @@ colorscheme monokai-bold
 "colorscheme sv
 hi Normal guibg=NONE ctermbg=NONE 
 hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
-highlight CursorLine ctermbg=23
+highlight CursorLine ctermbg=52
 
 "	Remaps
 map q: <Nop>
@@ -82,6 +82,7 @@ let @j = '0i//j0'
 let @u = '0xxj0'
 
 "	Cool functions and shit
+autocmd! bufwritepost .vimrc source %
 
 augroup numbertoggle
   autocmd!
