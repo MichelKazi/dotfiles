@@ -4,7 +4,6 @@ set PATH $HOME/.rbenv/shims $PATH
 rbenv rehash >/dev/null ^&1
 
 source /home/michelkazi/.config/fish/passwords.fish
-source ~/dotfiles/mkproj.fish
 
 
 alias javacall='javac *.java'
