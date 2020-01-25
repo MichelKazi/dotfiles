@@ -1,4 +1,10 @@
-filetype plugin indent on
+"""
+" shell config 
+"""
+
+if &shell =~# 'fish$'
+    set shell=sh
+endif
 
 set nocompatible              " be iMproved, required
 set nofoldenable
@@ -17,7 +23,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set nowrap
 set numberwidth=5
 
+"""
 " Plugins
+"""
+
 call vundle#begin()
 
 Plugin 'relastle/bluewery.vim'
@@ -25,7 +34,6 @@ Plugin 'alvan/vim-closetag'
 Plugin 'vwxyutarooo/nerdtree-devicons-syntax'
 Plugin 'wincent/command-t'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'matze/vim-move'
 Plugin 'ervandew/supertab'
 Plugin 'honza/vim-snippets'
@@ -52,16 +60,20 @@ Plugin 'yuezk/vim-js'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'flrnd/candid.vim'
+Plugin 'mhinz/vim-signify'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+"syntax enable
 
 "	Themes and colors
 colorscheme monokai-bold
-"colorscheme sv
 hi Normal guibg=NONE ctermbg=NONE 
 hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
-highlight CursorLine ctermbg=52
+highlight CursorLine ctermbg=243 ctermfg=NONE
+highlight Comment cterm=NONE guibg=NONE ctermfg=138
+
 
 "	Remaps
 map q: <Nop>
@@ -77,6 +89,18 @@ inoremap <down>  <ESC>:echom 'HEY STUPID. USE J TO GO DOWN'<CR>
 inoremap <right> <ESC>:echom 'HEY STUPID. USE L TO GO RIGHT'<CR>
 inoremap <left>  <ESC>:echom 'HEY STUPID. USE H TO GO LEFT'<CR>    
 
+
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 "	Macros
 let @j = '0i//j0' 
 let @u = '0xxj0'
@@ -100,7 +124,8 @@ augroup END
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
-let g:airline_theme='luna'
+let g:airline_theme='violet'
+let g:airline#extensions#tabline#enabled = 1
 
 
 
@@ -150,12 +175,6 @@ augroup pandoc_syntax
 augroup END
 
 """
-" Gitgutter
-"""
-let g:gitgutter_async=0
-
-"""
 "" Closetag
 """
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx'
-
