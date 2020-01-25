@@ -19,51 +19,55 @@ set shell=sh
 set laststatus=2
 set t_Co=256
 set encoding=UTF-8
-set rtp+=~/.vim/bundle/Vundle.vim
 set nowrap
 set numberwidth=5
 
 """
-" Plugins
+" Plugs
 """
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
+Plug 'relastle/bluewery.vim'
+Plug 'alvan/vim-closetag'
+Plug 'vwxyutarooo/nerdtree-devicons-syntax'
+Plug 'wincent/command-t'
+Plug 'ryanoasis/vim-devicons'
+Plug 'matze/vim-move'
+Plug 'ervandew/supertab'
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
+Plug 'nikvdp/ejs-syntax'
+Plug 'scrooloose/nerdcommenter'
+Plug 'dense-analysis/ale'
+Plug 'dag/vim-fish'
+Plug 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax' 
+Plug 'tpope/vim-surround'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'pangloss/vim-javascript'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'flrnd/candid.vim'
+Plug 'mhinz/vim-signify'
+Plug 'davisdude/vim-love-docs', { 'branch': 'build' }
 
-Plugin 'relastle/bluewery.vim'
-Plugin 'alvan/vim-closetag'
-Plugin 'vwxyutarooo/nerdtree-devicons-syntax'
-Plugin 'wincent/command-t'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'matze/vim-move'
-Plugin 'ervandew/supertab'
-Plugin 'honza/vim-snippets'
-Plugin 'SirVer/ultisnips'
-Plugin 'mlaursen/vim-react-snippets'
-Plugin 'nikvdp/ejs-syntax'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'dense-analysis/ale'
-Plugin 'dag/vim-fish'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'mattn/emmet-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax' 
-Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'pangloss/vim-javascript'
-Plugin 'yuezk/vim-js'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'HerringtonDarkholme/yats.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'flrnd/candid.vim'
-Plugin 'mhinz/vim-signify'
-
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 "syntax enable
 
