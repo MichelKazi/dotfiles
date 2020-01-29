@@ -66,6 +66,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'flrnd/candid.vim'
 Plug 'mhinz/vim-signify'
 Plug 'davisdude/vim-love-docs', { 'branch': 'build' }
+Plug 'ejholmes/vim-forcedotcom'
 
 call plug#end()            " required
 filetype plugin indent on    " required

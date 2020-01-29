@@ -121,7 +121,7 @@ POWERLINE_BASH_SELECT=1
 . /home/michelkazi/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 
 
-fish
+#fish
 export TERM=xterm-256color
 
 

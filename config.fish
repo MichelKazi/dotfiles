@@ -6,6 +6,7 @@ rbenv rehash >/dev/null ^&1
 source /home/michelkazi/.config/fish/passwords.fish
 
 
+alias yv='googler -w youtube.com --url-handler mpv $argv'
 alias javacall='javac *.java'
 alias learnshit='cd ~/Documents/education'
 alias yearup='cd ~/Documents/education/YearUp'
