@@ -30,9 +30,17 @@ alias cfish='vim ~/dotfiles/config.fish'
 alias :wq='echo "You\'re not using VIM, pal"'
 alias :q='echo "You\'re not using VIM, pal"'
 alias :w='echo "You\'re not using VIM, pal"'
+alias doexercism='cd /home/michelkazi/snap/exercism/5/exercism'
 
 source ~/.config/fish/functions/bobthefish_colors.fish
+source /home/michelkazi/dotfiles/mkcd.fish
 
+# Golang stuff
+# set the workspace path
+set -x GOPATH ~/go
+set -gx GOROOT /usr/local/go
+# add the go bin path to be able to execute our programs
+set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 test -s /home/michelkazi/.nvm-fish/nvm.fish; and source /home/michelkazi/.nvm-fish/nvm.fish
 
 

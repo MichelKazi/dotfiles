@@ -22,6 +22,8 @@ set encoding=UTF-8
 set nowrap
 set numberwidth=5
 
+au Filetype pandoc set wrap tw=80
+
 """
 " Plugs
 """
@@ -66,7 +68,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'flrnd/candid.vim'
 Plug 'mhinz/vim-signify'
 Plug 'davisdude/vim-love-docs', { 'branch': 'build' }
-Plug 'ejholmes/vim-forcedotcom'
+Plug 'neowit/vim-force.com'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -76,7 +80,7 @@ filetype plugin indent on    " required
 colorscheme monokai-bold
 hi Normal guibg=NONE ctermbg=NONE 
 hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
-highlight CursorLine ctermbg=243 ctermfg=NONE
+highlight CursorLine ctermbg=23 ctermfg=NONE
 highlight Comment cterm=NONE guibg=NONE ctermfg=138
 
 
@@ -94,6 +98,8 @@ inoremap <down>  <ESC>:echom 'HEY STUPID. USE J TO GO DOWN'<CR>
 inoremap <right> <ESC>:echom 'HEY STUPID. USE L TO GO RIGHT'<CR>
 inoremap <left>  <ESC>:echom 'HEY STUPID. USE H TO GO LEFT'<CR>    
 
+" Open help and help files in a new tab
+:cabbrev help tab help
 
 " Go to tab by number
 noremap <leader>1 1gt
@@ -106,6 +112,7 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
+"
 "	Macros
 let @j = '0i//j0' 
 let @u = '0xxj0'
@@ -126,7 +133,6 @@ augroup END
 """
 " Airline
 """
-
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme='violet'
@@ -139,7 +145,6 @@ let g:move_key_modifier = 'C'
 """
 "	Ultisnip
 """
-
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -154,7 +159,6 @@ let g:UltiSnipsEditSplit="vertical"
 """
 "	ALE Config
 """
-
 let g:ale_sign_error = '👺'
 let g:ale_sign_warning = '😰'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
@@ -168,7 +172,6 @@ let g:airline#extensions#ale#enabled = 1
 """
 "	NERDTree
 """
-
 let g:NERDTreeShowLineNumbers=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -182,4 +185,28 @@ augroup END
 """
 "" Closetag
 """
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx,*.md'
+
+"""
+"" vim-force.com
+"""
+let g:apex_backup_folder="~/.apex/backup"
+let g:apex_temp_folder="~/.apex/temp"
+let g:apex_tooling_force_dot_com_path="~/.apex/tooling-force.com-0.4.7.0.jar"
+
+"""
+"" Go
+"""
+let g:go_fmt_command="goimports"
+let g:go_fmt_autosave=1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+
+"""
+"" Command-T
+"""
+let g:CommandTAcceptSelectionMap = '<C-t>'
+let g:CommandTAcceptSelectionTabMap = '<CR>'
