@@ -190,10 +190,11 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx,*.md'
 """
 "" vim-force.com
 """
-let g:apex_backup_folder="~/.apex/backup"
-let g:apex_temp_folder="~/.apex/temp"
-let g:apex_tooling_force_dot_com_path="~/.apex/tooling-force.com-0.4.7.0.jar"
-
+let g:apex_workspace_path="/home/michelkazi/.apex/workspace"
+let g:apex_backup_folder="/home/michelkazi/.apex/backup"
+let g:apex_temp_folder="/home/michelkazi/.apex/temp"
+let g:apex_tooling_force_dot_com_path="/home/michelkazi/.apex/tooling-force.com-0.4.7.0.jar"
+let g:apex_properties_folder="/home/michelkazi/.apex/properties"
 """
 "" Go
 """
