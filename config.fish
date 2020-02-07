@@ -25,6 +25,7 @@ alias cfish='vim ~/dotfiles/config.fish'
 alias ivrc='vim ~/.ideavimrc'
 
 ## Misc Shortcuts
+alias sfish='source ~/dotfiles/config.fish'
 alias yv='googler -w youtube.com --url-handler mpv $argv'
 alias javacall='javac *.java'
 alias py3='python3'
@@ -34,11 +35,18 @@ alias back='cd -'
 alias ex='exit'
 alias ga='git add .'
 alias vi='vim'
+alias readme='vim README.md'
 
 ## Sanity checks
 alias :wq='echo "You\'re not using VIM, pal"'
 alias :w='echo "You\'re not using VIM, pal"'
 alias :q='echo "You\'re not using VIM, pal"'
+
+## Salesforce stuff
+alias apexclass='sfdx force:apex:class:create -n'
+alias apextrigger='sfdx force:apex:trigger:create -n'
+alias apextest='sfdx force:apex:test:create -n'
+alias apexorg='sfdx force:org:open -u $APEXPLAYGROUND'
 
 ##### Functions & Passwords
 source ~/.config/fish/functions/bobthefish_colors.fish
