@@ -22,7 +22,6 @@ set encoding=UTF-8
 set nowrap
 set numberwidth=5
 
-au Filetype pandoc set wrap tw=80
 
 """
 " Plugs

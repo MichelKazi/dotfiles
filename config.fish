@@ -47,6 +47,7 @@ alias apexclass='sfdx force:apex:class:create -n'
 alias apextrigger='sfdx force:apex:trigger:create -n'
 alias apextest='sfdx force:apex:test:create -n'
 alias apexorg='sfdx force:org:open -u $APEXPLAYGROUND'
+source /home/michelkazi/dotfiles/mdapideploy.fish
 
 ##### Functions & Passwords
 source ~/.config/fish/functions/bobthefish_colors.fish
