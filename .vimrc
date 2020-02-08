@@ -22,6 +22,7 @@ set encoding=UTF-8
 set nowrap
 set numberwidth=5
 
+let mapleader=","
 
 """
 " Plugs
@@ -43,7 +44,6 @@ Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-react-snippets'
-Plug 'nikvdp/ejs-syntax'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
 Plug 'dag/vim-fish'
@@ -66,7 +66,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'flrnd/candid.vim'
 Plug 'mhinz/vim-signify'
-Plug 'davisdude/vim-love-docs', { 'branch': 'build' }
 Plug 'neowit/vim-force.com'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
@@ -97,6 +96,18 @@ inoremap <down>  <ESC>:echom 'HEY STUPID. USE J TO GO DOWN'<CR>
 inoremap <right> <ESC>:echom 'HEY STUPID. USE L TO GO RIGHT'<CR>
 inoremap <left>  <ESC>:echom 'HEY STUPID. USE H TO GO LEFT'<CR>    
 
+" leader yank to buffer
+vnoremap <Leader>y "+y
+vnoremap <Leader>x "+x
+vnoremap <Leader>d "+d
+vnoremap <Leader>p "+p
+vnoremap <Leader>P "+P
+nnoremap <Leader>Y "+Y
+nnoremap <Leader>yy "+yy
+nnoremap <Leader>x "+x
+nnoremap <Leader>dd "+dd
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
 " Open help and help files in a new tab
 :cabbrev help tab help
 
@@ -111,10 +122,6 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
-"
-"	Macros
-let @j = '0i//j0' 
-let @u = '0xxj0'
 
 "	Cool functions and shit
 autocmd! bufwritepost .vimrc source %
@@ -136,7 +143,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme='violet'
 let g:airline#extensions#tabline#enabled = 1
-
 
 
 let g:move_key_modifier = 'C'

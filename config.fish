@@ -35,6 +35,7 @@ alias back='cd -'
 alias ex='exit'
 alias ga='git add .'
 alias vi='vim'
+alias vim='nvim'
 alias readme='vim README.md'
 
 ## Sanity checks
@@ -46,7 +47,8 @@ alias :q='echo "You\'re not using VIM, pal"'
 alias apexclass='sfdx force:apex:class:create -n'
 alias apextrigger='sfdx force:apex:trigger:create -n'
 alias apextest='sfdx force:apex:test:create -n'
-alias apexorg='sfdx force:org:open -u $APEXPLAYGROUND'
+alias openorg='sfdx force:org:open -u'
+alias sfdxlogin='sfdx:auth:web:login'
 source /home/michelkazi/dotfiles/mdapideploy.fish
 
 ##### Functions & Passwords
