@@ -21,7 +21,8 @@ set t_Co=256
 set encoding=UTF-8
 set nowrap
 set numberwidth=5
-
+set incsearch
+set guicursor=i:ver25-iCursor
 let mapleader=","
 
 """
@@ -217,3 +218,14 @@ let g:go_highlight_operators = 1
 """
 let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
+
+"""
+" This isn't actually a plugin I just want a skinny cursor
+"""
+if exists('$TMUX')
+  let &t_SI = "\ePtmux;\e\e[5 q\e\\"
+  let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+else
+  let &t_SI = "\e[5 q"
+  let &t_EI = "\e[2 q"
+endif
