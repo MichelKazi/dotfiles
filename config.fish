@@ -1,10 +1,5 @@
-status --is-interactive; and source (rbenv init -|psub)
-set PATH $HOME/.rbenv/bin $PATH
-set PATH $HOME/.rbenv/shims $PATH
-rbenv rehash >/dev/null ^&1
-
-
 ##### ALIASES
+export EDITOR=/usr/bin/vim
 
 ## Directories
 alias downloads='cd ~/Downloads'
@@ -14,7 +9,7 @@ alias yearup='cd ~/Documents/education/YearUp'
 alias learnshit='cd ~/Documents/education'
 alias dotfiles='cd ~/dotfiles'
 alias ..='cd ..'
-alias doexercism='cd /home/michelkazi/snap/exercism/5/exercism'
+alias doexercism='cd /home/michelk/snap/exercism/5/exercism'
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.conf'
@@ -30,12 +25,12 @@ alias yv='googler -w youtube.com --url-handler mpv $argv'
 alias javacall='javac *.java'
 alias py3='python3'
 alias npmfix='npm audit fix'
-alias ls='exa'
 alias back='cd -'
 alias ex='exit'
 alias ga='git add .'
 alias vi='vim'
 alias readme='vim README.md'
+alias ls='exa'
 
 ## Sanity checks
 alias :wq='echo "You\'re not using VIM, pal"'
@@ -49,12 +44,15 @@ alias apextest='sfdx force:apex:test:create -n'
 alias openorg='sfdx force:org:open -u'
 alias sfdxlogin='sfdx:auth:web:login'
 alias trailhead='cd ~/xandr/learning/salesforce'
-source /home/michelkazi/dotfiles/mdapideploy.fish
+alias executeanon='sfdx force:apex:execute'
+alias forcepush='sfdx:force:source:push'
+alias forcepull='sfdx:force:source:pull'
+source /home/michelk/dotfiles/mdapideploy.fish
 
 ##### Functions & Passwords
 source ~/.config/fish/functions/bobthefish_colors.fish
-source /home/michelkazi/dotfiles/mkcd.fish
-source /home/michelkazi/.config/fish/passwords.fish
+source /home/michelk/dotfiles/mkcd.fish
+source /home/michelk/.config/fish/passwords.fish
 
 ##### Development Configs
 
@@ -64,7 +62,7 @@ set -x GOPATH ~/go
 set -gx GOROOT /usr/local/go
 # add the go bin path to be able to execute our programs
 set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
-test -s /home/michelkazi/.nvm-fish/nvm.fish; and source /home/michelkazi/.nvm-fish/nvm.fish
+test -s /home/michelk/.nvm-fish/nvm.fish; and source /home/michelkazi/.nvm-fish/nvm.fish
 
 ## NPM
 set NPM_PACKAGES "$HOME/.npm-packages"
