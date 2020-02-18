@@ -49,6 +49,9 @@ alias apextest='sfdx force:apex:test:create -n'
 alias openorg='sfdx force:org:open -u'
 alias sfdxlogin='sfdx:auth:web:login'
 alias trailhead='cd ~/xandr/learning/salesforce'
+alias executeanon='sfdx force:apex:execute'
+alias forcepush='sfdx:force:source:push'
+alias forcepull='sfdx:force:source:pull'
 source /home/michelkazi/dotfiles/mdapideploy.fish
 
 ##### Functions & Passwords
@@ -60,8 +63,10 @@ source /home/michelkazi/.config/fish/passwords.fish
 
 ## Golang
 # set the workspace path
+alias gopath 'cd $GOPATH/src/github.com/$USER'
 set -x GOPATH ~/go
 set -gx GOROOT /usr/local/go
+set -gx GOPROJECTDIR ~/go/src/github.com/michelkazi
 # add the go bin path to be able to execute our programs
 set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 test -s /home/michelkazi/.nvm-fish/nvm.fish; and source /home/michelkazi/.nvm-fish/nvm.fish

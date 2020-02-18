@@ -202,6 +202,8 @@ let g:apex_backup_folder="/home/michelkazi/.apex/backup"
 let g:apex_temp_folder="/home/michelkazi/.apex/temp"
 let g:apex_tooling_force_dot_com_path="/home/michelkazi/.apex/tooling-force.com-0.4.7.0.jar"
 let g:apex_properties_folder="/home/michelkazi/.apex/properties"
+
+au BufRead,BufNewFile *apex set filetype=apexcode
 """
 "" Go
 """
@@ -213,11 +215,6 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 
-"""
-"" Command-T
-"""
-let g:CommandTAcceptSelectionMap = '<C-t>'
-let g:CommandTAcceptSelectionTabMap = '<CR>'
 
 """
 " This isn't actually a plugin I just want a skinny cursor
