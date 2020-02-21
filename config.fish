@@ -78,5 +78,3 @@ set PATH $NPM_PACKAGES/bin $PATH
 
 set MANPATH $NPM_PACKAGES/share/man $MANPATH  
 
-###### XTERM Config
-export TERM=xterm-256color

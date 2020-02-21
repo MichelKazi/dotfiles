@@ -69,14 +69,20 @@ Plug 'flrnd/candid.vim'
 Plug 'mhinz/vim-signify'
 Plug 'neowit/vim-force.com'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
+Plug 'Rigellute/rigel'
 
 call plug#end()            " required
 filetype plugin indent on    " required
-"syntax enable
+syntax enable
 
 "	Themes and colors
-colorscheme monokai-bold
+"colorscheme monokai-bold
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+colorscheme rigel
 hi Normal guibg=NONE ctermbg=NONE 
 hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
 highlight CursorLine ctermbg=23 ctermfg=NONE
@@ -142,7 +148,8 @@ augroup END
 """
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
-let g:airline_theme='violet'
+let g:rigel_airline=1
+let g:airline_theme='rigel'
 let g:airline#extensions#tabline#enabled = 1
 
 
