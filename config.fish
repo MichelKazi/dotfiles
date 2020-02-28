@@ -36,6 +36,7 @@ alias ex='exit'
 alias ga='git add .'
 alias vi='vim'
 alias readme='vim README.md'
+alias dnsrestart='sudo /etc/init.d/dns-clean restart'
 
 ## Sanity checks
 alias :wq='echo "You\'re not using VIM, pal"'
