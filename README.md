@@ -1,10 +1,11 @@
-# dotfiles
+# Michel's Dotfiles
 
-Here are my config files lol
+I like configuring things a lot.  
 
-### BTW
+## Branches
+- [Master](https://github.com/MichelKazi/dotfiles)
+- [devbox3488](https://github.com/MichelKazi/dotfiles/tree/devbox3488)
 
-In `config.fish` I set an alias for `ls` to use `exa` instead  
-If you keep that line there you should install exa on your machine
-
-
+Copying my configurations is as easy as $git clone https://github.com/michelkazi/dotfiles.git$ 
+Then just source the files.  
+If certain things aren't installed that the configurations depend on, just delete the lines or install them :)
