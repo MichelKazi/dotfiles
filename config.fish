@@ -5,6 +5,7 @@ rbenv rehash >/dev/null ^&1
 
 
 ##### ALIASES
+alias devbox3488='ssh mk700f@3488.mk700f.user.nym2.adnexus.net'
 
 ## Directories
 alias downloads='cd ~/Downloads'
