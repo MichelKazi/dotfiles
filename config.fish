@@ -26,6 +26,7 @@ alias cfish='vim ~/dotfiles/config.fish'
 alias ivrc='vim ~/.ideavimrc'
 
 ## Misc Shortcuts
+alias copydir='pwd | xclip'
 alias sfish='source ~/dotfiles/config.fish'
 alias yv='googler -w youtube.com --url-handler mpv $argv'
 alias javacall='javac *.java'
