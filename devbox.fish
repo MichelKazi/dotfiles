@@ -20,7 +20,7 @@ alias ..='cd ..'
 alias vrc='vim ~/dotfiles/.vimrc'
 alias dotpush='dotfiles; and ./deploy.bash; and back'
 alias ctmux='vim ~/dotfiles/.tmux.conf.local'
-alias cfish='vim ~/dotfiles/config.fish'
+alias cfish='vim ~/dotfiles/devbox.fish'
 
 ## Misc Shortcuts
 alias sfish='source ~/dotfiles/config.fish'
