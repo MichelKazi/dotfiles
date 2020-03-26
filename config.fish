@@ -6,6 +6,8 @@ rbenv rehash >/dev/null ^&1
 
 ##### ALIASES
 alias devbox3488='ssh mk700f@3488.mk700f.user.nym2.adnexus.net'
+alias 3488='ssh -t -A mk700f@jump.adnxs.net \'go 3488\''
+alias xandrgit='git -c http.proxy=socks5h://localhost:1080'
 
 ## Directories
 alias downloads='cd ~/Downloads'

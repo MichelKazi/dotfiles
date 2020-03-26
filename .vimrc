@@ -234,17 +234,6 @@ let g:go_highlight_operators = 1
 
 
 """
-" This isn't actually a plugin I just want a skinny cursor
-"""
-if exists('$TMUX')
-  let &t_SI = "\ePtmux;\e\e[5 q\e\\"
-  let &t_EI = "\ePtmux;\e\e[2 q\e\\"
-else
-  let &t_SI = "\e[5 q"
-  let &t_EI = "\e[2 q"
-endif
-
-"""
 " Highlight TODO, FIXME, NOTE, etc.
 """
 if has('autocmd') && v:version > 701
