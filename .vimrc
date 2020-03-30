@@ -69,8 +69,9 @@ Plug 'flrnd/candid.vim'
 Plug 'mhinz/vim-signify'
 Plug 'neowit/vim-force.com'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'Rigellute/rigel'
+Plug 'aonemd/kuroi.vim'
 Plug 'arzg/vim-colors-xcode'
+Plug 'Rigellute/rigel'
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -83,8 +84,11 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+"colorscheme kuroi
 colorscheme xcodedark
 "colorscheme rigel
+
+hi NonText ctermbg=NONE guibg=NONE
 hi Normal guibg=NONE ctermbg=NONE 
 hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
 highlight CursorLine ctermbg=23 ctermfg=NONE
