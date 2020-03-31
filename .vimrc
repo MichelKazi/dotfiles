@@ -89,10 +89,11 @@ colorscheme xcodedark
 "colorscheme rigel
 
 hi NonText ctermbg=NONE guibg=NONE
-hi Normal guibg=NONE ctermbg=NONE 
+hi Normal guibg=NONE ctermbg=NONE
 hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
 highlight CursorLine ctermbg=23 ctermfg=NONE
 highlight Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#647568
+highlight CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
 
 
 "	Remaps
