@@ -6,6 +6,8 @@ set -q XDG_DATA_HOME
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
 
+set -g theme_color_scheme dracula
+
 ##### ALIASES
 
 ## Directories
@@ -20,6 +22,7 @@ alias ..='cd ..'
 ## Dotfile Configs
 alias vrc='vim ~/dotfiles/.vimrc'
 alias dotpush='dotfiles; and ./deploy.bash; and back'
+alias dotpull='dotfiles; and git pull; and back'
 alias ctmux='vim ~/dotfiles/.tmux.conf.local'
 alias cfish='vim ~/dotfiles/devbox.fish'
 
