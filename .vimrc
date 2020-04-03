@@ -88,12 +88,16 @@ endif
 colorscheme xcodedark
 "colorscheme rigel
 
+set fillchars+=vert:│
+
 hi NonText ctermbg=NONE guibg=NONE
 hi Normal guibg=NONE ctermbg=NONE
 hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
-highlight CursorLine ctermbg=23 ctermfg=NONE
-highlight Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#647568
-highlight CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
+hi CursorLine ctermbg=89 ctermfg=NONE guibg=#40313d
+hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#647568
+hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
+hi VertSplit guifg=#42f5c2 guibg=NONE ctermbg=NONE 
+hi Title guifg=#fe79b1
 
 
 "	Remaps

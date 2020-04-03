@@ -7,7 +7,8 @@ rbenv rehash >/dev/null ^&1
 ##### ALIASES
 alias devbox3488='ssh mk700f@3488.mk700f.user.nym2.adnexus.net'
 #alias 3488='ssh -t -A mk700f@jump.adnxs.net \'go 3488\''
-alias 3488='ssh -t -A mk700f@jump.adnxs.net \'ssh -t -A 3488.mk700f.user.nym2.adnexus.net "/usr/bin/fish"\''
+alias 3487='ssh -t -A mk700f@jump.adnxs.net \'ssh -A 3487.mk700f.user.nym2.adnexus.net \''
+alias 3488='ssh -t -A mk700f@jump.adnxs.net \'ssh -t -A 3488.mk700f.user.nym2.adnexus.net "/usr/bin/fish; tmux"\''
 alias xandrgit='git -c http.proxy=socks5h://localhost:1080'
 
 ## Directories
@@ -65,6 +66,8 @@ source /home/michelkazi/dotfiles/mdapideploy.fish
 source ~/.config/fish/functions/bobthefish_colors.fish
 source /home/michelkazi/dotfiles/mkcd.fish
 source /home/michelkazi/.config/fish/passwords.fish
+
+set -g theme_color_scheme dracula
 
 ##### Development Configs
 
