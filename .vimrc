@@ -98,6 +98,7 @@ hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#647568
 hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
 hi VertSplit guifg=#42f5c2 guibg=NONE ctermbg=NONE 
 hi Title guifg=#fe79b1
+hi string guifg=#00ff87 ctermfg=48
 
 
 "	Remaps
@@ -159,8 +160,8 @@ augroup END
 """
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
-let g:rigel_airline=1
-let g:airline_theme='rigel'
+"let g:rigel_airline=1
+let g:airline_theme='fruit_punch'
 let g:airline#extensions#tabline#enabled = 1
 
 
