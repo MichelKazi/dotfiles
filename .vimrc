@@ -35,6 +35,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'tibabit/vim-templates'
 Plug 'relastle/bluewery.vim'
 Plug 'alvan/vim-closetag'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
@@ -255,3 +256,7 @@ if has('autocmd') && v:version > 701
                     \ )
     augroup END
 endif
+
+augroup filetypedetect
+	au! BufRead,BufNewFile *.tmpl    setfiletype template
+augroup END
