@@ -3,7 +3,7 @@
 """
 
 if &shell =~# 'fish$'
-    set shell=sh
+	set shell=sh
 endif
 
 set nocompatible              " be iMproved, required
@@ -29,17 +29,15 @@ let mapleader=","
 " Plugs
 """
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'tibabit/vim-templates'
-Plug 'relastle/bluewery.vim'
 Plug 'alvan/vim-closetag'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
-Plug 'wincent/command-t'
 Plug 'ryanoasis/vim-devicons'
 Plug 'matze/vim-move'
 Plug 'ervandew/supertab'
@@ -49,7 +47,6 @@ Plug 'mlaursen/vim-react-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
 Plug 'dag/vim-fish'
-Plug 'VundleVim/Vundle.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree'
@@ -65,14 +62,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'flrnd/candid.vim'
 Plug 'mhinz/vim-signify'
 Plug 'neowit/vim-force.com'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'aonemd/kuroi.vim'
 Plug 'arzg/vim-colors-xcode'
-Plug 'Rigellute/rigel'
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -80,9 +73,9 @@ syntax enable
 
 "	Themes and colors
 if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
 endif
 
 "colorscheme kuroi
@@ -128,8 +121,11 @@ nnoremap <Leader>x "+x
 nnoremap <Leader>dd "+dd
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
+"
 " Open help and help files in a new tab
 :cabbrev help tab help
+:cabbrev vsrc vsp ~/dotfiles/.vimrc
+:cabbrev df SignifyDiff
 
 " Go to tab by number
 noremap <leader>1 1gt
@@ -147,14 +143,21 @@ noremap <leader>0 :tablast<cr>
 autocmd! bufwritepost .vimrc source %
 
 augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
 """"""
 """	plugin configurations
 """"""
+
+"""
+" Vim-signify
+"""
+let g:signify_sign_add = ''
+let g:signify_sign_delete = ''
+let g:signify_sign_change = ''
 
 """
 " Airline
@@ -191,8 +194,8 @@ let g:ale_sign_warning = '😰'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_fixers = {
-\  'javascript': ['eslint'],
-\}
+			\  'javascript': ['eslint'],
+			\}
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
 
@@ -209,9 +212,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 """
 "	Pandoc
 """
-
 augroup pandoc_syntax
-		au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+	au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
 
 let g:pandoc#syntax#conceal#use=1
@@ -248,13 +250,13 @@ let g:go_highlight_operators = 1
 " Highlight TODO, FIXME, NOTE, etc.
 """
 if has('autocmd') && v:version > 701
-    augroup todo
-        autocmd!
-        autocmd Syntax * call matchadd(
-                    \ 'Debug',
-                    \ '\v\W\zs<(NOTE|INFO|IDEA|TODO|FIXME|CHANGED|XXX|BUG|HACK|TRICKY)>'
-                    \ )
-    augroup END
+	augroup todo
+		autocmd!
+		autocmd Syntax * call matchadd(
+					\ 'Debug',
+					\ '\v\W\zs<(NOTE|INFO|IDEA|TODO|FIXME|CHANGED|XXX|BUG|HACK|TRICKY)>'
+					\ )
+	augroup END
 endif
 
 augroup filetypedetect
