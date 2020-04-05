@@ -1,7 +1,8 @@
-status --is-interactive; and source (rbenv init -|psub)
-set PATH $HOME/.rbenv/bin $PATH
-set PATH $HOME/.rbenv/shims $PATH
-rbenv rehash >/dev/null ^&1
+# Start fish in tmux
+if status is-interactive
+and not set -q TMUX
+    exec tmux
+end
 
 
 ##### ALIASES
@@ -21,6 +22,10 @@ alias dotfiles='cd ~/dotfiles'
 alias ..='cd ..'
 alias doexercism='cd /home/michelkazi/snap/exercism/5/exercism'
 
+# Git
+alias ignore='vim .gitignore'
+alias ga='git add .'
+
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.conf'
 alias vrc='vim ~/dotfiles/.vimrc'
@@ -29,6 +34,10 @@ alias dotpull='dotfiles; and git pull; and back'
 alias ctmux='vim ~/dotfiles/.tmux.conf.local'
 alias cfish='vim ~/dotfiles/config.fish'
 alias ivrc='vim ~/.ideavimrc'
+
+## Docker
+alias dockerfile='vim Dockerfile'
+alias dockercompose='vim docker-compose.yml'
 
 ## Misc Shortcuts
 alias copydir='pwd | xclip'
@@ -40,7 +49,6 @@ alias npmfix='npm audit fix'
 alias ls='lsd'
 alias back='cd -'
 alias ex='exit'
-alias ga='git add .'
 alias vi='vim'
 alias readme='vim README.md'
 alias dnsrestart='sudo /etc/init.d/dns-clean restart'
@@ -49,6 +57,7 @@ alias dnsrestart='sudo /etc/init.d/dns-clean restart'
 alias :wq='echo "You\'re not using VIM, pal"'
 alias :w='echo "You\'re not using VIM, pal"'
 alias :q='echo "You\'re not using VIM, pal"'
+alias pls='sudo'
 
 ## Salesforce stuff
 alias apexclass='sfdx force:apex:class:create -n'
@@ -63,7 +72,6 @@ alias forcepull='sfdx:force:source:pull'
 source /home/michelkazi/dotfiles/mdapideploy.fish
 
 ##### Functions & Passwords
-source ~/.config/fish/functions/bobthefish_colors.fish
 source /home/michelkazi/dotfiles/mkcd.fish
 source /home/michelkazi/.config/fish/passwords.fish
 
@@ -88,3 +96,5 @@ set PATH $NPM_PACKAGES/bin $PATH
 
 set MANPATH $NPM_PACKAGES/share/man $MANPATH  
 
+
+export PATH="$HOME/.cargo/bin:$PATH"

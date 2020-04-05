@@ -35,6 +35,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'skanehira/docker-compose.vim'
+Plug 'skanehira/docker.vim'
 Plug 'tibabit/vim-templates'
 Plug 'alvan/vim-closetag'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
