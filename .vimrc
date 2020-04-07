@@ -22,6 +22,8 @@ set encoding=UTF-8
 set nowrap
 set numberwidth=5
 set incsearch
+set splitbelow
+set splitright
 set guicursor=i:ver25-iCursor
 let mapleader=","
 
@@ -35,6 +37,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'easymotion/vim-easymotion'
 Plug 'skanehira/docker-compose.vim'
 Plug 'skanehira/docker.vim'
 Plug 'tibabit/vim-templates'

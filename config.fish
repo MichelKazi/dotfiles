@@ -9,7 +9,7 @@ end
 alias devbox3488='ssh mk700f@3488.mk700f.user.nym2.adnexus.net'
 #alias 3488='ssh -t -A mk700f@jump.adnxs.net \'go 3488\''
 alias 3487='ssh -t -A mk700f@jump.adnxs.net \'ssh -A 3487.mk700f.user.nym2.adnexus.net \''
-alias 3488='ssh -t -A mk700f@jump.adnxs.net \'ssh -t -A 3488.mk700f.user.nym2.adnexus.net "/usr/bin/fish; tmux"\''
+alias 3488='ssh -t -A mk700f@jump.adnxs.net \'ssh -t -A 3488.mk700f.user.nym2.adnexus.net "/usr/bin/fish"\''
 alias xandrgit='git -c http.proxy=socks5h://localhost:1080'
 
 ## Directories
@@ -21,6 +21,7 @@ alias learnshit='cd ~/Documents/education'
 alias dotfiles='cd ~/dotfiles'
 alias ..='cd ..'
 alias doexercism='cd /home/michelkazi/snap/exercism/5/exercism'
+alias xandr='cd /home/michelkazi/Documents/xandr'
 
 # Git
 alias ignore='vim .gitignore'
