@@ -38,17 +38,12 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
-Plug 'skanehira/docker-compose.vim'
-Plug 'skanehira/docker.vim'
 Plug 'tibabit/vim-templates'
 Plug 'alvan/vim-closetag'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'ryanoasis/vim-devicons'
 Plug 'matze/vim-move'
 Plug 'ervandew/supertab'
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
-Plug 'mlaursen/vim-react-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
 Plug 'dag/vim-fish'
@@ -239,6 +234,15 @@ let g:apex_tooling_force_dot_com_path="/home/michelkazi/.apex/tooling-force.com-
 let g:apex_properties_folder="/home/michelkazi/.apex/properties"
 
 au BufRead,BufNewFile *apex set filetype=apexcode
+
+"""
+" Vim Fugitive
+"""
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiffsplit!<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
 """
 "" Go
 """

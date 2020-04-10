@@ -26,6 +26,8 @@ alias xandr='cd /home/michelkazi/Documents/xandr'
 # Git
 alias ignore='vim .gitignore'
 alias ga='git add .'
+alias fetchup='git fetch upstream'
+alias mergeup='git merge upstream/master'
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.conf'
@@ -39,6 +41,7 @@ alias ivrc='vim ~/.ideavimrc'
 ## Docker
 alias dockerfile='vim Dockerfile'
 alias dockercompose='vim docker-compose.yml'
+alias dockompose='docker-compose'
 
 ## Misc Shortcuts
 alias copydir='pwd | xclip'
