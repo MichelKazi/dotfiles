@@ -6,11 +6,9 @@ end
 
 
 ##### ALIASES
-alias devbox3488='ssh mk700f@3488.mk700f.user.nym2.adnexus.net'
-#alias 3488='ssh -t -A mk700f@jump.adnxs.net \'go 3488\''
-alias 3487='ssh -t -A mk700f@jump.adnxs.net \'ssh -A 3487.mk700f.user.nym2.adnexus.net \''
-alias 3488='ssh -t -A mk700f@jump.adnxs.net \'ssh -t -A 3488.mk700f.user.nym2.adnexus.net "/usr/bin/fish"\''
+source ./xandr.fish
 alias xandrgit='git -c http.proxy=socks5h://localhost:1080'
+alias whereami='hostname'
 
 ## Directories
 alias downloads='cd ~/Downloads'
@@ -20,14 +18,22 @@ alias yearup='cd ~/Documents/education/YearUp'
 alias learnshit='cd ~/Documents/education'
 alias dotfiles='cd ~/dotfiles'
 alias ..='cd ..'
-alias doexercism='cd /home/michelkazi/snap/exercism/5/exercism'
 alias xandr='cd /home/michelkazi/Documents/xandr'
+alias prebid='cd /home/michelkazi/Documents/xandr/prebid'
+alias pbs='cd /home/michelkazi/Documents/xandr/prebid/prebid-server'
+alias tvp='cd /home/michelkazi/Documents/xandr/tvp'
+alias ctci='cd /home/michelkazi/Documents/education/YearUp/mentor-assignments/ctci'
+
+# GrEP
+alias wherethefuckis='grep -nri'
 
 # Git
 alias ignore='vim .gitignore'
 alias ga='git add .'
 alias fetchup='git fetch upstream'
 alias mergeup='git merge upstream/master'
+alias commit="git commit -am"
+alias Commit="git commit -Am"
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.conf'
@@ -54,8 +60,10 @@ alias ls='lsd'
 alias back='cd -'
 alias ex='exit'
 alias vi='vim'
+alias nim='nvim'
 alias readme='vim README.md'
 alias dnsrestart='sudo /etc/init.d/dns-clean restart'
+alias secrets='vim /home/michelkazi/.config/fish/passwords.fish'
 
 ## Sanity checks
 alias :wq='echo "You\'re not using VIM, pal"'
@@ -83,9 +91,12 @@ set -g theme_color_scheme dracula
 
 ##### Development Configs
 
+## Python
+alias venvinit='python3 -m virtualenv env; and source ./env/bin/activate.fish'
 ## Golang
 # set the workspace path
-alias gopath 'cd $GOPATH/src/github.com/$USER'
+alias gopath 'cd $GOPATH/src'
+alias maingo 'vim main.go'
 set -x GOPATH ~/go
 set -gx GOROOT /usr/local/go
 set -gx GOPROJECTDIR ~/go/src/github.com/michelkazi
