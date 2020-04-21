@@ -56,17 +56,11 @@ alias forcepush='sfdx:force:source:push'
 alias forcepull='sfdx:force:source:pull'
 source ~/dotfiles/mdapideploy.fish
 
+## Python
+alias venvinit='python3 -m virtualenv env; and source ./env/bin/activate.fish'
+
 ##### Functions & Passwords
 source ~/dotfiles/mkcd.fish
 
 ##### Development Configs
-
-## Golang
-# set the workspace path
-alias gopath 'cd $GOPATH/src/github.com/michelkazi'
-set -x GOPATH ~/go
-set -gx GOROOT /usr/local/go
-set -gx GOPROJECTDIR ~/go/src/github.com/michelkazi
-# add the go bin path to be able to execute our programs
-set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 
