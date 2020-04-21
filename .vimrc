@@ -270,4 +270,6 @@ endif
 
 augroup filetypedetect
 	au! BufRead,BufNewFile *.tmpl    setfiletype template
+	au! BufRead,BufNewFile .tmux.conf.local setfiletype tmux
 augroup END
+

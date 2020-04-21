@@ -6,7 +6,7 @@ end
 
 
 ##### ALIASES
-source ./xandr.fish
+source ~/dotfiles/xandr.fish
 alias xandrgit='git -c http.proxy=socks5h://localhost:1080'
 alias whereami='hostname'
 
