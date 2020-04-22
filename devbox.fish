@@ -8,6 +8,8 @@ source $OMF_PATH/init.fish
 
 set -g theme_color_scheme dracula
 
+set -g VIRTUAL_ENV_DISABLE_PROMPT 1
+
 ##### ALIASES
 
 ## Directories
@@ -63,4 +65,4 @@ alias venvinit='python3 -m virtualenv env; and source ./env/bin/activate.fish'
 source ~/dotfiles/mkcd.fish
 
 ##### Development Configs
-
+set -U fish_user_paths $HOME/.local/bin
