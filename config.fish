@@ -71,18 +71,6 @@ alias :w='echo "You\'re not using VIM, pal"'
 alias :q='echo "You\'re not using VIM, pal"'
 alias pls='sudo'
 
-## Salesforce stuff
-alias apexclass='sfdx force:apex:class:create -n'
-alias apextrigger='sfdx force:apex:trigger:create -n'
-alias apextest='sfdx force:apex:test:create -n'
-alias openorg='sfdx force:org:open -u'
-alias sfdxlogin='sfdx:auth:web:login'
-alias trailhead='cd ~/xandr/learning/salesforce'
-alias executeanon='sfdx force:apex:execute'
-alias forcepush='sfdx:force:source:push'
-alias forcepull='sfdx:force:source:pull'
-source /home/michelkazi/dotfiles/mdapideploy.fish
-
 ##### Functions & Passwords
 source /home/michelkazi/dotfiles/mkcd.fish
 source /home/michelkazi/.config/fish/passwords.fish
