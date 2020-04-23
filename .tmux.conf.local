@@ -1,13 +1,12 @@
 set -g terminal-overrides ',xterm-256color:Tc'
-set -g default-terminal "screen-256color"
+#set -g default-terminal "screen-256color"
 set-option -g default-shell $SHELL
-set-option -s status-interval 5
+set-option -g status-interval 5
 #set -as terminal-overrides ',xterm*:sitm=\E[3m'# https://github.com/gpakosz/.tmux
-set-option -sa terminal-overrides ",xterm-kitty:RGB"
+#set-option -sa terminal-overrides ",xterm-kitty:RGB"
 # (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
-
 
 # -- navigation ----------------------------------------------------------------
 
@@ -293,8 +292,9 @@ tmux_conf_copy_to_os_clipboard=true
 set -gu prefix2
 unbind C-a
 unbind C-b
+unbind C-q
 set -g prefix C-a
-bind C-b send-prefix
+bind C-q send-prefix
 
 # move status line to top
 set -g status-position bottom

@@ -37,6 +37,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'simeji/winresizer'
 Plug 'easymotion/vim-easymotion'
 Plug 'tibabit/vim-templates'
 Plug 'alvan/vim-closetag'
@@ -84,8 +85,8 @@ colorscheme xcodedark
 
 set fillchars+=vert:│
 
-hi NonText ctermbg=NONE guibg=NONE
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
+:hi! Normal ctermbg=NONE guibg=NONE
 hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
 hi CursorLine ctermbg=89 ctermfg=NONE guibg=#40313d
 hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#647568

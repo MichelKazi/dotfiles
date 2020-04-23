@@ -60,7 +60,7 @@ alias ls='lsd'
 alias back='cd -'
 alias ex='exit'
 alias vi='vim'
-alias nim='nvim'
+alias vim='nvim'
 alias readme='vim README.md'
 alias dnsrestart='sudo /etc/init.d/dns-clean restart'
 alias secrets='vim /home/michelkazi/.config/fish/passwords.fish'
@@ -93,6 +93,7 @@ set -g theme_color_scheme dracula
 
 ## Python
 alias venvinit='python3 -m virtualenv env; and source ./env/bin/activate.fish'
+set -g VIRTUAL_ENV_DISABLE_PROMPT 1
 ## Golang
 # set the workspace path
 alias gopath 'cd $GOPATH/src'
