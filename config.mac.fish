@@ -6,7 +6,6 @@ end
 
 
 ##### ALIASES
-source ~/dotfiles/xandr.fish
 alias xandrgit='git -c http.proxy=socks5h://localhost:1080'
 alias whereami='hostname'
 
@@ -36,12 +35,13 @@ alias commit="git commit -am"
 alias Commit="git commit -Am"
 
 ## Dotfile Configs
-alias ckitty='vim ~/dotfiles/kitty.conf'
+alias ckitty='vim ~/dotfiles/kitty.mac.conf'
 alias vrc='vim ~/dotfiles/.vimrc'
 alias dotpush='dotfiles; and ./deploy.bash; and back'
 alias dotpull='dotfiles; and git pull; and back'
-alias ctmux='vim ~/dotfiles/.tmux.conf.local'
-alias cfish='vim ~/dotfiles/config.fish'
+alias ctmux='vim ~/dotfiles/.tmux.mac.conf'
+alias cfish='vim ~/dotfiles/config.mac.fish'
+alias sfish='source ~/dotfiles/config.mac.fish'
 alias ivrc='vim ~/.ideavimrc'
 
 ## Docker
@@ -51,7 +51,6 @@ alias dockompose='docker-compose'
 
 ## Misc Shortcuts
 alias copydir='pwd | xclip'
-alias sfish='source ~/dotfiles/config.fish'
 alias yv='googler -w youtube.com --url-handler mpv $argv'
 alias javacall='javac *.java'
 alias py3='python3'
@@ -61,8 +60,6 @@ alias back='cd -'
 alias ex='exit'
 alias vi='vim'
 alias readme='vim README.md'
-alias dnsrestart='sudo /etc/init.d/dns-clean restart'
-alias secrets='vim ~/.config/fish/passwords.fish'
 
 ## Sanity checks
 alias :wq='echo "You\'re not using VIM, pal"'
@@ -72,7 +69,6 @@ alias pls='sudo'
 
 ##### Functions & Passwords
 source ~/dotfiles/mkcd.fish
-source ~/.config/fish/passwords.fish
 
 set -g theme_color_scheme dracula
 
