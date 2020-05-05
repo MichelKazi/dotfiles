@@ -25,6 +25,7 @@ set incsearch
 set splitbelow
 set splitright
 set guicursor=i:ver25-iCursor
+set backspace=indent,eol,start
 let mapleader=","
 
 """
@@ -37,6 +38,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'Rigellute/rigel'
 Plug 'simeji/winresizer'
 Plug 'easymotion/vim-easymotion'
 Plug 'tibabit/vim-templates'
@@ -57,8 +59,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax' 
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -67,6 +68,7 @@ Plug 'mhinz/vim-signify'
 Plug 'neowit/vim-force.com'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'arzg/vim-colors-xcode'
+Plug 'bluz71/vim-nightfly-guicolors'
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -80,20 +82,29 @@ if exists('+termguicolors')
 endif
 
 "colorscheme kuroi
-colorscheme xcodedark
+"colorscheme xcodedark
 "colorscheme rigel
+colorscheme nightfly
 
 set fillchars+=vert:│
 
+" XCODEDARK
 "hi Normal guibg=NONE ctermbg=NONE
-:hi! Normal ctermbg=NONE guibg=NONE
-hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
-hi CursorLine ctermbg=89 ctermfg=NONE guibg=#40313d
-hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#647568
+"hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
+"hi CursorLine ctermbg=89 ctermfg=NONE guibg=#40313d
+"hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#647568
 hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
+
+" NIGHTFLY
 hi VertSplit guifg=#42f5c2 guibg=NONE ctermbg=NONE 
-hi Title guifg=#fe79b1
-hi string guifg=#00ff87 ctermfg=48
+hi string guifg=#ff6f98 ctermfg=48
+" ---A prettier orange ---
+hi Title guifg=#f7a100 cterm=bold 
+hi StorageClass guifg=#f7a100
+hi Constant guifg=#f7a100
+hi NonText guifg=#f7a100
+
+
 
 
 "	Remaps
@@ -154,20 +165,18 @@ augroup END
 """"""
 
 """
+" Lightline
+"""
+let g:rigel_lightline = 1
+let g:lightline = { 'colorscheme': 'rigel'  }
+set noshowmode
+
+"""
 " Vim-signify
 """
 let g:signify_sign_add = ''
 let g:signify_sign_delete = ''
 let g:signify_sign_change = ''
-
-"""
-" Airline
-"""
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#ale#enabled = 1
-"let g:rigel_airline=1
-let g:airline_theme='fruit_punch'
-let g:airline#extensions#tabline#enabled = 1
 
 
 let g:move_key_modifier = 'C'
@@ -198,7 +207,6 @@ let g:ale_fixers = {
 			\  'javascript': ['eslint'],
 			\}
 let g:ale_fix_on_save = 1
-let g:airline#extensions#ale#enabled = 1
 
 """
 "	NERDTree
