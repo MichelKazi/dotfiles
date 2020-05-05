@@ -101,3 +101,4 @@ set MANPATH $NPM_PACKAGES/share/man $MANPATH
 
 
 export PATH="$HOME/.cargo/bin:$PATH"
+set -U fish_user_paths /home/michelkazi/.local/kitty.app/bin/
