@@ -38,6 +38,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'towolf/vim-helm'
 Plug 'Rigellute/rigel'
 Plug 'simeji/winresizer'
 Plug 'easymotion/vim-easymotion'
