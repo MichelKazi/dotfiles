@@ -74,8 +74,7 @@ alias pls='sudo'
 source ~/dotfiles/mkcd.fish
 source ~/.config/fish/passwords.fish
 
-set -g theme_color_scheme dracula
-
+source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
 ##### Development Configs
 
 ## Python
