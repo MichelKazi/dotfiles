@@ -35,7 +35,6 @@ alias ga='git add .'
 alias fetchup='git fetch upstream'
 alias mergeup='git merge upstream/master'
 alias commit="git commit -am"
-alias Commit="git commit -Am"
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.mac.conf'
@@ -44,13 +43,16 @@ alias dotpush='dotfiles; and ./deploy.bash; and back'
 alias dotpull='dotfiles; and git pull; and back'
 alias ctmux='vim ~/dotfiles/.tmux.mac.conf'
 alias cfish='vim ~/dotfiles/config.mac.fish'
-alias sfish='source ~/dotfiles/config.mac.fish'
+alias sfish='source ~/.config/fish/config.fish'
 alias ivrc='vim ~/.ideavimrc'
 
 ## Docker
 alias dockerfile='vim Dockerfile'
 alias dockercompose='vim docker-compose.yml'
 alias dockompose='docker-compose'
+
+# Kubernetes
+alias kc='kubectl'
 
 ## Misc Shortcuts
 alias copydir='pwd | pbcopy'
@@ -88,7 +90,8 @@ alias pip='pip3'
 ## Golang
 alias maingo 'vim main.go'
 set -x GOPATH ~/go
-set -gx GOROOT /usr/local/opt/go/libexec
+#set -gx GOROOT /usr/local/opt/go/libexec
+#set -gx GOROOT /usr/local/bin
 set -gx GOPROJECTDIR ~/go/src/github.com/michelkazi
 # add the go bin path to be able to execute our programs
 set -x PATH $PATH /usr/local/go/bin $GOPATH/bin

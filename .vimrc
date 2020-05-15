@@ -38,7 +38,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'towolf/vim-helm'
+Plug 'andrewstuart/vim-kubernetes'
 Plug 'Rigellute/rigel'
 Plug 'simeji/winresizer'
 Plug 'easymotion/vim-easymotion'
@@ -70,6 +70,7 @@ Plug 'neowit/vim-force.com'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'arzg/vim-colors-xcode'
 Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -264,6 +265,10 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 
+"""
+" Rust
+"""
+let g:rustfmt_autosave = 1
 
 """
 " Highlight TODO, FIXME, NOTE, etc.
