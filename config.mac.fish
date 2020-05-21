@@ -27,7 +27,6 @@ alias tvp='cd ~/tvp'
 alias wherethefuckis='ack -nri'
 
 # Git
-alias master='git checkout master'
 alias pullreq='git push origin master'
 alias ignore='vim .gitignore'
 alias co='git checkout'
@@ -35,6 +34,8 @@ alias ga='git add .'
 alias fetchup='git fetch upstream'
 alias mergeup='git merge upstream/master'
 alias commit="git commit -am"
+# github setup to avoid clashing users with company bitbucket
+alias gitlocalsetup='git config --local user.email "michel.m.kazi@gmail.com"; and git config --local user.name "michelkazi"' 
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.mac.conf'
@@ -104,5 +105,7 @@ set PATH $NPM_PACKAGES/bin $PATH
 
 set MANPATH $NPM_PACKAGES/share/man $MANPATH  
 
+set -x PATH $PATH /usr/local/opt/rabbitmq/sbin
+alias rmq='rabbitmqctl'
 
 export PATH="$HOME/.cargo/bin:$PATH"
