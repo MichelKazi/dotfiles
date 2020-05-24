@@ -251,9 +251,10 @@ au BufRead,BufNewFile *apex set filetype=apexcode
 " Vim Fugitive
 """
 " Fugitive Conflict Resolution
+nmap <leader>gs :G<CR>
 nnoremap <leader>gd :Gvdiffsplit!<CR>
-nnoremap gdh :diffget //2<CR>
-nnoremap gdl :diffget //3<CR>
+nnoremap gh :diffget //2<CR>
+nnoremap gu :diffget //3<CR>
 
 """
 "" Go
