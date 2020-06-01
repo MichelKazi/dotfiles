@@ -87,6 +87,7 @@ alias readme='vim README.md'
 alias venvinit='python3 -m virtualenv env; and source ./env/bin/activate.fish'
 set -g VIRTUAL_ENV_DISABLE_PROMPT 1
 alias pip='pip3'
+set -x PATH $PATH /Users/michelkazi/Library/Python/3.7/bin
 
 ## Golang
 alias maingo 'vim main.go'

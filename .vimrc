@@ -39,6 +39,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'Rigellute/rigel'
 Plug 'simeji/winresizer'
@@ -90,6 +91,7 @@ endif
 colorscheme nightfly
 
 set fillchars+=vert:│
+set cc=80
 
 " XCODEDARK
 "hi Normal guibg=NONE ctermbg=NONE
@@ -106,9 +108,6 @@ hi Title guifg=#f7a100 cterm=bold
 hi StorageClass guifg=#f7a100
 hi Constant guifg=#f7a100
 hi NonText guifg=#f7a100
-
-
-
 
 "	Remaps
 map q: <Nop>
@@ -154,6 +153,14 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
+
+
+
+
+
+
+
+
 "	Cool functions and shit
 autocmd! bufwritepost .vimrc source %
 
@@ -167,6 +174,21 @@ augroup END
 """	plugin configurations
 """"""
 
+"""
+" vim-indent-guides
+"""
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors=0
+augroup indentguidesfiletype
+  au BufRead,BufNewFile,VimEnter,Colorscheme *.py :hi IndentGuidesOdd guibg=#003845
+  au BufRead,BufNewFile,VimEnter,Colorscheme *.py :hi IndentGuidesEven guibg=#002a45
+
+  au BufRead,BufNewFile,VimEnter,Colorscheme *.yaml :hi IndentGuidesOdd guibg=#003845
+  au BufRead,BufNewFile,VimEnter,Colorscheme *.yaml :hi IndentGuidesEven guibg=#002a45
+
+  au BufRead,BufNewFile,VimEnter,Colorscheme *.yml :hi IndentGuidesOdd guibg=#003845
+  au BufRead,BufNewFile,VimEnter,Colorscheme *.yml :hi IndentGuidesEven guibg=#002a45
+augroup END
 """
 " Lightline
 """
