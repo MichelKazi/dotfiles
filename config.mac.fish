@@ -74,6 +74,7 @@ alias pls='sudo'
 ##### Functions & Passwords
 source ~/dotfiles/mkcd.fish
 source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
+source ~/dotfiles/venvinit.fish
 
 #set -g theme_color_scheme dracula
 
@@ -84,7 +85,7 @@ alias r='ranger'
 alias readme='vim README.md'
 
 ## Python
-alias venvinit='python3 -m virtualenv env; and source ./env/bin/activate.fish'
+#alias venvinit='python3 -m virtualenv env; and source ./env/bin/activate.fish'
 set -g VIRTUAL_ENV_DISABLE_PROMPT 1
 alias pip='pip3'
 set -x PATH $PATH /Users/michelkazi/Library/Python/3.7/bin
