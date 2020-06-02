@@ -1,4 +1,4 @@
-function venvinit --argument-names 'name' 
+function venvinit
 
 	if test -e ./venv
 		echo (set_color green) "Sourcing existing env directory" (set_color normal)
