@@ -27,7 +27,6 @@ alias tvp='cd ~/tvp'
 alias wherethefuckis='ack -nri'
 
 # Git
-alias pullreq='git push origin master'
 alias ignore='vim .gitignore'
 alias co='git checkout'
 alias ga='git add .'
@@ -35,7 +34,8 @@ alias fetchup='git fetch upstream'
 alias mergeup='git merge upstream/master'
 alias commit="git commit -am"
 # github setup to avoid clashing users with company bitbucket
-alias gitlocalsetup='git config --local user.email "michel.m.kazi@gmail.com"; and git config --local user.name "michelkazi"' 
+alias githubsetup='git config --local user.email "michel.m.kazi@gmail.com"; and git config --local user.name "michelkazi"' 
+alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and git config --local user.name "MICHEL KAZI"' 
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.mac.conf'

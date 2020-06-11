@@ -30,6 +30,17 @@ set backspace=indent,eol,start
 let mapleader=","
 
 """
+" File find
+"""
+set path+=**
+set wildmenu
+set wildignore+=**/node_modules/**
+set wildignore+=**/venv/**
+set wildignore+=**/env/**
+set wildignore+=**/__pycache__/**
+set wildignore+=**.pyc
+
+"""
 " Plugs
 """
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -44,7 +55,6 @@ Plug 'andrewstuart/vim-kubernetes'
 Plug 'Rigellute/rigel'
 Plug 'simeji/winresizer'
 Plug 'easymotion/vim-easymotion'
-Plug 'tibabit/vim-templates'
 Plug 'alvan/vim-closetag'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'ryanoasis/vim-devicons'
@@ -54,7 +64,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
 Plug 'dag/vim-fish'
 Plug 'tpope/vim-fugitive'
-Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jiangmiao/auto-pairs'
@@ -68,9 +77,7 @@ Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhinz/vim-signify'
-Plug 'neowit/vim-force.com'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'arzg/vim-colors-xcode'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'rust-lang/rust.vim'
 
@@ -90,8 +97,8 @@ endif
 "colorscheme rigel
 colorscheme nightfly
 
-set fillchars+=vert:│
-set cc=80
+set fillchars+=vert:│ " Thinner lines for vsplits
+set cc=100
 
 " XCODEDARK
 "hi Normal guibg=NONE ctermbg=NONE
@@ -135,7 +142,7 @@ nnoremap <Leader>x "+x
 nnoremap <Leader>dd "+dd
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
-"
+
 " Open help and help files in a new tab
 :cabbrev help tab help
 :cabbrev vsrc vsp ~/dotfiles/.vimrc
@@ -152,14 +159,6 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
-
-
-
-
-
-
-
-
 
 "	Cool functions and shit
 autocmd! bufwritepost .vimrc source %
@@ -202,8 +201,6 @@ set noshowmode
 let g:signify_sign_add = ''
 let g:signify_sign_delete = ''
 let g:signify_sign_change = ''
-
-
 let g:move_key_modifier = 'C'
 
 """
@@ -242,7 +239,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
 """
 "	Pandoc
 """
@@ -252,22 +248,6 @@ augroup END
 
 let g:pandoc#syntax#conceal#use=1
 let g:pandoc#syntax#conceal#urls=1
-
-"""
-"" Closetag
-"""
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx,*.md'
-
-"""
-"" vim-force.com
-"""
-let g:apex_workspace_path="/home/michelkazi/.apex/workspace"
-let g:apex_backup_folder="/home/michelkazi/.apex/backup"
-let g:apex_temp_folder="/home/michelkazi/.apex/temp"
-let g:apex_tooling_force_dot_com_path="/home/michelkazi/.apex/tooling-force.com-0.4.7.0.jar"
-let g:apex_properties_folder="/home/michelkazi/.apex/properties"
-
-au BufRead,BufNewFile *apex set filetype=apexcode
 
 """
 " Vim Fugitive
@@ -293,6 +273,13 @@ let g:go_highlight_operators = 1
 " Rust
 """
 let g:rustfmt_autosave = 1
+
+"""
+" YouCompleteMe
+"""
+nnoremap <leader>gt :vsplit \| YcmCompleter GoTo<CR>
+nnoremap <leader>sgt :split \| YcmCompleter GoTo<CR>
+nnoremap <leader>gtt :tab \| YcmCompleter GoTo<CR>
 
 """
 " Highlight TODO, FIXME, NOTE, etc.
