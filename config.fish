@@ -4,6 +4,9 @@ and not set -q TMUX
     exec tmux
 end
 
+## Remap caps lock
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
 
 ##### ALIASES
 source ~/dotfiles/xandr.fish
@@ -59,7 +62,7 @@ alias npmfix='npm audit fix'
 alias ls='lsd'
 alias back='cd -'
 alias ex='exit'
-alias vi='vim'
+alias v='vim'
 alias readme='vim README.md'
 alias dnsrestart='sudo /etc/init.d/dns-clean restart'
 alias secrets='vim ~/.config/fish/passwords.fish'
