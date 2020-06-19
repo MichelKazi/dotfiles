@@ -27,6 +27,7 @@ set splitbelow
 set splitright
 set guicursor=i:ver25-iCursor
 set backspace=indent,eol,start
+set lazyredraw
 let mapleader=","
 
 """
@@ -50,36 +51,38 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'andrewstuart/vim-kubernetes'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'joshdick/onedark.vim'
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
+Plug 'flrnd/candid.vim'
+Plug 'nathanaelkane/vim-indent-guides', {'for': ['python', 'yaml']}
+Plug 'andrewstuart/vim-kubernetes', {'for': 'yaml'}
 Plug 'Rigellute/rigel'
 Plug 'simeji/winresizer'
-Plug 'easymotion/vim-easymotion'
-Plug 'alvan/vim-closetag'
-Plug 'vwxyutarooo/nerdtree-devicons-syntax'
+Plug 'alvan/vim-closetag', {'for': ['html', 'xml','javascriptreact']}
 Plug 'ryanoasis/vim-devicons'
 Plug 'matze/vim-move'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
-Plug 'dag/vim-fish'
+Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jiangmiao/auto-pairs'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax' 
+Plug 'vim-pandoc/vim-pandoc', {'for': 'markdown'}
+Plug 'vim-pandoc/vim-pandoc-syntax' , {'for': 'markdown'}
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'itchyny/lightline.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'yuezk/vim-js', {'for': 'javascript'}
+Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascriptreact'}
 Plug 'mhinz/vim-signify'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'bluz71/vim-nightfly-guicolors'
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -95,7 +98,9 @@ endif
 "colorscheme kuroi
 "colorscheme xcodedark
 "colorscheme rigel
-colorscheme nightfly
+"colorscheme nightfly
+"colorscheme candid
+colorscheme onedark
 
 set fillchars+=vert:│ " Thinner lines for vsplits
 set cc=100
@@ -104,21 +109,27 @@ set cc=100
 "hi Normal guibg=NONE ctermbg=NONE
 "hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
 "hi CursorLine ctermbg=89 ctermfg=NONE guibg=#40313d
-"hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#647568
-hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
+"hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#4C8273
+"hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
 
 " NIGHTFLY
 hi VertSplit guifg=#42f5c2 guibg=NONE ctermbg=NONE 
-hi string guifg=#ff6f98 ctermfg=48
-" ---A prettier orange ---
-hi Title guifg=#f7a100 cterm=bold 
-hi StorageClass guifg=#f7a100
-hi Constant guifg=#f7a100
-hi NonText guifg=#f7a100
+"hi string guifg=#ff6f98 ctermfg=48
+"" ---A prettier orange ---
+"hi Title guifg=#f7a100 cterm=bold 
+"hi StorageClass guifg=#f7a100
+"hi Constant guifg=#f7a100
+"hi NonText guifg=#f7a100
+
+" CANDID
+hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#4C8273
+hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
+hi ColorColumn guibg=#383d3d guifg=#ffffff
 
 "	Remaps
 map q: <Nop>
 map <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 noremap <up>    :echom 'HEY STUPID. USE K TO GO UP'<CR>
 noremap <down>  :echom 'HEY STUPID. USE J TO GO DOWN'<CR>
 noremap <left>  :echom 'HEY STUPID. USE H TO GO LEFT'<CR>
@@ -174,6 +185,11 @@ augroup END
 """"""
 
 """
+" vim-move
+"""
+let g:move_key_modifier = 'S'
+
+"""
 " vim-indent-guides
 """
 let g:indent_guides_enable_on_vim_startup = 1
@@ -192,7 +208,7 @@ augroup END
 " Lightline
 """
 let g:rigel_lightline = 1
-let g:lightline = { 'colorscheme': 'rigel'  }
+let g:lightline = { 'colorscheme': 'onedark'  }
 set noshowmode
 
 """
@@ -201,7 +217,6 @@ set noshowmode
 let g:signify_sign_add = ''
 let g:signify_sign_delete = ''
 let g:signify_sign_change = ''
-let g:move_key_modifier = 'C'
 
 """
 "	Ultisnip
@@ -227,6 +242,7 @@ highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_fixers = {
 			\  'javascript': ['eslint'],
+      \  'python': ['autopep8']
 			\}
 let g:ale_fix_on_save = 1
 
@@ -236,9 +252,11 @@ let g:ale_fix_on_save = 1
 let g:NERDTreeShowLineNumbers=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 """
 "	Pandoc
 """

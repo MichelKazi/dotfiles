@@ -1,8 +1,8 @@
 # Start fish in tmux
-if status is-interactive
-and not set -q TMUX
-    exec tmux
-end
+ if status is-interactive
+ and not set -q TMUX
+    tmux attach -t BASE; or tmux new -s BASE
+ end
 
 
 ##### ALIASES
@@ -54,8 +54,10 @@ alias dockompose='docker-compose'
 
 # Kubernetes
 alias kc='kubectl'
+alias ankhtoken='cat ~/.ankubectl_token | pbcopy'
 
 ## Misc Shortcuts
+alias l='clear'
 alias copydir='pwd | pbcopy'
 alias yv='googler -w youtube.com --url-handler mpv $argv'
 alias javacall='javac *.java'
@@ -79,6 +81,7 @@ source ~/dotfiles/venvinit.fish
 #set -g theme_color_scheme dracula
 
 ##### Development Configs
+alias vim='nvim'
 alias nv='nvim'
 alias v='vim'
 alias r='ranger'
