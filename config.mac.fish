@@ -75,13 +75,12 @@ alias pls='sudo'
 
 ##### Functions & Passwords
 source ~/dotfiles/mkcd.fish
-source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
+source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 source ~/dotfiles/venvinit.fish
 
 #set -g theme_color_scheme dracula
 
 ##### Development Configs
-alias vim='nvim'
 alias nv='nvim'
 alias v='vim'
 alias r='ranger'

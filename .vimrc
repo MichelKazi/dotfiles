@@ -1,11 +1,9 @@
 """
 " shell config 
 """
-
 if &shell =~# 'fish$'
-	set shell=sh
+  set shell=sh
 endif
-
 set nocompatible              " be iMproved, required
 set nofoldenable
 set nospell
@@ -45,12 +43,14 @@ set wildignore+=**.pyc
 " Plugs
 """
 if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'ayu-theme/ayu-vim'
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'joshdick/onedark.vim'
@@ -76,6 +76,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax' , {'for': 'markdown'}
 Plug 'tpope/vim-surround'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'yuezk/vim-js', {'for': 'javascript'}
 Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascriptreact'}
@@ -88,11 +89,15 @@ call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable
 
-"	Themes and colors
+let g:python_host_prog = 'usr/local/bin/python3'
+" ----- FUNCTIONS ------------------------------------------------------------
+
+
+" ----- THEMES AND COLORS ----------------------------------------------------
 if exists('+termguicolors')
-	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-	set termguicolors
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
 endif
 
 "colorscheme kuroi
@@ -100,7 +105,8 @@ endif
 "colorscheme rigel
 "colorscheme nightfly
 "colorscheme candid
-colorscheme onedark
+"colorscheme onedark
+colorscheme gruvbox
 
 set fillchars+=vert:│ " Thinner lines for vsplits
 set cc=100
@@ -113,7 +119,7 @@ set cc=100
 "hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
 
 " NIGHTFLY
-hi VertSplit guifg=#42f5c2 guibg=NONE ctermbg=NONE 
+hi VertSplit guifg=#ff9000 guibg=NONE ctermbg=NONE 
 "hi string guifg=#ff6f98 ctermfg=48
 "" ---A prettier orange ---
 "hi Title guifg=#f7a100 cterm=bold 
@@ -122,11 +128,11 @@ hi VertSplit guifg=#42f5c2 guibg=NONE ctermbg=NONE
 "hi NonText guifg=#f7a100
 
 " CANDID
-hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#4C8273
-hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
-hi ColorColumn guibg=#383d3d guifg=#ffffff
+"hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
+"hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#4C8273
+"hi ColorColumn guibg=#383d3d guifg=#ffffff
 
-"	Remaps
+" ----- REMAPS ---------------------------------------------------------------
 map q: <Nop>
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
@@ -171,18 +177,19 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
-"	Cool functions and shit
+" ----- COOL FUNCTIONS AND SHIT-----------------------------------------------
 autocmd! bufwritepost .vimrc source %
 
 augroup numbertoggle
-	autocmd!
-	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-""""""
-"""	plugin configurations
-""""""
+" ----- PLUGIN CONFIGURATIONS ------------------------------------------------
+"""
+" COC
+""" 
 
 """
 " vim-move
@@ -204,11 +211,26 @@ augroup indentguidesfiletype
   au BufRead,BufNewFile,VimEnter,Colorscheme *.yml :hi IndentGuidesOdd guibg=#003845
   au BufRead,BufNewFile,VimEnter,Colorscheme *.yml :hi IndentGuidesEven guibg=#002a45
 augroup END
+
 """
 " Lightline
 """
-let g:rigel_lightline = 1
-let g:lightline = { 'colorscheme': 'onedark'  }
+let g:lightline = { 
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
+      \ },
+      \ 'component_function': {
+      \ 'gitbranch': 'gitbranch#name'
+      \   },
+      \ }
+let g:lightline.separator = {
+      \   'left': '', 'right': ''
+      \}
+let g:lightline.subseparator = {
+      \   'left': '', 'right': ''
+      \}
 set noshowmode
 
 """
@@ -241,9 +263,9 @@ let g:ale_sign_warning = '😰'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_fixers = {
-			\  'javascript': ['eslint'],
+      \  'javascript': ['eslint'],
       \  'python': ['autopep8']
-			\}
+      \}
 let g:ale_fix_on_save = 1
 
 """
@@ -261,7 +283,7 @@ let NERDTreeDirArrows = 1
 "	Pandoc
 """
 augroup pandoc_syntax
-	au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+  au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
 
 let g:pandoc#syntax#conceal#use=1
@@ -293,27 +315,35 @@ let g:go_highlight_operators = 1
 let g:rustfmt_autosave = 1
 
 """
+" COC
+"" GoTo code navigation.
+nmap <silent> <leader>gt :vsp<CR><Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)""
+
+
+"""
 " YouCompleteMe
 """
-nnoremap <leader>gt :vsplit \| YcmCompleter GoTo<CR>
-nnoremap <leader>sgt :split \| YcmCompleter GoTo<CR>
-nnoremap <leader>gtt :tab \| YcmCompleter GoTo<CR>
+"nnoremap <leader>gt :vsplit \| YcmCompleter GoTo<CR>
+"nnoremap <leader>gtt :tab \| YcmCompleter GoTo<CR>
 
 """
 " Highlight TODO, FIXME, NOTE, etc.
 """
 if has('autocmd') && v:version > 701
-	augroup todo
-		autocmd!
-		autocmd Syntax * call matchadd(
-					\ 'Debug',
-					\ '\v\W\zs<(NOTE|INFO|IDEA|TODO|FIXME|CHANGED|XXX|BUG|HACK|TRICKY)>'
-					\ )
-	augroup END
+  augroup todo
+    autocmd!
+    autocmd Syntax * call matchadd(
+          \ 'Debug',
+          \ '\v\W\zs<(NOTE|INFO|IDEA|TODO|FIXME|CHANGED|XXX|BUG|HACK|TRICKY)>'
+          \ )
+  augroup END
 endif
 
 augroup filetypedetect
-	au! BufRead,BufNewFile *.tmpl    setfiletype template
-	au! BufRead,BufNewFile .tmux.conf.local setfiletype tmux
+  au! BufRead,BufNewFile *.tmpl    setfiletype template
+  au! BufRead,BufNewFile .tmux.conf.local setfiletype tmux
 augroup END
 
