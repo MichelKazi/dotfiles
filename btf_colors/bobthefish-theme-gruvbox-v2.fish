@@ -16,7 +16,7 @@ function bobthefish_colors -S -d 'Custom theme for uhhh.. gruvbox'
   set -l violet  6c71c4
   set -l blue    268bd2
   set -l cyan    076678
-  set -l green   8ec07c
+  set -l green   1cffbf
 
   set colorfg $base3
 

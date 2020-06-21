@@ -49,6 +49,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'Yggdroot/indentLine', {'for': ['python', 'yaml']}
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -56,7 +58,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'joshdick/onedark.vim'
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'flrnd/candid.vim'
-Plug 'nathanaelkane/vim-indent-guides', {'for': ['python', 'yaml']}
+"Plug 'nathanaelkane/vim-indent-guides', {'for': ['python', 'yaml']}
 Plug 'andrewstuart/vim-kubernetes', {'for': 'yaml'}
 Plug 'Rigellute/rigel'
 Plug 'simeji/winresizer'
@@ -106,6 +108,7 @@ endif
 "colorscheme nightfly
 "colorscheme candid
 "colorscheme onedark
+set bg=dark
 colorscheme gruvbox
 
 set fillchars+=vert:│ " Thinner lines for vsplits
@@ -212,6 +215,8 @@ augroup indentguidesfiletype
   au BufRead,BufNewFile,VimEnter,Colorscheme *.yml :hi IndentGuidesEven guibg=#002a45
 augroup END
 
+let g:indentLine_setColors = 0
+let g:indentLine_char = ''
 """
 " Lightline
 """
@@ -346,3 +351,7 @@ augroup filetypedetect
   au! BufRead,BufNewFile .tmux.conf.local setfiletype tmux
 augroup END
 
+"""
+" LeaderF
+"""
+let g:Lf_WindowPosition = 'popup'
