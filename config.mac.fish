@@ -79,6 +79,7 @@ source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 source ~/dotfiles/venvinit.fish
 
 #set -g theme_color_scheme dracula
+set -g theme_nerd_fonts yes
 
 ##### Development Configs
 alias nv='nvim'
