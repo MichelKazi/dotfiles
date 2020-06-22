@@ -77,6 +77,7 @@ alias pls='sudo'
 source ~/dotfiles/mkcd.fish
 source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 source ~/dotfiles/venvinit.fish
+source ~/dotfiles/vfinit.fish
 
 #set -g theme_color_scheme dracula
 set -g theme_nerd_fonts yes
