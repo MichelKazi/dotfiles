@@ -1,7 +1,7 @@
 # Start fish in tmux
  if status is-interactive
  and not set -q TMUX
-    tmux attach -t BASE; or tmux new -s BASE
+    tmux new-session -A -s Base
  end
 
 

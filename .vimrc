@@ -135,6 +135,10 @@ hi VertSplit guifg=#ff9000 guibg=NONE ctermbg=NONE
 "hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#4C8273
 "hi ColorColumn guibg=#383d3d guifg=#ffffff
 
+
+" GRUVBOX
+hi CursorLineNr guibg=#ffce1c guifg=#000000 cterm=BOLD
+"
 " ----- REMAPS ---------------------------------------------------------------
 map q: <Nop>
 map <C-n> :NERDTreeToggle<CR>
