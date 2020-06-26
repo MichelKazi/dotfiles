@@ -39,7 +39,7 @@ alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.mac.conf'
-alias vrc='vim ~/dotfiles/.vimrc'
+alias vrc='vim ~/dotfiles/vim/.vimrc'
 alias dotpush='dotfiles; and ./deploy.bash; and back'
 alias dotpull='dotfiles; and git pull; and back'
 alias ctmux='vim ~/dotfiles/.tmux.mac.conf'

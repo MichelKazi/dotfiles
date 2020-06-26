@@ -52,8 +52,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'Yggdroot/indentLine', {'for': ['python', 'yaml']}
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'ayu-theme/ayu-vim'
-Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'gruvbox-community/gruvbox'
+Plug 'neoclide/coc.nvim', {
+      \'branch': 'release',
+      \'do': 'CocInstall coc-go coc-python coc-json coc-fish coc-clangd coc-vimlsp coc-explorer coc-snippets'
+      \}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'joshdick/onedark.vim'
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
@@ -142,6 +145,7 @@ hi CursorLineNr guibg=#ffce1c guifg=#000000 cterm=BOLD
 " ----- REMAPS ---------------------------------------------------------------
 map q: <Nop>
 map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :CocCommand explorer<CR>
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 noremap <up>    :echom 'HEY STUPID. USE K TO GO UP'<CR>
 noremap <down>  :echom 'HEY STUPID. USE J TO GO DOWN'<CR>
@@ -284,11 +288,14 @@ let g:NERDTreeShowLineNumbers=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
+
+
 """
 "	Pandoc
 """
@@ -326,7 +333,10 @@ let g:rustfmt_autosave = 1
 
 """
 " COC
-"" GoTo code navigation.
+"""
+" coc_config_directory
+let g:coc_config_home = '~/dotfiles/vim/coc'
+"GoTo code navigation.
 nmap <silent> <leader>gt :vsp<CR><Plug>(coc-definition)
 nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)

@@ -40,7 +40,7 @@ alias Commit="git commit -Am"
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.conf'
-alias vrc='vim ~/dotfiles/.vimrc'
+alias vrc='vim ~/dotfiles/vim/.vimrc'
 alias dotpush='dotfiles; and ./deploy.bash; and back'
 alias dotpull='dotfiles; and git pull; and back'
 alias ctmux='vim ~/dotfiles/.tmux.conf.local'

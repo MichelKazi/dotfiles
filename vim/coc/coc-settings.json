@@ -1,0 +1,16 @@
+{
+  // Python
+  "python.pythonPath": "/usr/local/bin/python3",
+  "python.jediPath": "/usr/local/lib/python3.7/site-packages",
+
+  // Explorer
+  "explorer.icon.enableNerdfont": true,
+  "explorer.width": 30,
+  "explorer.keyMappings": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "s": "open:vsplit",
+    "i": "open:split",
+    "t": "open:tab"
+  }
+
+}

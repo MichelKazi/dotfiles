@@ -1,4 +1,4 @@
-function venvinit
+function vfinit
   if type -q vf
     if test -e ~/.virtualenvs/(basename $PWD)
       echo (set_color green) "Sourcing virtual env in ~/.virtualenvs" (set_color normal)
