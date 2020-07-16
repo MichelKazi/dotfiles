@@ -22,6 +22,7 @@ alias pbs='cd ~/prebid/prebid-server'
 alias tvp='cd ~/Documents/xandr/tvp'
 alias ctci='cd ~/Documents/education/YearUp/mentor-assignments/ctci'
 alias tvp='cd ~/tvp'
+alias sonatype='cd ~/sonatype'
 
 # GrEP
 alias wherethefuckis='ack -nri'
@@ -31,7 +32,6 @@ alias ignore='vim .gitignore'
 alias co='git checkout'
 alias ga='git add .'
 alias fetchup='git fetch upstream'
-alias mergeup='git merge upstream/master'
 alias commit="git commit -am"
 # github setup to avoid clashing users with company bitbucket
 alias githubsetup='git config --local user.email "michel.m.kazi@gmail.com"; and git config --local user.name "michelkazi"' 
@@ -82,7 +82,7 @@ source ~/dotfiles/vfinit.fish
 #set -g theme_color_scheme dracula
 set -g theme_nerd_fonts yes
 
-##### Development Configs
+##### Open Vim fast
 alias nv='nvim'
 alias v='vim'
 alias r='ranger'
