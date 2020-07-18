@@ -32,11 +32,14 @@ alias wherethefuckis='grep -nri'
 
 # Git
 alias ignore='vim .gitignore'
+alias co='git checkout'
 alias ga='git add .'
 alias fetchup='git fetch upstream'
 alias mergeup='git merge upstream/master'
 alias commit="git commit -am"
-alias Commit="git commit -Am"
+# github setup to avoid clashing users with company bitbucket
+alias githubsetup='git config --local user.email "michel.m.kazi@gmail.com"; and git config --local user.name "michelkazi"' 
+alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and git config --local user.name "MICHEL KAZI"' 
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.conf'
@@ -77,7 +80,7 @@ alias pls='sudo'
 source ~/dotfiles/mkcd.fish
 source ~/.config/fish/passwords.fish
 
-source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
+source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 ##### Development Configs
 
 ## Python
