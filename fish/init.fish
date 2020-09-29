@@ -6,28 +6,15 @@ end
 
 set theme_nerd_fonts yes
 
-## Remap caps lock
-setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'
-
 ##### ALIASES
-source ~/dotfiles/xandr.fish
-alias xandrgit='git -c http.proxy=socks5h://localhost:1080'
 alias whereami='hostname'
 
 ## Directories
 alias downloads='cd ~/Downloads'
 alias docs='cd ~/Documents'
 alias projects='cd ~/projects'
-alias yearup='cd ~/Documents/education/YearUp'
-alias learnshit='cd ~/Documents/education'
 alias dotfiles='cd ~/dotfiles'
 alias ..='cd ..'
-alias xandr='cd ~/Documents/xandr'
-alias prebid='cd ~/Documents/xandr/prebid'
-alias pbs='cd ~/Documents/xandr/prebid/prebid-server'
-alias tvp='cd ~/Documents/xandr/tvp'
-alias ctci='cd ~/Documents/education/YearUp/mentor-assignments/ctci'
 
 # GrEP
 alias wherethefuckis='grep -nri'
@@ -45,12 +32,11 @@ alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.conf'
-alias vrc='vim ~/dotfiles/vim/.vimrc'
+alias vrc='vim ~/dotfiles/vim/'
 alias dotpush='dotfiles; and ./deploy.bash; and back'
 alias dotpull='dotfiles; and git pull; and back'
 alias ctmux='vim ~/dotfiles/.tmux.conf.local'
-alias cfish='vim ~/dotfiles/config.fish'
-alias ivrc='vim ~/.ideavimrc'
+alias cfish='vim ~/dotfiles/fish/init.fish'
 
 ## Docker
 alias dockerfile='vim Dockerfile'
@@ -59,18 +45,15 @@ alias dockompose='docker-compose'
 
 ## Misc Shortcuts
 alias copydir='pwd | xclip'
-alias sfish='source ~/dotfiles/config.fish'
+alias sfish='source ~/dotfiles/fish/init.fish'
 alias yv='googler -w youtube.com --url-handler mpv $argv'
 alias javacall='javac *.java'
 alias py3='python3'
-alias npmfix='npm audit fix'
 alias ls='lsd'
 alias back='cd -'
-alias ex='exit'
 alias nv='nvim'
 alias v='vim'
 alias readme='vim README.md'
-alias dnsrestart='sudo /etc/init.d/dns-clean restart'
 alias secrets='vim ~/.config/fish/passwords.fish'
 
 ## Sanity checks
@@ -80,10 +63,10 @@ alias :q='echo "You\'re not using VIM, pal"'
 alias pls='sudo'
 
 ##### Functions & Passwords
-source ~/dotfiles/mkcd.fish
+source ~/dotfiles/fish/mkcd.fish
 source ~/.config/fish/passwords.fish
-source ~/dotfiles/venvinit.fish
-source ~/dotfiles/vfinit.fish
+source ~/dotfiles/fish/venvinit.fish
+source ~/dotfiles/fish/vfinit.fish
 source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 ##### Development Configs
 
@@ -94,7 +77,7 @@ set -g VIRTUAL_ENV_DISABLE_PROMPT 1
 alias gopath 'cd $GOPATH/src'
 alias maingo 'vim main.go'
 set -x GOPATH ~/go
-set -gx GOROOT /usr/local/go
+set -gx GOROOT /usr/local/go/bin
 set -gx GOPROJECTDIR ~/go/src/github.com/michelkazi
 # add the go bin path to be able to execute our programs
 set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
@@ -107,6 +90,4 @@ set PATH $NPM_PACKAGES/bin $PATH
 
 set MANPATH $NPM_PACKAGES/share/man $MANPATH  
 
-
 export PATH="$HOME/.cargo/bin:$PATH"
-set -U fish_user_paths /home/michelkazi/.local/kitty.app/bin/

@@ -1,43 +1,4 @@
-"""
-" shell config 
-"""
-if &shell =~# 'fish$'
-  set shell=sh
-endif
-set nocompatible              " be iMproved, required
-set nofoldenable
-set nospell
-set softtabstop=2
-set sw=2
-set ts=2
-set expandtab
-set cursorline
-set number
-set relativenumber
-set shell=sh
-set laststatus=2
-set t_Co=256
-set encoding=UTF-8
-set nowrap
-set numberwidth=5
-set incsearch
-set splitbelow
-set splitright
-set guicursor=i:ver25-iCursor
-set backspace=indent,eol,start
-set lazyredraw
-let mapleader=","
-
-"""
-" File find
-"""
-set path+=**
-set wildmenu
-set wildignore+=**/node_modules/**
-set wildignore+=**/venv/**
-set wildignore+=**/env/**
-set wildignore+=**/__pycache__/**
-set wildignore+=**.pyc
+" ----- PLUGIN CONFIGURATIONS ------------------------------------------------
 
 """
 " Plugs
@@ -55,7 +16,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {
       \'branch': 'release',
-      \'do': 'CocInstall coc-go coc-python coc-json coc-fish coc-clangd coc-vimlsp coc-explorer coc-snippets'
+      \'do': 'CocInstall coc-rls coc-go coc-python coc-json coc-fish coc-clangd coc-vimlsp coc-explorer coc-snippets'
       \}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'joshdick/onedark.vim'
@@ -94,110 +55,6 @@ call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable
 
-let g:python_host_prog = '/usr/bin/python'
-" ----- FUNCTIONS ------------------------------------------------------------
-
-
-" ----- THEMES AND COLORS ----------------------------------------------------
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-"colorscheme kuroi
-"colorscheme xcodedark
-"colorscheme rigel
-"colorscheme nightfly
-"colorscheme candid
-"colorscheme onedark
-set bg=dark
-colorscheme gruvbox
-
-set fillchars+=vert:│ " Thinner lines for vsplits
-set cc=100
-
-" XCODEDARK
-"hi Normal guibg=NONE ctermbg=NONE
-"hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
-"hi CursorLine ctermbg=89 ctermfg=NONE guibg=#40313d
-"hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#4C8273
-"hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
-
-" NIGHTFLY
-hi VertSplit guifg=#ff9000 guibg=NONE ctermbg=NONE 
-"hi string guifg=#ff6f98 ctermfg=48
-"" ---A prettier orange ---
-"hi Title guifg=#f7a100 cterm=bold 
-"hi StorageClass guifg=#f7a100
-"hi Constant guifg=#f7a100
-"hi NonText guifg=#f7a100
-
-" CANDID
-"hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
-"hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#4C8273
-"hi ColorColumn guibg=#383d3d guifg=#ffffff
-
-
-" GRUVBOX
-hi CursorLineNr guibg=#ffce1c guifg=#000000 cterm=BOLD
-"
-" ----- REMAPS ---------------------------------------------------------------
-map q: <Nop>
-map <C-n> :NERDTreeToggle<CR>
-"map <C-n> :CocCommand explorer<CR>
-nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
-noremap <up>    :echom 'HEY STUPID. USE K TO GO UP'<CR>
-noremap <down>  :echom 'HEY STUPID. USE J TO GO DOWN'<CR>
-noremap <left>  :echom 'HEY STUPID. USE H TO GO LEFT'<CR>
-noremap <right> :echom 'HEY STUPID. USE L TO GO RIGHT'<CR>
-nnoremap Q <nop>
-nnoremap <leader>nt :call NumberToggle()<cr>
-inoremap <up>    <ESC>:echom 'HEY STUPID. USE K TO GO UP'<CR> 
-inoremap <down>  <ESC>:echom 'HEY STUPID. USE J TO GO DOWN'<CR>
-inoremap <right> <ESC>:echom 'HEY STUPID. USE L TO GO RIGHT'<CR>
-inoremap <left>  <ESC>:echom 'HEY STUPID. USE H TO GO LEFT'<CR>    
-
-" leader yank to buffer
-vnoremap <Leader>y "+y
-vnoremap <Leader>x "+x
-vnoremap <Leader>d "+d
-vnoremap <Leader>p "+p
-vnoremap <Leader>P "+P
-nnoremap <Leader>Y "+Y
-nnoremap <Leader>yy "+yy
-nnoremap <Leader>x "+x
-nnoremap <Leader>dd "+dd
-nnoremap <Leader>p "+p
-nnoremap <Leader>P "+P
-
-" Open help and help files in a new tab
-:cabbrev help tab help
-:cabbrev vsrc vsp ~/dotfiles/.vimrc
-:cabbrev df SignifyDiff
-
-" Go to tab by number
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
-
-" ----- COOL FUNCTIONS AND SHIT-----------------------------------------------
-autocmd! bufwritepost .vimrc source %
-
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
-" ----- PLUGIN CONFIGURATIONS ------------------------------------------------
 """
 " COC
 """ 
