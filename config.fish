@@ -4,6 +4,8 @@ and not set -q TMUX
     exec tmux
 end
 
+set theme_nerd_fonts yes
+
 ## Remap caps lock
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
@@ -65,6 +67,7 @@ alias npmfix='npm audit fix'
 alias ls='lsd'
 alias back='cd -'
 alias ex='exit'
+alias nv='nvim'
 alias v='vim'
 alias readme='vim README.md'
 alias dnsrestart='sudo /etc/init.d/dns-clean restart'
@@ -79,12 +82,12 @@ alias pls='sudo'
 ##### Functions & Passwords
 source ~/dotfiles/mkcd.fish
 source ~/.config/fish/passwords.fish
-
+source ~/dotfiles/venvinit.fish
+source ~/dotfiles/vfinit.fish
 source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 ##### Development Configs
 
 ## Python
-alias venvinit='python3 -m virtualenv env; and source ./env/bin/activate.fish'
 set -g VIRTUAL_ENV_DISABLE_PROMPT 1
 ## Golang
 # set the workspace path

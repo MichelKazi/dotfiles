@@ -94,7 +94,7 @@ call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable
 
-let g:python_host_prog = 'usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python'
 " ----- FUNCTIONS ------------------------------------------------------------
 
 
