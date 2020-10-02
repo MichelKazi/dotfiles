@@ -110,7 +110,7 @@ tmux_conf_theme_mode_attr='bold'
 
 # status line style
 tmux_conf_theme_status_fg='#f8f8f2'
-tmux_conf_theme_status_bg='#282a36'
+tmux_conf_theme_status_bg='#1d3332'
 tmux_conf_theme_status_attr='none'
 
 # terminal title
@@ -147,7 +147,7 @@ tmux_conf_theme_window_status_format='#I: #W'
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_window_status_current_fg='#282a36'
-tmux_conf_theme_window_status_current_bg='#f7a100'
+tmux_conf_theme_window_status_current_bg='#22c98f'
 tmux_conf_theme_window_status_current_attr='bold'
 tmux_conf_theme_window_status_current_format='#I: #W'
 #tmux_conf_theme_window_status_current_format='#{circled_window_index}  #W'
@@ -164,8 +164,8 @@ tmux_conf_theme_window_status_bell_bg='default'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
 # window last status style
-tmux_conf_theme_window_status_last_fg='#595b6f'
-tmux_conf_theme_window_status_last_bg='default'
+tmux_conf_theme_window_status_last_fg='#cccccc'
+tmux_conf_theme_window_status_last_bg='#1d3332'
 tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
@@ -207,12 +207,12 @@ tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{tasks_status}
 
 # status left style
 tmux_conf_theme_status_left_fg='#282a36,#f8f8f2,#e4e4e4' 
-tmux_conf_theme_status_left_bg='#ff5874,#296596,#011627'
+tmux_conf_theme_status_left_bg='#ff5874,#1d7680,#1d3332'
 tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
 tmux_conf_theme_status_right_fg='#f8f8f2,#333333,#262e2e,#f8f8f2,#282a36'
-tmux_conf_theme_status_right_bg='#44475a,#eac117,#fccf78,#296596,#bd93f9'
+tmux_conf_theme_status_right_bg='#214241,#00ffb8,#22c98f,#318a8c,#bd93f9'
 tmux_conf_theme_status_right_attr='none,bold,bold,none'
 
 # pairing indicator
@@ -318,3 +318,4 @@ bind C-q send-prefix
 
 # move status line to top
 set -g status-position bottom
+

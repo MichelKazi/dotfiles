@@ -67,7 +67,8 @@ source ~/dotfiles/fish/mkcd.fish
 source ~/.config/fish/passwords.fish
 source ~/dotfiles/fish/venvinit.fish
 source ~/dotfiles/fish/vfinit.fish
-source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
+source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
+#source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 ##### Development Configs
 
 ## Python

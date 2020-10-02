@@ -10,6 +10,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'wadackel/vim-dogrun'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'Yggdroot/indentLine', {'for': ['python', 'yaml']}
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'ayu-theme/ayu-vim'
@@ -86,7 +88,7 @@ let g:indentLine_char = ''
 " Lightline
 """
 let g:lightline = { 
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'dogrun',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]

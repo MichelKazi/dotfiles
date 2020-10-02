@@ -1,0 +1,13 @@
+htop
+nvm
+kitty
+fish
+tmux
+gvim
+xcape
+gnome-tweak-tool
+yay
+gcc
+cmake
+base-devel
+neofetch
