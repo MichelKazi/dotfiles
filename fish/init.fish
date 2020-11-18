@@ -46,7 +46,6 @@ alias dockompose='docker-compose'
 ## Misc Shortcuts
 alias copydir='pwd | xclip'
 alias sfish='source ~/dotfiles/fish/init.fish'
-alias yv='googler -w youtube.com --url-handler mpv $argv'
 alias javacall='javac *.java'
 alias py3='python3'
 alias ls='lsd'
