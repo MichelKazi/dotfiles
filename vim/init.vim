@@ -28,18 +28,6 @@ set backspace=indent,eol,start
 set lazyredraw
 let mapleader=","
 
-"""
-" File find
-"""
-set path+=**
-set wildmenu
-set wildignore+=**/node_modules/**
-set wildignore+=**/venv/**
-set wildignore+=**/env/**
-set wildignore+=**/__pycache__/**
-set wildignore+=**.pyc
-let g:python_host_prog = '/usr/bin/python'
-
 " ----- PLUGIN CONFIGURATIONS ------------------------------------------------
 source ~/dotfiles/vim/plugins.vim
 
