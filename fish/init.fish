@@ -24,8 +24,7 @@ alias ignore='vim .gitignore'
 alias co='git checkout'
 alias ga='git add .'
 alias fetchup='git fetch upstream'
-alias mergeup='git merge upstream/master'
-alias commit="git commit -am"
+alias commit="yarn commit; or git commit"
 # github setup to avoid clashing users with company bitbucket
 alias githubsetup='git config --local user.email "michel.m.kazi@gmail.com"; and git config --local user.name "michelkazi"' 
 alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and git config --local user.name "MICHEL KAZI"' 
@@ -81,7 +80,7 @@ set -gx GOROOT /usr/local/go/bin
 set -gx GOPROJECTDIR ~/go/src/github.com/michelkazi
 # add the go bin path to be able to execute our programs
 set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
-test -s ~/.nvm-fish/nvm.fish; and source /home/michelkazi/.nvm-fish/nvm.fish
+test -s ~/.nvm-fish/nvm.fish; and source ~/.nvm-fish/nvm.fish
 
 ## NPM
 set NPM_PACKAGES "$HOME/.npm-packages"

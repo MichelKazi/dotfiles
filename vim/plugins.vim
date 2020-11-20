@@ -52,6 +52,7 @@ Plug 'mhinz/vim-signify'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()            " required
 filetype plugin indent on    " required
