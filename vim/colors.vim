@@ -12,9 +12,9 @@ endif
 "colorscheme nightfly
 "colorscheme candid
 "colorscheme onedark
-"colorscheme gruvbox
+colorscheme gruvbox
 "colorscheme challenger_deep
-colorscheme dogrun
+"colorscheme dogrun
 
 set fillchars+=vert:│ " Thinner lines for vsplits
 set cc=100
@@ -42,6 +42,6 @@ hi VertSplit guifg=#ff9000 guibg=NONE ctermbg=NONE
 
 
 " GRUVBOX
-"hi CursorLineNr guibg=#ffce1c guifg=#000000 cterm=BOLD
+hi CursorLineNr guibg=#ffce1c guifg=#000000 cterm=BOLD
 
 hi Normal guibg=NONE ctermbg=NONE

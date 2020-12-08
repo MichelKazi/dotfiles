@@ -1,7 +1,12 @@
-set -g terminal-overrides ',xterm-256color:Tc'
+#set -g terminal-overrides ',xterm-256color:Tc'
 #set -g default-terminal "screen-256color"
+
+set -g default-terminal "screen-256color"
+set-option -sa terminal-overrides ",xterm-kitty:RGB"
+
+set-window-option -g mode-keys vi
 set-option -g default-shell $SHELL
-set-option -g status-interval 5
+set-option -g status-interval 30
 #set -as terminal-overrides ',xterm*:sitm=\E[3m'# https://github.com/gpakosz/.tmux
 #set-option -sa terminal-overrides ",xterm-kitty:RGB"
 # (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,

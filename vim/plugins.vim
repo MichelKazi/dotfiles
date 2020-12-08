@@ -53,7 +53,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'editorconfig/editorconfig-vim'
-
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-dispatch'
 call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable
@@ -89,7 +90,7 @@ let g:indentLine_char = ''
 " Lightline
 """
 let g:lightline = { 
-      \ 'colorscheme': 'dogrun',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
@@ -198,6 +199,7 @@ let g:rustfmt_autosave = 1
 let g:coc_config_home = '~/dotfiles/vim/coc'
 "GoTo code navigation.
 nmap <silent> <leader>gt :vsp<CR><Plug>(coc-definition)
+nmap <silent> <leader>gtt :tab<CR><Plug>(coc-definition)
 nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)""
@@ -230,3 +232,10 @@ augroup END
 " LeaderF
 """
 let g:Lf_WindowPosition = 'popup'
+
+"""
+" Ack.Vim
+"""
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
