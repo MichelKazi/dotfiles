@@ -173,7 +173,6 @@ let g:coc_global_extensions = [
       \'coc-json',
       \'coc-fish',
       \'coc-vimlsp',
-      \'coc-explorer',
       \'coc-snippets'
       \]
 "GoTo code navigation.
