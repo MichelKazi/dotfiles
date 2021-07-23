@@ -23,6 +23,7 @@ alias wherethefuckis='grep -nri'
 alias ignore='vim .gitignore'
 alias co='git checkout'
 alias ga='git add .'
+alias gff='git pull; and git pull origin master'
 alias fetchup='git fetch upstream'
 alias commit="yarn commit; or git commit"
 # github setup to avoid clashing users with company bitbucket
@@ -52,6 +53,7 @@ alias ls='lsd'
 alias back='cd -'
 alias nv='nvim'
 alias v='vim'
+alias vg='vim -p (git status --porcelain | awk \'{print $2}\')'
 alias readme='vim README.md'
 alias secrets='vim ~/.config/fish/passwords.fish'
 
@@ -74,11 +76,7 @@ source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 set -g VIRTUAL_ENV_DISABLE_PROMPT 1
 ## Golang
 # set the workspace path
-alias gopath 'cd $GOPATH/src'
-alias maingo 'vim main.go'
 set -x GOPATH ~/go
-set -gx GOROOT /usr/local/go/bin
-set -gx GOPROJECTDIR ~/go/src/github.com/michelkazi
 # add the go bin path to be able to execute our programs
 set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 test -s ~/.nvm-fish/nvm.fish; and source ~/.nvm-fish/nvm.fish

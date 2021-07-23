@@ -6,7 +6,7 @@ set-option -sa terminal-overrides ",xterm-kitty:RGB"
 
 set-window-option -g mode-keys vi
 set-option -g default-shell $SHELL
-set-option -g status-interval 30
+set-option -g status-interval 60
 #set -as terminal-overrides ',xterm*:sitm=\E[3m'# https://github.com/gpakosz/.tmux
 #set-option -sa terminal-overrides ",xterm-kitty:RGB"
 # (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,

@@ -10,58 +10,44 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'wadackel/vim-dogrun'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'Yggdroot/indentLine', {'for': ['python', 'yaml']}
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-Plug 'ayu-theme/ayu-vim'
+Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'sainnhe/gruvbox-material'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {
-      \'branch': 'release',
-      \'do': 'CocInstall coc-rls coc-go coc-python coc-json coc-fish coc-clangd coc-vimlsp coc-explorer coc-snippets'
+      \'branch': 'release'
       \}
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'joshdick/onedark.vim'
-Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
-Plug 'flrnd/candid.vim'
-"Plug 'nathanaelkane/vim-indent-guides', {'for': ['python', 'yaml']}
-Plug 'andrewstuart/vim-kubernetes', {'for': 'yaml'}
-Plug 'Rigellute/rigel'
 Plug 'simeji/winresizer'
-Plug 'alvan/vim-closetag', {'for': ['html', 'xml','javascriptreact']}
+Plug 'alvan/vim-closetag', {'for': ['html', 'xml','javascriptreact', 'javascript']}
 Plug 'ryanoasis/vim-devicons'
 Plug 'matze/vim-move'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'dense-analysis/ale'
 Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-pandoc/vim-pandoc', {'for': 'markdown'}
 Plug 'vim-pandoc/vim-pandoc-syntax' , {'for': 'markdown'}
 Plug 'tpope/vim-surround'
-"Plug 'Valloric/YouCompleteMe'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'yuezk/vim-js', {'for': 'javascript'}
 Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascriptreact'}
 Plug 'mhinz/vim-signify'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'editorconfig/editorconfig-vim'
-Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-dispatch'
+Plug 'dyng/ctrlsf.vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
 call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable
-
-"""
-" COC
-""" 
 
 """
 " vim-move
@@ -69,28 +55,10 @@ syntax enable
 let g:move_key_modifier = 'S'
 
 """
-" vim-indent-guides
-"""
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors=0
-augroup indentguidesfiletype
-  au BufRead,BufNewFile,VimEnter,Colorscheme *.py :hi IndentGuidesOdd guibg=#003845
-  au BufRead,BufNewFile,VimEnter,Colorscheme *.py :hi IndentGuidesEven guibg=#002a45
-
-  au BufRead,BufNewFile,VimEnter,Colorscheme *.yaml :hi IndentGuidesOdd guibg=#003845
-  au BufRead,BufNewFile,VimEnter,Colorscheme *.yaml :hi IndentGuidesEven guibg=#002a45
-
-  au BufRead,BufNewFile,VimEnter,Colorscheme *.yml :hi IndentGuidesOdd guibg=#003845
-  au BufRead,BufNewFile,VimEnter,Colorscheme *.yml :hi IndentGuidesEven guibg=#002a45
-augroup END
-
-let g:indentLine_setColors = 0
-let g:indentLine_char = ''
-"""
 " Lightline
 """
 let g:lightline = { 
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'powerline',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
@@ -99,12 +67,14 @@ let g:lightline = {
       \ 'gitbranch': 'gitbranch#name'
       \   },
       \ }
-let g:lightline.separator = {
-      \   'left': '', 'right': ''
-      \}
-let g:lightline.subseparator = {
-      \   'left': '', 'right': ''
-      \}
+"""
+" let g:lightline.separator = {
+      " \   'left': '', 'right': ''
+      " \}
+" let g:lightline.subseparator = {
+      " \   'left': '', 'right': ''
+      " \}
+"""
 set noshowmode
 
 """
@@ -155,8 +125,6 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-
-
 """
 "	Pandoc
 """
@@ -175,6 +143,7 @@ nmap <leader>gs :G<CR>
 nnoremap <leader>gd :Gvdiffsplit!<CR>
 nnoremap gh :diffget //2<CR>
 nnoremap gu :diffget //3<CR>
+nnoremap <leader>gb :Git blame<CR>
 
 """
 "" Go
@@ -187,6 +156,8 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 
+au BufWritePost *.go :silent GoFmt
+
 """
 " Rust
 """
@@ -197,12 +168,24 @@ let g:rustfmt_autosave = 1
 """
 " coc_config_directory
 let g:coc_config_home = '~/dotfiles/vim/coc'
+let g:coc_global_extensions = [
+      \'coc-tsserver',
+      \'coc-json',
+      \'coc-fish',
+      \'coc-vimlsp',
+      \'coc-explorer',
+      \'coc-snippets'
+      \]
 "GoTo code navigation.
 nmap <silent> <leader>gt :vsp<CR><Plug>(coc-definition)
 nmap <silent> <leader>gtt :tab<CR><Plug>(coc-definition)
 nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)""
+" Rename symbols
+nmap <leader>rn <Plug>(coc-rename)
+" Allow COC to prompt code actions to fix errors
+nmap <leader>do <Plug>(coc-codeaction)
 
 """
 " YouCompleteMe
@@ -229,13 +212,18 @@ augroup filetypedetect
 augroup END
 
 """
-" LeaderF
+" ctrlsf.vim
 """
-let g:Lf_WindowPosition = 'popup'
+nmap     <C-f>f <Plug>CtrlSFPrompt
+vmap     <C-f>f <Plug>CtrlSFVwordPath
+vmap     <C-f>F <Plug>CtrlSFVwordExec
+nmap     <C-f>n <Plug>CtrlSFCwordPath
+nmap     <C-f>p <Plug>CtrlSFPwordPath
+nnoremap <C-f>o :CtrlSFOpen<CR>
+nnoremap <C-f>t :CtrlSFToggle<CR>
+inoremap <C-f>t <Esc>:CtrlSFToggle<CR>
 
 """
-" Ack.Vim
+" NerdCommenter
 """
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+let g:NERDSpaceDelims = 1

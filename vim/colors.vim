@@ -5,43 +5,16 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+set background=dark
+let g:gruvbox_material_background='hard'
 
-"colorscheme kuroi
-"colorscheme xcodedark
-"colorscheme rigel
-"colorscheme nightfly
-"colorscheme candid
-"colorscheme onedark
-colorscheme gruvbox
-"colorscheme challenger_deep
-"colorscheme dogrun
+colorscheme gruvbox-material
 
 set fillchars+=vert:│ " Thinner lines for vsplits
 set cc=100
 
-" XCODEDARK
-"hi Normal guibg=NONE ctermbg=NONE
-"hi Visual ctermfg=255 guifg=#eeeeee ctermbg=36  guibg=#875f87
-"hi CursorLine ctermbg=89 ctermfg=NONE guibg=#40313d
 hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#566663
-hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
 
-" NIGHTFLY
 hi VertSplit guifg=#ff9000 guibg=NONE ctermbg=NONE 
-"hi string guifg=#ff6f98 ctermfg=48
-"" ---A prettier orange ---
-"hi Title guifg=#f7a100 cterm=bold 
-"hi StorageClass guifg=#f7a100
-"hi Constant guifg=#f7a100
-"hi NonText guifg=#f7a100
-
-" CANDID
-"hi CursorLineNr cterm=bold ctermfg=168 gui=NONE guifg=#fe79b1
-"hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#4C8273
-"hi ColorColumn guibg=#383d3d guifg=#ffffff
-
-
-" GRUVBOX
 hi CursorLineNr guibg=#ffce1c guifg=#000000 cterm=BOLD
 
-hi Normal guibg=NONE ctermbg=NONE
