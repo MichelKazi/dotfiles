@@ -1,8 +1,11 @@
-#set -g terminal-overrides ',xterm-256color:Tc'
-#set -g default-terminal "screen-256color"
+# set -g terminal-overrides ',xterm-256color:Tc'
+set -g default-terminal "xterm-256color"
+# set -g default-terminal "screen-256color"
+# set-option -sa terminal-overrides ",xterm-kitty:RGB"
 
-set -g default-terminal "screen-256color"
-set-option -sa terminal-overrides ",xterm-kitty:RGB"
+    set -g terminal-overrides ',xterm-256color:Tc'
+#     set -g default-terminal "tmux-256color"
+    set -as terminal-overrides ',xterm*:sitm=\E[3m'
 
 set-window-option -g mode-keys vi
 set-option -g default-shell $SHELL
@@ -24,19 +27,6 @@ set-option -g status-interval 60
 
 # -- Plugins -------------------------------------------------------------------
 # Smart pane switching with awareness of Vim splits.
-# See: https://github.com/christoomey/vim-tmux-navigator
-is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
-bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
-bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
-bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
-bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
-tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
-if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
-    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
-if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
-    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
-
 bind-key -T copy-mode-vi 'C-h' select-pane -L
 bind-key -T copy-mode-vi 'C-j' select-pane -D
 bind-key -T copy-mode-vi 'C-k' select-pane -U
@@ -208,7 +198,7 @@ tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=' 🦇 #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
-tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{tasks_status} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage} , }| %r | %A | #{root}#{username} | #{hostname} '
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{tasks_status} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage} , }| %r | %A |'
 
 # status left style
 tmux_conf_theme_status_left_fg='#282a36,#f8f8f2,#e4e4e4' 

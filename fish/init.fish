@@ -1,7 +1,7 @@
 # Start fish in tmux
 if status is-interactive
 and not set -q TMUX
-    exec tmux new-session -A -s Base
+   exec tmux new-session -A -s Base
 end
 
 set theme_nerd_fonts yes
@@ -65,11 +65,11 @@ alias pls='sudo'
 
 ##### Functions & Passwords
 source ~/dotfiles/fish/mkcd.fish
-source ~/.config/fish/passwords.fish
 source ~/dotfiles/fish/venvinit.fish
 source ~/dotfiles/fish/vfinit.fish
-#source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
-source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
+source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
+source ~/dotfiles/btf_colors/bobthefish-glyphs-custom-separators.fish
+#source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 ##### Development Configs
 
 ## Python

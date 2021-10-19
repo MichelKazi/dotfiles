@@ -41,7 +41,7 @@ do
       echo "source $HOME/dotfiles/macos/config.mac.fish" >> $HOME/.config/fish/config.fish
       echo "source-file $HOME/dotfiles/macos/.tmux.mac.conf" >> $HOME/.tmux.conf
       echo "include $HOME/dotfiles/macos/kitty.mac.conf" >> $HOME/.config/kitty/kitty.conf
+      ln -s -f $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
   esac
   shift
 done
-

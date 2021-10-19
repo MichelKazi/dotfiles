@@ -10,15 +10,17 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sainnhe/gruvbox-material'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {
       \'branch': 'release'
       \}
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'overcache/NeoSolarized'
 Plug 'simeji/winresizer'
 Plug 'alvan/vim-closetag', {'for': ['html', 'xml','javascriptreact', 'javascript']}
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 Plug 'matze/vim-move'
 Plug 'ervandew/supertab'
@@ -32,7 +34,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-pandoc/vim-pandoc', {'for': 'markdown'}
 Plug 'vim-pandoc/vim-pandoc-syntax' , {'for': 'markdown'}
 Plug 'tpope/vim-surround'
-Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'yuezk/vim-js', {'for': 'javascript'}
@@ -44,6 +45,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-dispatch'
 Plug 'dyng/ctrlsf.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'ajmwagar/vim-deus'
+Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+Plug 'hoob3rt/lualine.nvim'
+Plug 'crispgm/nvim-tabline'
+Plug 'sunjon/shade.nvim'
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -226,3 +232,24 @@ inoremap <C-f>t <Esc>:CtrlSFToggle<CR>
 " NerdCommenter
 """
 let g:NERDSpaceDelims = 1
+
+"""
+" Lua Plugins
+"""
+lua << EOF
+require 'lualine'.setup{
+options = {
+      theme = 'nightfly'
+      }
+}
+require'tabline'.setup({})
+require'shade'.setup({
+  overlay_opacity = 50,
+  opacity_step = 1,
+  keys = {
+    brightness_up    = '<C-Up>',
+    brightness_down  = '<C-Down>',
+    toggle           = '<Leader>s',
+  }
+})
+EOF

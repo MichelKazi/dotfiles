@@ -5,16 +5,17 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+" let g:gruvbox_material_background='hard'
+" colors deus
 set background=dark
-let g:gruvbox_material_background='hard'
+colors Nightfly
 
-colorscheme gruvbox-material
 
 set fillchars+=vert:│ " Thinner lines for vsplits
-set cc=100
+" set cc=100
 
-hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#566663
-
+" hi Comment cterm=NONE guibg=NONE ctermfg=138 guifg=#566663
+hi CocUnusedHighlight guifg=#a2b3b2
 hi VertSplit guifg=#ff9000 guibg=NONE ctermbg=NONE 
-hi CursorLineNr guibg=#ffce1c guifg=#000000 cterm=BOLD
+" hi CursorLineNr guibg=#ffce1c guifg=#000000 cterm=BOLD
 

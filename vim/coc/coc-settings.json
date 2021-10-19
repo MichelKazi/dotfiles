@@ -15,6 +15,7 @@
     "i": "open:split",
     "t": "open:tab"
   },
-  "clangd.path": "/home/michelk/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
-
+  "clangd.path": "/home/michelk/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
+  "tsserver.tsdk": "/usr/local/bin",
+  "tsserver.npm": "/usr/local/lib/node_modules"
 }
