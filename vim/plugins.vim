@@ -47,9 +47,8 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ajmwagar/vim-deus'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
-Plug 'hoob3rt/lualine.nvim'
 Plug 'crispgm/nvim-tabline'
-Plug 'sunjon/shade.nvim'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -64,7 +63,7 @@ let g:move_key_modifier = 'S'
 " Lightline
 """
 let g:lightline = { 
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'nightfly',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
@@ -237,19 +236,4 @@ let g:NERDSpaceDelims = 1
 " Lua Plugins
 """
 lua << EOF
-require 'lualine'.setup{
-options = {
-      theme = 'nightfly'
-      }
-}
-require'tabline'.setup({})
-require'shade'.setup({
-  overlay_opacity = 50,
-  opacity_step = 1,
-  keys = {
-    brightness_up    = '<C-Up>',
-    brightness_down  = '<C-Down>',
-    toggle           = '<Leader>s',
-  }
-})
 EOF
