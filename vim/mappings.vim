@@ -26,12 +26,14 @@ nnoremap <Leader>x "+x
 nnoremap <Leader>dd "+dd
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
+nnoremap <silent> <Leader>/ :let @+ = expand("%")<CR>:echom 'Current filepath copied to clipboard'<CR>
+
 
 " Open help and help files in a new tab
 :cabbrev help tab help
 :cabbrev vsrc vsp ~/dotfiles/.vimrc
 :cabbrev df SignifyDiff
-
+:cabbrev ypwd let @+ = expand("%")
 " Go to tab by number
 noremap <leader>1 1gt
 noremap <leader>2 2gt
