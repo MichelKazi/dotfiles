@@ -20,18 +20,15 @@ alias ..='cd ..'
 alias wherethefuckis='grep -nri'
 
 # Git
-alias gitcp="git branch --show-current | tr -d '\n' | pbcopy"
 alias ignore='vim .gitignore'
 alias co='git checkout'
 alias ga='git add .'
+alias gff='git pull; and git pull origin master'
 alias fetchup='git fetch upstream'
-alias syncup='git switch main; fetchup; and git merge upstream/main; and git push'
-alias ff='syncup; and git checkout -; and git merge main; and git push'
 alias commit="yarn commit; or git commit"
 # github setup to avoid clashing users with company bitbucket
 alias githubsetup='git config --local user.email "michel.m.kazi@gmail.com"; and git config --local user.name "michelkazi"' 
 alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and git config --local user.name "MICHEL KAZI"' 
-alias rebaseup='git checkout main; and git pull; and git pull upstream main; and git checkout '-
 
 ## Dotfile Configs
 alias ckitty='vim ~/dotfiles/kitty.conf'
