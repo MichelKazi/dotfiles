@@ -1,1 +1,1 @@
-source ./init.fish
+source ~/.config/fish/init.fish

@@ -1,6 +1,3 @@
-"""
-" shell config 
-"""
 if &shell =~# 'fish$'
   set shell=sh
 endif
@@ -27,16 +24,19 @@ set guicursor=i:ver25-iCursor
 set backspace=indent,eol,start
 set lazyredraw
 let mapleader=","
+set rtp +=~/.vim
+let &rtp.=',' . expand("$HOME") . '/.config/nvim'
 
 " ----- PLUGIN CONFIGURATIONS ------------------------------------------------
-source ~/dotfiles/vim/plugins.vim
+source ~/dotfiles/nvim/.config/nvim/plugins.vim
 
 " ----- THEMES AND COLORS ----------------------------------------------------
-source ~/dotfiles/vim/colors.vim
+source ~/dotfiles/nvim/.config/nvim/colors.vim
 
 " ----- REMAPS ---------------------------------------------------------------
-source ~/dotfiles/vim/mappings.vim
+source ~/dotfiles/nvim/.config/nvim/mappings.vim
 
 " ----- COOL FUNCTIONS AND SHIT-----------------------------------------------
-source ~/dotfiles/vim/functions.vim
+source ~/dotfiles/nvim/.config/nvim/functions.vim
 
+lua require('michelkazi')

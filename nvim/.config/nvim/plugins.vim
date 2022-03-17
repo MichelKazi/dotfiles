@@ -13,9 +13,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sainnhe/gruvbox-material'
 Plug 'gruvbox-community/gruvbox'
-Plug 'neoclide/coc.nvim', {
-      \'branch': 'release'
-      \}
+" Plug 'neoclide/coc.nvim', {
+      " \'branch': 'release'
+      " \}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'overcache/NeoSolarized'
 Plug 'simeji/winresizer'
@@ -23,32 +23,37 @@ Plug 'alvan/vim-closetag', {'for': ['html', 'xml','javascriptreact', 'javascript
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 Plug 'matze/vim-move'
-Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jiangmiao/auto-pairs'
-Plug 'vim-pandoc/vim-pandoc', {'for': 'markdown'}
-Plug 'vim-pandoc/vim-pandoc-syntax' , {'for': 'markdown'}
+Plug 'vim-pandoc/vim-pandoc', {'for': 'markdown.pandoc'}
+Plug 'vim-pandoc/vim-pandoc-syntax' , {'for': 'markdown.pandoc'}
 Plug 'tpope/vim-surround'
 Plug 'itchyny/vim-gitbranch'
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'yuezk/vim-js', {'for': 'javascript'}
 Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascriptreact'}
 Plug 'mhinz/vim-signify'
-Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-dispatch'
 Plug 'dyng/ctrlsf.vim'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'ajmwagar/vim-deus'
-Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'crispgm/nvim-tabline'
 Plug 'itchyny/lightline.vim'
-
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" Lsp
+Plug 'neovim/nvim-lspconfig'     
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Autocompletion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'onsails/lspkind-nvim'
 call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable
@@ -176,12 +181,19 @@ nmap <silent> <leader>gr <Plug>(coc-references)""
 nmap <leader>rn <Plug>(coc-rename)
 " Allow COC to prompt code actions to fix errors
 nmap <leader>do <Plug>(coc-codeaction)
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
-"""
-" YouCompleteMe
-"""
-"nnoremap <leader>gt :vsplit \| YcmCompleter GoTo<CR>
-"nnoremap <leader>gtt :tab \| YcmCompleter GoTo<CR>
+" inoremap <silent><expr> <Tab>
+      " \ pumvisible() ? "\<C-n>" :
+      " \ <SID>check_back_space() ? "\<Tab>" :
+      " \ coc#refresh()
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 
 """
 " Highlight TODO, FIXME, NOTE, etc.
@@ -199,6 +211,11 @@ endif
 augroup filetypedetect
   au! BufRead,BufNewFile *.tmpl    setfiletype template
   au! BufRead,BufNewFile .tmux.conf.local setfiletype tmux
+augroup END
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
 
 """

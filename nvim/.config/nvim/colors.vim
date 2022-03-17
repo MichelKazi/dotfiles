@@ -8,7 +8,7 @@ endif
 " let g:gruvbox_material_background='hard'
 " colors deus
 set background=dark
-colors Nightfly
+colors Gruvbox
 
 
 set fillchars+=vert:│ " Thinner lines for vsplits

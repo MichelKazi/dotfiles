@@ -31,12 +31,12 @@ alias githubsetup='git config --local user.email "michel.m.kazi@gmail.com"; and 
 alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and git config --local user.name "MICHEL KAZI"' 
 
 ## Dotfile Configs
-alias ckitty='vim ~/dotfiles/kitty.conf'
-alias vrc='vim ~/dotfiles/vim/'
+alias ckitty='vim ~/dotfiles/kitty/.config/kitty.conf'
+alias vrc='vim ~/dotfiles/nvim/.config/nvim/'
 alias dotpush='dotfiles; and ./deploy.bash; and back'
 alias dotpull='dotfiles; and git pull; and back'
-alias ctmux='vim ~/dotfiles/.tmux.conf.local'
-alias cfish='vim ~/dotfiles/fish/init.fish'
+alias ctmux='vim ~/dotfiles/tmux/.tmux.conf.local'
+alias cfish='vim ~/dotfiles/fish/.config/fish/init.fish'
 
 ## Docker
 alias dockerfile='vim Dockerfile'
@@ -46,7 +46,7 @@ alias dockompose='docker-compose'
 ## Misc Shortcuts
 alias vim='nvim'
 alias copydir='pwd | xclip'
-alias sfish='source ~/dotfiles/fish/init.fish'
+alias sfish='source ~/dotfiles/fish/.config/fish/config.fish'
 alias javacall='javac *.java'
 alias py3='python3'
 alias ls='lsd'

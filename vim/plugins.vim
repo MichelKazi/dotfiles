@@ -13,9 +13,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sainnhe/gruvbox-material'
 Plug 'gruvbox-community/gruvbox'
-Plug 'neoclide/coc.nvim', {
-      \'branch': 'release'
-      \}
+Plug 'neovim/nvim-lspconfig'
+" Plug 'neoclide/coc.nvim', {
+      " \'branch': 'release'
+      " \}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'overcache/NeoSolarized'
 Plug 'simeji/winresizer'
@@ -184,12 +185,12 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" inoremap <silent><expr> <Tab>
+      " \ pumvisible() ? "\<C-n>" :
+      " \ <SID>check_back_space() ? "\<Tab>" :
+      " \ coc#refresh()
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 """
