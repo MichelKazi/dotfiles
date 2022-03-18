@@ -47,6 +47,7 @@ Plug 'nvim-telescope/telescope.nvim'
 " Lsp
 Plug 'neovim/nvim-lspconfig'     
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Autocompletion
 Plug 'hrsh7th/nvim-cmp'
