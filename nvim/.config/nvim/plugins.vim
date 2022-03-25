@@ -10,20 +10,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'sainnhe/gruvbox-material'
 Plug 'gruvbox-community/gruvbox'
-" Plug 'neoclide/coc.nvim', {
-      " \'branch': 'release'
-      " \}
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'overcache/NeoSolarized'
+Plug 'alexghergh/nvim-tmux-navigation'
 Plug 'simeji/winresizer'
 Plug 'alvan/vim-closetag', {'for': ['html', 'xml','javascriptreact', 'javascript']}
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 Plug 'matze/vim-move'
-Plug 'scrooloose/nerdcommenter'
+" Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'tpope/vim-fugitive'
@@ -36,7 +34,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'yuezk/vim-js', {'for': 'javascript'}
 Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascriptreact'}
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dyng/ctrlsf.vim'
@@ -44,6 +42,9 @@ Plug 'crispgm/nvim-tabline'
 Plug 'itchyny/lightline.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+
 " Lsp
 Plug 'neovim/nvim-lspconfig'     
 Plug 'jose-elias-alvarez/null-ls.nvim'
@@ -55,6 +56,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
+Plug 'lewis6991/gitsigns.nvim'
+
 call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable
@@ -68,7 +71,7 @@ let g:move_key_modifier = 'S'
 " Lightline
 """
 let g:lightline = { 
-      \ 'colorscheme': 'nightfly',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]

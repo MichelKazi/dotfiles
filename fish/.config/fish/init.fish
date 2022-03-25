@@ -64,10 +64,10 @@ alias :q='echo "You\'re not using VIM, pal"'
 alias pls='sudo'
 
 ##### Functions & Passwords
-source ~/dotfiles/fish/mkcd.fish
-source ~/dotfiles/fish/venvinit.fish
-source ~/dotfiles/fish/vfinit.fish
-source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
+source ~/dotfiles/fish/.config/fish/mkcd.fish
+source ~/dotfiles/fish/.config/fish/venvinit.fish
+source ~/dotfiles/fish/.config/fish/vfinit.fish
+source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 source ~/dotfiles/btf_colors/bobthefish-glyphs-custom-separators.fish
 #source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
 ##### Development Configs

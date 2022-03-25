@@ -1,1 +1,5 @@
 require("michelkazi.lspconfig")
+require("michelkazi.tmuxnav")
+require("michelkazi.treesitter")
+require("michelkazi.comment")
+require("michelkazi.gitsigns")

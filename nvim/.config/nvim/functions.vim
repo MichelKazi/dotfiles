@@ -1,6 +1,6 @@
 " ----- COOL FUNCTIONS AND SHIT-----------------------------------------------
 
-autocmd! bufwritepost *.vim source $HOME/.vimrc
+autocmd! bufwritepost *.vim source $HOME/.config/nvim/init.vim
 
 augroup numbertoggle
   autocmd!
