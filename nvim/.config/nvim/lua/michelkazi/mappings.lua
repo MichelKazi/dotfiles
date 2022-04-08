@@ -4,27 +4,40 @@ end
 
 -- comment.lua
 
--- # NORMAL mode
-
 -- Linewise toggle current line using C-/
 map('n', '<leader>cc', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>')
--- or with dot-repeat support
--- map('n', '<C-_>', '<CMD>lua require("Comment.api").call("toggle_current_linewise_op")<CR>g@$')
-
 -- Blockwise toggle current line using C-\
 map('n', '<C-\\>', '<CMD>lua require("Comment.api").toggle_current_blockwise()<CR>')
--- or with dot-repeat support
--- map('n', '<C-\\>', '<CMD>lua require("Comment.api").call("toggle_current_blockwise_op")<CR>g@$')
-
--- # VISUAL mode
-
 -- Linewise toggle using C-/
 map('x', '<leader>cc', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
-
 -- Blockwise toggle using <leader>gb
 map('x', '<leader>gb', '<ESC><CMD>lua require("Comment.api").toggle_blockwise_op(vim.fn.visualmode())<CR>')
 
 -- nvimtree.lua
---
 -- Open nvimtree
-map('n', 'C-n', ':NvimTreeFindFileToggle<CR>')
+map('n', '<C-n>', '<CMD>:NvimTreeFindFileToggle<CR>')
+
+-- Telescope
+map('n', '<leader>f', "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>")
+map('n', "<c-t>", "<cmd>Telescope live_grep<cr>")
+
+-- Buffer nav
+-- Navigate buffers
+map("n", "<S-l>", ":bnext<CR>")
+map("n", "<S-h>", ":bprevious<CR>")
+
+-- Move text up and down
+map("n", "<S-j>", "<Esc>:m .+1<CR>==gi")
+map("n", "<S-k>", "<Esc>:m .-2<CR>==gi")
+
+-- Move text up and down
+map("v", "<S-j>", ":m .+1<CR>==")
+map("v", "<S-k>", ":m .-2<CR>==")
+map("v", "p", '"_dP')
+
+-- Visual Block --
+-- Move text up and down
+map("x", "J", ":move '>+1<CR>gv-gv")
+map("x", "K", ":move '<-2<CR>gv-gv")
+map("x", "<S-j>", ":move '>+1<CR>gv-gv")
+map("x", "<S-k>", ":move '<-2<CR>gv-gv")

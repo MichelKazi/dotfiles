@@ -1,5 +1,6 @@
-require("michelkazi.lspconfig")
+require("michelkazi.lsp")
 require("michelkazi.cmp")
+require("michelkazi.lua-line")
 require("michelkazi.tmuxnav")
 require("michelkazi.treesitter")
 require("michelkazi.comment")

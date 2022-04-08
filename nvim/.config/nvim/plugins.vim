@@ -13,16 +13,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'p00f/nvim-ts-rainbow'
-Plug 'sainnhe/gruvbox-material'
-Plug 'gruvbox-community/gruvbox'
 Plug 'alexghergh/nvim-tmux-navigation'
 Plug 'simeji/winresizer'
 Plug 'alvan/vim-closetag', {'for': ['html', 'xml','javascriptreact', 'javascript']}
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
-Plug 'matze/vim-move'
-" Plug 'scrooloose/nerdcommenter'
-" Plug 'scrooloose/nerdtree'
+" Plug 'matze/vim-move'
 Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -39,17 +35,23 @@ Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'crispgm/nvim-tabline'
-Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
+" Plug 'itchyny/lightline.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+" Colorschemes
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'gruvbox-community/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 
 " Lsp
 Plug 'neovim/nvim-lspconfig'     
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'folke/lua-dev.nvim'
 " Autocompletion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -65,21 +67,21 @@ syntax enable
 """
 " vim-move
 """
-let g:move_key_modifier = 'S'
+" let g:move_key_modifier = 'S'
 
 """
 " Lightline
 """
-let g:lightline = { 
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
-      \ },
-      \ 'component_function': {
-      \ 'gitbranch': 'gitbranch#name'
-      \   },
-      \ }
+" let g:lightline = { 
+"       \ 'colorscheme': 'tokyonight',
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ],
+"       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
+"       \ },
+"       \ 'component_function': {
+"       \ 'gitbranch': 'gitbranch#name'
+"       \   },
+"       \ }
 """
 " let g:lightline.separator = {
       " \   'left': '', 'right': ''
@@ -96,19 +98,6 @@ set noshowmode
 let g:signify_sign_add = ''
 let g:signify_sign_delete = ''
 let g:signify_sign_change = ''
-
-"""
-"	NERDTree
-"""
-" let g:NERDTreeShowLineNumbers=1
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" let NERDTreeQuitOnOpen = 1
-" let NERDTreeAutoDeleteBuffer = 1
-" let NERDTreeMinimalUI = 1
-" let NERDTreeDirArrows = 1
 
 """
 "	Pandoc
@@ -149,42 +138,6 @@ au BufWritePost *.go :silent GoFmt
 let g:rustfmt_autosave = 1
 
 """
-" COC
-"""
-" coc_config_directory
-let g:coc_config_home = '~/dotfiles/vim/coc'
-let g:coc_global_extensions = [
-      \'coc-tsserver',
-      \'coc-json',
-      \'coc-fish',
-      \'coc-vimlsp',
-      \'coc-snippets'
-      \]
-"GoTo code navigation.
-nmap <silent> <leader>gt :vsp<CR><Plug>(coc-definition)
-nmap <silent> <leader>gtt :tab<CR><Plug>(coc-definition)
-nmap <silent> <leader>gy <Plug>(coc-type-definition)
-nmap <silent> <leader>gi <Plug>(coc-implementation)
-nmap <silent> <leader>gr <Plug>(coc-references)""
-" Rename symbols
-nmap <leader>rn <Plug>(coc-rename)
-" Allow COC to prompt code actions to fix errors
-nmap <leader>do <Plug>(coc-codeaction)
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-" inoremap <silent><expr> <Tab>
-      " \ pumvisible() ? "\<C-n>" :
-      " \ <SID>check_back_space() ? "\<Tab>" :
-      " \ coc#refresh()
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-
-"""
 " Highlight TODO, FIXME, NOTE, etc.
 """
 if has('autocmd') && v:version > 701
@@ -207,22 +160,6 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
 
-"""
-" ctrlsf.vim
-"""
-nmap     <C-f>f <Plug>CtrlSFPrompt
-vmap     <C-f>f <Plug>CtrlSFVwordPath
-vmap     <C-f>F <Plug>CtrlSFVwordExec
-nmap     <C-f>n <Plug>CtrlSFCwordPath
-nmap     <C-f>p <Plug>CtrlSFPwordPath
-nnoremap <C-f>o :CtrlSFOpen<CR>
-nnoremap <C-f>t :CtrlSFToggle<CR>
-inoremap <C-f>t <Esc>:CtrlSFToggle<CR>
-
-"""
-" NerdCommenter
-"""
-let g:NERDSpaceDelims = 1
 
 """
 " Lua Plugins
