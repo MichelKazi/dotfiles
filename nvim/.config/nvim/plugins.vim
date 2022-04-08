@@ -11,7 +11,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'alexghergh/nvim-tmux-navigation'
 Plug 'simeji/winresizer'
@@ -31,10 +30,10 @@ Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'yuezk/vim-js', {'for': 'javascript'}
 Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascriptreact'}
 " Plug 'mhinz/vim-signify'
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dyng/ctrlsf.vim'
-Plug 'crispgm/nvim-tabline'
+" Plug 'crispgm/nvim-tabline'
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 Plug 'nvim-lualine/lualine.nvim'
 " Plug 'itchyny/lightline.vim'
 Plug 'nvim-lua/plenary.nvim'
@@ -64,32 +63,6 @@ call plug#end()            " required
 filetype plugin indent on    " required
 syntax enable
 
-"""
-" vim-move
-"""
-" let g:move_key_modifier = 'S'
-
-"""
-" Lightline
-"""
-" let g:lightline = { 
-"       \ 'colorscheme': 'tokyonight',
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste' ],
-"       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
-"       \ },
-"       \ 'component_function': {
-"       \ 'gitbranch': 'gitbranch#name'
-"       \   },
-"       \ }
-"""
-" let g:lightline.separator = {
-      " \   'left': '', 'right': ''
-      " \}
-" let g:lightline.subseparator = {
-      " \   'left': '', 'right': ''
-      " \}
-"""
 set noshowmode
 
 """
@@ -118,24 +91,6 @@ nnoremap <leader>gd :Gvdiffsplit!<CR>
 nnoremap gh :diffget //2<CR>
 nnoremap gu :diffget //3<CR>
 nnoremap <leader>gb :Git blame<CR>
-
-"""
-"" Go
-"""
-let g:go_fmt_command="goimports"
-let g:go_fmt_autosave=1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-
-au BufWritePost *.go :silent GoFmt
-
-"""
-" Rust
-"""
-let g:rustfmt_autosave = 1
 
 """
 " Highlight TODO, FIXME, NOTE, etc.

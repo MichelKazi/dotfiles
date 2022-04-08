@@ -21,10 +21,10 @@ map('n', '<C-n>', '<CMD>:NvimTreeFindFileToggle<CR>')
 map('n', '<leader>f', "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>")
 map('n', "<c-t>", "<cmd>Telescope live_grep<cr>")
 
--- Buffer nav
--- Navigate buffers
-map("n", "<S-l>", ":bnext<CR>")
-map("n", "<S-h>", ":bprevious<CR>")
+
+-- Navigate tabs
+map("n", "<S-l>", ":tabnext<CR>")
+map("n", "<S-h>", ":tabprevious<CR>")
 
 -- Move text up and down
 map("n", "<S-j>", "<Esc>:m .+1<CR>==gi")
