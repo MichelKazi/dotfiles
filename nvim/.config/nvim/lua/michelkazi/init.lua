@@ -1,5 +1,8 @@
 require("michelkazi.lspconfig")
+require("michelkazi.cmp")
 require("michelkazi.tmuxnav")
 require("michelkazi.treesitter")
 require("michelkazi.comment")
 require("michelkazi.gitsigns")
+require("michelkazi.nvimtree")
+require("michelkazi.mappings")

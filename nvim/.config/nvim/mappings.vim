@@ -1,6 +1,8 @@
 " ----- REMAPS ---------------------------------------------------------------
 map q: <Nop>
-map <C-n> :NERDTreeToggle %<CR>
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+" map <C-n> :NERDTreeToggle %<CR>
 "map <C-n> :CocCommand explorer<CR>
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 noremap <up>    :echom 'HEY STUPID. USE K TO GO UP'<CR>
