@@ -10,6 +10,7 @@
 # Session
 Session.vim
 Sessionx.vim
+nvim/.config/nvim/sessions/*
 
 # Temporary
 .netrwhist
