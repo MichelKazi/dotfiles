@@ -39,7 +39,7 @@ vim.keymap.set('n', ';f',
     })
   end)
 
-vim.keymap.set('<c-t>', ';r', function()
+vim.keymap.set('n', '<c-t>', function()
   builtin.live_grep()
 end)
 vim.keymap.set('n', '\\\\', function()
