@@ -1,8 +1,8 @@
-# Start fish in tmux
-if status is-interactive
-and not set -q TMUX
-   exec tmux new-session -A -s Base
-end
+# # Start fish in tmux
+# if status is-interactive
+# and not set -q TMUX
+#    exec tmux new-session -A -s Base
+# end
 
 set theme_nerd_fonts yes
 
@@ -67,9 +67,14 @@ alias pls='sudo'
 source ~/dotfiles/fish/.config/fish/mkcd.fish
 source ~/dotfiles/fish/.config/fish/venvinit.fish
 source ~/dotfiles/fish/.config/fish/vfinit.fish
-source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
+source ~/dotfiles/fish/.config/fish/themes/tokyonight.fish
 source ~/dotfiles/btf_colors/bobthefish-glyphs-custom-separators.fish
-#source ~/dotfiles/btf_colors/bobthefish-theme-gruvbox-v2.fish
+source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
+
+if test -e ~/.config/fish/secrets.fish
+  source ~/.config/fish/secrets.fish
+end
+
 ##### Development Configs
 
 ## Python
@@ -80,6 +85,8 @@ set -x GOPATH ~/go
 # add the go bin path to be able to execute our programs
 set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 test -s ~/.nvm-fish/nvm.fish; and source ~/.nvm-fish/nvm.fish
+# Java
+set -gx JAVA_HOME (/usr/libexec/java_home)
 
 ## NPM
 set NPM_PACKAGES "$HOME/.npm-packages"
@@ -89,3 +96,8 @@ set PATH $NPM_PACKAGES/bin $PATH
 set MANPATH $NPM_PACKAGES/share/man $MANPATH  
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+
+set -gx ZWIFT_SRC_HOME "$HOME/zwift"
+
+starship init fish | source

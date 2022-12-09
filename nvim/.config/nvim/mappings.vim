@@ -1,7 +1,7 @@
 " ----- REMAPS ---------------------------------------------------------------
 map q: <Nop>
 
-nnoremap <C-n> :NvimTreeToggle<CR>
+" nnoremap <C-n> :NvimTreeToggle<CR>
 " map <C-n> :NERDTreeToggle %<CR>
 "map <C-n> :CocCommand explorer<CR>
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>

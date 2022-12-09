@@ -10,7 +10,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'kyazdani42/nvim-tree.lua'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'alexghergh/nvim-tmux-navigation'
 Plug 'simeji/winresizer'
@@ -20,18 +19,16 @@ Plug 'ryanoasis/vim-devicons'
 " Plug 'matze/vim-move'
 Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'tpope/vim-fugitive'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-pandoc/vim-pandoc', {'for': 'markdown.pandoc'}
 Plug 'vim-pandoc/vim-pandoc-syntax' , {'for': 'markdown.pandoc'}
 Plug 'tpope/vim-surround'
 Plug 'itchyny/vim-gitbranch'
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-Plug 'yuezk/vim-js', {'for': 'javascript'}
-Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascriptreact'}
+" Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+" Plug 'yuezk/vim-js', {'for': 'javascript'}
+" Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascriptreact'}
 " Plug 'mhinz/vim-signify'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'dyng/ctrlsf.vim'
 " Plug 'crispgm/nvim-tabline'
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 Plug 'nvim-lualine/lualine.nvim'
@@ -50,7 +47,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'folke/lua-dev.nvim'
+Plug 'folke/neodev.nvim'
+Plug 'folke/todo-comments.nvim'
 " Autocompletion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -58,6 +56,11 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'mfussenegger/nvim-dap'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-neo-tree/neo-tree.nvim'
+Plug 'glepnir/dashboard-nvim'
+Plug 'folke/persistence.nvim'
 
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -91,19 +94,6 @@ nnoremap <leader>gd :Gvdiffsplit!<CR>
 nnoremap gh :diffget //2<CR>
 nnoremap gu :diffget //3<CR>
 nnoremap <leader>gb :Git blame<CR>
-
-"""
-" Highlight TODO, FIXME, NOTE, etc.
-"""
-if has('autocmd') && v:version > 701
-  augroup todo
-    autocmd!
-    autocmd Syntax * call matchadd(
-          \ 'Debug',
-          \ '\v\W\zs<(NOTE|INFO|IDEA|TODO|FIXME|CHANGED|XXX|BUG|HACK|TRICKY)>'
-          \ )
-  augroup END
-endif
 
 augroup filetypedetect
   au! BufRead,BufNewFile *.tmpl    setfiletype template

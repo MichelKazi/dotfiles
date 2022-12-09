@@ -15,11 +15,14 @@ map('x', '<leader>gb', '<ESC><CMD>lua require("Comment.api").toggle_blockwise_op
 
 -- nvimtree.lua
 -- Open nvimtree
-map('n', '<C-n>', '<CMD>:NvimTreeFindFileToggle<CR>')
+-- map('n', '<C-n>', '<CMD>:NvimTreeFindFileToggle<CR>')
+map('n', '<C-n>', '<CMD>:NeoTreeRevealToggle<CR>')
 
 -- Telescope
 map('n', '<leader>f', "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>")
+map('n', '<c-f>', "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>")
 map('n', "<c-t>", "<cmd>Telescope live_grep<cr>")
+map('n', "<c-y>", "<cmd>Telescope grep_string<cr>")
 
 
 -- Navigate tabs
@@ -27,8 +30,8 @@ map("n", "<S-l>", ":tabnext<CR>")
 map("n", "<S-h>", ":tabprevious<CR>")
 
 -- Move text up and down
-map("n", "<S-j>", "<Esc>:m .+1<CR>==gi")
-map("n", "<S-k>", "<Esc>:m .-2<CR>==gi")
+map("n", "<S-j>", "<Esc>:m .+1<CR>==")
+map("n", "<S-k>", "<Esc>:m .-2<CR>==")
 
 -- Move text up and down
 map("v", "<S-j>", ":m .+1<CR>==")

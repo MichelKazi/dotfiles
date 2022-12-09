@@ -50,7 +50,7 @@ nvim_tree.setup {
   update_cwd = true,
   update_to_buf_dir = {
     enable = true,
-    auto_open = true,
+    auto_open = true
   },
   diagnostics = {
     enable = true,
@@ -63,7 +63,7 @@ nvim_tree.setup {
   },
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    update_cwd = false,
     ignore_list = {},
   },
   git = {
@@ -91,6 +91,10 @@ nvim_tree.setup {
     number = false,
     relativenumber = false,
   },
+  trash = {
+    cmd = "trash",
+    require_confirm = true,
+  },
   quit_on_open = 1,
   git_hl = 1,
   disable_window_picker = 0,
@@ -100,6 +104,6 @@ nvim_tree.setup {
     folders = 1,
     files = 1,
     folder_arrows = 1,
-    tree_width = 30,
+    tree_width = 50,
   },
 }
