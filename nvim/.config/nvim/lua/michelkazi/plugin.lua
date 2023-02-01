@@ -47,11 +47,20 @@ packer.startup(function(use)
   })
   use 'akinsho/nvim-bufferline.lua'
   -- use 'github/copilot.vim'
+  use 'simeji/winresizer'
 
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim' -- For git blame & browse
 
   use 'folke/tokyonight.nvim' -- colorscheme
   use 'alexghergh/nvim-tmux-navigation'
+  use 'ray-x/guihua.lua'
+  use({
+    'ray-x/navigator.lua',
+    requires = {
+      { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+      { 'neovim/nvim-lspconfig' },
+    },
+  })
 
 end)

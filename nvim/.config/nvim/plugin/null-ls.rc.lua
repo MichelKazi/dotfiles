@@ -12,6 +12,14 @@ local lsp_formatting = function(bufnr)
   })
 end
 
+vim.api.nvim_create_user_command(
+  'DisableLspFormatting',
+  function()
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = 0 })
+  end,
+  { nargs = 0 }
+)
+
 null_ls.setup {
   sources = {
     null_ls.builtins.diagnostics.fish,
@@ -24,7 +32,8 @@ null_ls.setup {
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.formatting.prettier.with({
       filetypes = {
-        "javascriptreact","javascript","typescript","typescriptreact","css","scss","html","json","markdown","graphql","md","txt",
+        "javascriptreact", "javascript", "typescript", "typescriptreact", "css", "scss", "html", "json", "markdown",
+        "graphql", "md", "txt",
       }
     }),
   },
@@ -39,13 +48,8 @@ null_ls.setup {
         end,
       })
     end
+    if vim.bo.filetype == "yaml" then
+      vim.api.DisableLspFormatting({})
+    end
   end
 }
-
-vim.api.nvim_create_user_command(
-  'DisableLspFormatting',
-  function()
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = 0 })
-  end,
-  { nargs = 0 }
-)

@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/michel.kazi/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["guihua.lua"] = {
+    loaded = true,
+    path = "/Users/michel.kazi/.local/share/nvim/site/pack/packer/start/guihua.lua",
+    url = "https://github.com/ray-x/guihua.lua"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/michel.kazi/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -138,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/michel.kazi/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["navigator.lua"] = {
+    loaded = true,
+    path = "/Users/michel.kazi/.local/share/nvim/site/pack/packer/start/navigator.lua",
+    url = "https://github.com/ray-x/navigator.lua"
   },
   ["neo-tree.nvim"] = {
     loaded = true,
