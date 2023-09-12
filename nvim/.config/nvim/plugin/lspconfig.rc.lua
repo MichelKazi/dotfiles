@@ -10,6 +10,7 @@ local enable_format_on_save = function(_, bufnr)
   vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
   vim.api.nvim_create_autocmd("BufWritePre", {
     group = augroup_format,
+    pattern = { "*.tfvars", "*.tf", "*.js", "*.jsx", "*.tsx" },
     buffer = bufnr,
     callback = function()
       vim.lsp.buf.format({ bufnr = bufnr })
@@ -76,7 +77,7 @@ nvim_lsp.flow.setup {
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { 
+  filetypes = {
     "typescript",
     "typescriptreact",
     "typescript.tsx",
@@ -85,6 +86,10 @@ nvim_lsp.tsserver.setup {
   },
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities
+}
+
+nvim_lsp.terraformls.setup {
+  on_attach = on_attach,
 }
 
 nvim_lsp.sourcekit.setup {
