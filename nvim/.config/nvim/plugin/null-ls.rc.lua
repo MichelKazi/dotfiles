@@ -23,13 +23,13 @@ vim.api.nvim_create_user_command(
 null_ls.setup {
   sources = {
     null_ls.builtins.diagnostics.fish,
+    null_ls.builtins.terraform_fmt,
     null_ls.builtins.diagnostics.eslint_d.with({
       prefer_local = "node_modules/.bin",
     }),
     null_ls.builtins.code_actions.eslint_d.with({
       prefer_local = "node_modules/.bin",
     }),
-    null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.formatting.prettier.with({
       filetypes = {
         "javascriptreact", "javascript", "typescript", "typescriptreact", "css", "scss", "html", "json", "markdown",

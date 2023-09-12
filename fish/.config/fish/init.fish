@@ -1,3 +1,5 @@
+source ~/k9s-alias.fish
+
 # # Start fish in tmux
 # if status is-interactive
 # and not set -q TMUX
@@ -25,7 +27,7 @@ alias co='git checkout'
 alias ga='git add .'
 alias gff='git pull; and git pull origin master'
 alias fetchup='git fetch upstream'
-alias commit="yarn commit; or git commit"
+alias commit="git commit"
 # github setup to avoid clashing users with company bitbucket
 alias githubsetup='git config --local user.email "michel.m.kazi@gmail.com"; and git config --local user.name "michelkazi"' 
 alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and git config --local user.name "MICHEL KAZI"' 
@@ -101,3 +103,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 set -gx ZWIFT_SRC_HOME "$HOME/zwift"
 
 starship init fish | source
+
+set -gx GPG_TTY "/dev/ttys001"
