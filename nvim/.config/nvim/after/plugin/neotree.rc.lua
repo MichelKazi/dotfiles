@@ -385,7 +385,7 @@ use_libuv_file_watcher = false, -- This will use the OS level file watchers to d
 
 require("neo-tree").setup(config)
 
-vim.keymap.set('n','<C-n>', '<CMD>:NeoTreeRevealToggle<CR>')
+vim.keymap.set('n','<C-n>', '<CMD>:NeoTree toggle<CR>')
 
 -- vim.cmd[[
 -- augroup NEOTREE_AUGROUP

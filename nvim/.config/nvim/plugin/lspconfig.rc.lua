@@ -41,23 +41,23 @@ end
 
 protocol.CompletionItemKind = {
   '', -- Text
-  '', -- Method
-  '', -- Function
-  '', -- Constructor
+  '󰊕', -- Method
+  '󰊕', -- Function
+  '󰊕', -- Constructor
   '', -- Field
   '', -- Variable
   '', -- Class
-  'ﰮ', -- Interface
-  '', -- Module
+  '', -- Interface
+  '', -- Module
   '', -- Property
   '', -- Unit
-  '', -- Value
+  '', -- Value
   '', -- Enum
   '', -- Keyword
-  '﬌', -- Snippet
+  '󱞩', -- Snippet
   '', -- Color
   '', -- File
-  '', -- Reference
+  '󰆑', -- Reference
   '', -- Folder
   '', -- EnumMember
   '', -- Constant
@@ -97,7 +97,7 @@ nvim_lsp.sourcekit.setup {
   capabilities = capabilities,
 }
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
@@ -136,15 +136,15 @@ nvim_lsp.astro.setup {
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  update_in_insert = false,
-  virtual_text = { spacing = 4, prefix = "●" },
-  severity_sort = true,
-}
+    underline = true,
+    update_in_insert = false,
+    virtual_text = { spacing = 4, prefix = "●" },
+    severity_sort = true,
+  }
 )
 
 -- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = "", Warn = " ", Hint = "", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })

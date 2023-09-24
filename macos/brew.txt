@@ -18,3 +18,4 @@ tmux
 unibilium
 utf8proc
 yarn
+starship

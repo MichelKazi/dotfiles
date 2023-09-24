@@ -1,4 +1,3 @@
-source ~/k9s-alias.fish
 
 # # Start fish in tmux
 # if status is-interactive
@@ -75,6 +74,10 @@ source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
 
 if test -e ~/.config/fish/secrets.fish
   source ~/.config/fish/secrets.fish
+end
+
+if test -e ~/.config/fish/k9s-alias.fish
+  source ~/k9s-alias.fish
 end
 
 ##### Development Configs
