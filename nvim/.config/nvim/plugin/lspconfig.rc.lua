@@ -89,7 +89,10 @@ nvim_lsp.tsserver.setup {
 }
 
 nvim_lsp.terraformls.setup {
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    enable_format_on_save(client, bufnr)
+  end
 }
 
 nvim_lsp.sourcekit.setup {

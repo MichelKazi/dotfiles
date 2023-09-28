@@ -9,7 +9,6 @@ local config = {
   -- popup_border_style is for input and confirmation dialogs.
   -- Configurtaion of floating window is done in the individual source sections.
   -- "NC" is a special style that works well with NormalNC set
-  close_floats_on_escape_key = true,
   default_source = "filesystem",
   enable_diagnostics = true,
   enable_git_status = true,
@@ -23,15 +22,15 @@ local config = {
     max_lines = 10000, -- How many lines of git status results to process. Anything after this will be dropped.
     -- Anything before this will be used. The last items to be processed are the untracked files.
   },
-  log_level = "info", -- "trace", "debug", "info", "warn", "error", "fatal"
-  log_to_file = false, -- true, false, "/path/to/file.log", use :NeoTreeLogs to show the file
+  log_level = "info",               -- "trace", "debug", "info", "warn", "error", "fatal"
+  log_to_file = false,              -- true, false, "/path/to/file.log", use :NeoTreeLogs to show the file
   open_files_in_last_window = true, -- false = open files in top left window
-  popup_border_style = "NC", -- "double", "none", "rounded", "shadow", "single" or "solid"
-  resize_timer_interval = 500, -- in ms, needed for containers to redraw right aligned and faded content
+  popup_border_style = "NC",        -- "double", "none", "rounded", "shadow", "single" or "solid"
+  resize_timer_interval = 500,      -- in ms, needed for containers to redraw right aligned and faded content
   -- set to -1 to disable the resize timer entirely
   --                           -- NOTE: this will speed up to 50 ms for 1 second following a resize
   sort_case_insensitive = false, -- used when sorting files and directories in the tree
-  use_popups_for_input = true, -- If false, inputs will use vim.ui.input() instead of custom floats.
+  use_popups_for_input = true,   -- If false, inputs will use vim.ui.input() instead of custom floats.
   use_default_mappings = true,
   event_handlers = {
     {
@@ -39,12 +38,12 @@ local config = {
       handler = function(arg)
         vim.cmd [[
           setlocal relativenumber
-        ]]
+          ]]
       end,
-   {
-     event = "file_opened",
-     handler = utils.wrap(require("neo-tree").close_all, nil),
-   },
+      {
+        event = "file_opened",
+        handler = utils.wrap(require("neo-tree").close_all, nil),
+      },
     }
   },
   --
@@ -139,12 +138,12 @@ local config = {
         deleted   = "",
         modified  = "",
         renamed   = "",
-        unmerged = "",
+        unmerged  = "",
         -- Status type
         untracked = "",
-        ignored = "◌",
-        unstaged = "",
-        staged = "",
+        ignored   = "◌",
+        unstaged  = "",
+        staged    = "",
         conflict  = "",
       },
       align = "right",
@@ -161,13 +160,13 @@ local config = {
         right_padding = 1,
         --max_width = 60,
         content = {
-          { "name", zindex = 10 },
+          { "name",        zindex = 10 },
           {
             "symlink_target",
             zindex = 10,
             highlight = "NeoTreeSymbolicLinkTarget",
           },
-          { "clipboard", zindex = 10 },
+          { "clipboard",   zindex = 10 },
           { "diagnostics", errors_only = true, zindex = 20, align = "right" },
         },
       },
@@ -191,17 +190,17 @@ local config = {
             zindex = 10,
             highlight = "NeoTreeSymbolicLinkTarget",
           },
-          { "clipboard", zindex = 10 },
-          { "bufnr", zindex = 10 },
-          { "modified", zindex = 20, align = "right" },
-          { "diagnostics",  zindex = 20, align = "right" },
-          { "git_status", zindex = 20, align = "right" },
+          { "clipboard",   zindex = 10 },
+          { "bufnr",       zindex = 10 },
+          { "modified",    zindex = 20, align = "right" },
+          { "diagnostics", zindex = 20, align = "right" },
+          { "git_status",  zindex = 20, align = "right" },
         },
       },
     },
     message = {
       { "indent", with_markers = false },
-      { "name", highlight = "NeoTreeMessage" },
+      { "name",   highlight = "NeoTreeMessage" },
     },
     terminal = {
       { "indent" },
@@ -211,60 +210,60 @@ local config = {
     }
   },
   nesting_rules = {},
-  window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
-  -- possible options. These can also be functions that return these options.
-  position = "left", -- left, right, float, current
-  width = 40, -- applies to left and right positions
-  popup = { -- settings that apply to float position only
-  size = {
-    height = "80%",
-    width = "50%",
-  },
-  position = "50%", -- 50% means center it
-  -- you can also specify border here, if you want a different setting from
-  -- the global popup_border_style.
-},
--- Mappings for tree window. See `:h neo-tree-mappings` for a list of built-in commands.
--- You can also create your own commands by providing a function instead of a string.
-mapping_options = {
-  noremap = true,
-  nowait = true,
-},
-mappings = {
-  ["<space>"] = {
-    "toggle_node",
-    nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
-  },
-  ["<2-LeftMouse>"] = "open",
-  ["<cr>"] = "open",
-  ["S"] = "open_split",
-  -- ["S"] = "split_with_window_picker",
-  ["s"] = "open_vsplit",
-  -- ["s"] = "vsplit_with_window_picker",
-  ["t"] = "open_tabnew",
-  ["w"] = "open_with_window_picker",
-  ["C"] = "close_node",
-  ["z"] = "close_all_nodes",
-  ["R"] = "refresh",
-  ["a"] = {
-    "add",
-    -- some commands may take optional config options, see `:h neo-tree-mappings` for details
-    config = {
-      show_path = "none" -- "none", "relative", "absolute"
-    }
-  },
-  ["A"] = "add_directory", -- also accepts the config.show_path option.
-  ["d"] = "delete",
-  ["r"] = "rename",
-  ["y"] = "copy_to_clipboard",
-  ["x"] = "cut_to_clipboard",
-  ["p"] = "paste_from_clipboard",
-  ["c"] = "copy", -- takes text input for destination
-  ["m"] = "move", -- takes text input for destination
-  ["q"] = "close_window",
-  ["u"] = "navigate_up",
-  ["?"] = "show_help",
-},
+  window = {           -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
+    -- possible options. These can also be functions that return these options.
+    position = "left", -- left, right, float, current
+    width = 40,        -- applies to left and right positions
+    popup = {          -- settings that apply to float position only
+      size = {
+        height = "80%",
+        width = "50%",
+      },
+      position = "50%", -- 50% means center it
+      -- you can also specify border here, if you want a different setting from
+      -- the global popup_border_style.
+    },
+    -- Mappings for tree window. See `:h neo-tree-mappings` for a list of built-in commands.
+    -- You can also create your own commands by providing a function instead of a string.
+    mapping_options = {
+      noremap = true,
+      nowait = true,
+    },
+    mappings = {
+      ["<space>"] = {
+        "toggle_node",
+        nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+      },
+      ["<2-LeftMouse>"] = "open",
+      ["<cr>"] = "open",
+      ["S"] = "open_split",
+      -- ["S"] = "split_with_window_picker",
+      ["s"] = "open_vsplit",
+      -- ["s"] = "vsplit_with_window_picker",
+      ["t"] = "open_tabnew",
+      ["w"] = "open_with_window_picker",
+      ["C"] = "close_node",
+      ["z"] = "close_all_nodes",
+      ["R"] = "refresh",
+      ["a"] = {
+        "add",
+        -- some commands may take optional config options, see `:h neo-tree-mappings` for details
+        config = {
+          show_path = "none" -- "none", "relative", "absolute"
+        }
+      },
+      ["A"] = "add_directory", -- also accepts the config.show_path option.
+      ["d"] = "delete",
+      ["r"] = "rename",
+      ["y"] = "copy_to_clipboard",
+      ["x"] = "cut_to_clipboard",
+      ["p"] = "paste_from_clipboard",
+      ["c"] = "copy", -- takes text input for destination
+      ["m"] = "move", -- takes text input for destination
+      ["q"] = "close_window",
+      ["u"] = "navigate_up",
+      ["?"] = "show_help",
+    },
   },
   filesystem = {
     window = {
@@ -291,9 +290,9 @@ mappings = {
     --         The first field in each component is the name of the function to call.
     --         The rest of the fields are passed to the function as the "config" argument.
     filtered_items = {
-      visible = false, -- when true, they will just be displayed differently than normal items
+      visible = false,                      -- when true, they will just be displayed differently than normal items
       force_visible_in_empty_folder = true, -- when true, hidden files will be shown if the root folder is otherwise empty
-      show_hidden_count = false, -- when true, the number of hidden items in each folder will be shown as the last entry
+      show_hidden_count = false,            -- when true, the number of hidden items in each folder will be shown as the last entry
       hide_dotfiles = false,
       hide_gitignored = true,
       hide_hidden = true, -- only works on Windows for hidden files/directories
@@ -303,62 +302,67 @@ mappings = {
         "node_modules",
       },
       hide_by_pattern = { -- uses glob style patterns
-      --"*.meta"
+        --"*.meta"
+      },
+      never_show = { -- remains hidden even if visible is toggled to true
+        ".DS_Store",
+        "thumbs.db"
+      },
     },
-    never_show = { -- remains hidden even if visible is toggled to true
-      ".DS_Store",
-      "thumbs.db"
-  },
-},
-find_by_full_path_words = false,  -- `false` means it only searches the tail of a path.
--- `true` will change the filter into a full path
--- search with space as an implicit ".*", so
--- `fi init`
--- will match: `./sources/filesystem/init.lua
---find_command = "fd", -- this is determined automatically, you probably don't need to set it
---find_args = {  -- you can specify extra args to pass to the find command.
---  fd = {
---  "--exclude", ".git",
---  "--exclude",  "node_modules"
---  }
---},
----- or use a function instead of list of strings
---find_args = function(cmd, path, search_term, args)
---  if cmd ~= "fd" then
---    return args
---  end
---  --maybe you want to force the filter to always include hidden files:
---  table.insert(args, "--hidden")
---  -- but no one ever wants to see .git files
---  table.insert(args, "--exclude")
---  table.insert(args, ".git")
---  -- or node_modules
---  table.insert(args, "--exclude")
---  table.insert(args, "node_modules")
---  --here is where it pays to use the function, you can exclude more for
---  --short search terms, or vary based on the directory
---  if string.len(search_term) < 4 and path == "/home/cseickel" then
---    table.insert(args, "--exclude")
---    table.insert(args, "Library")
---  end
---  return args
---end,
-group_empty_dirs = false, -- when true, empty folders will be grouped together
-search_limit = 50, -- max number of search results when using filters
-follow_current_file = true, -- This will find and focus the file in the active buffer every time
--- the current file is changed while the tree is open.
-hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
--- in whatever position is specified in window.position
--- "open_current",-- netrw disabled, opening a directory opens within the
--- window like netrw would, regardless of window.position
--- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
--- instead of relying on nvim autocmd events.
+    find_by_full_path_words = false, -- `false` means it only searches the tail of a path.
+    -- `true` will change the filter into a full path
+    -- search with space as an implicit ".*", so
+    -- `fi init`
+    -- will match: `./sources/filesystem/init.lua
+    --find_command = "fd", -- this is determined automatically, you probably don't need to set it
+    --find_args = {  -- you can specify extra args to pass to the find command.
+    --  fd = {
+    --  "--exclude", ".git",
+    --  "--exclude",  "node_modules"
+    --  }
+    --},
+    ---- or use a function instead of list of strings
+    --find_args = function(cmd, path, search_term, args)
+    --  if cmd ~= "fd" then
+    --    return args
+    --  end
+    --  --maybe you want to force the filter to always include hidden files:
+    --  table.insert(args, "--hidden")
+    --  -- but no one ever wants to see .git files
+    --  table.insert(args, "--exclude")
+    --  table.insert(args, ".git")
+    --  -- or node_modules
+    --  table.insert(args, "--exclude")
+    --  table.insert(args, "node_modules")
+    --  --here is where it pays to use the function, you can exclude more for
+    --  --short search terms, or vary based on the directory
+    --  if string.len(search_term) < 4 and path == "/home/cseickel" then
+    --    table.insert(args, "--exclude")
+    --    table.insert(args, "Library")
+    --  end
+    --  return args
+    --end,
+    group_empty_dirs = false, -- when true, empty folders will be grouped together
+    search_limit = 50,        -- max number of search results when using filters
+    follow_current_file = {
+      enabled = true
+    },                                      -- This will find and focus the file in the active buffer every time
+    -- the current file is changed while the tree is open.
+    hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+    -- in whatever position is specified in window.position
+    -- "open_current",-- netrw disabled, opening a directory opens within the
+    -- window like netrw would, regardless of window.position
+    -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
+    use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+    -- instead of relying on nvim autocmd events.
   },
   buffers = {
-    bind_to_cwd = true,
-    follow_current_file = true, -- This will find and focus the file in the active buffer every time
+    -- This will find and focus the file in the active buffer every time
     -- the current file is changed while the tree is open.
+    follow_current_file = {
+      enabled = true
+    },
+    bind_to_cwd = true,
     group_empty_dirs = true, -- when true, empty directories will be grouped together
     window = {
       mappings = {
@@ -385,7 +389,7 @@ use_libuv_file_watcher = false, -- This will use the OS level file watchers to d
 
 require("neo-tree").setup(config)
 
-vim.keymap.set('n','<C-n>', '<CMD>:NeoTree toggle<CR>')
+vim.keymap.set('n', '<C-n>', '<CMD>:Neotree toggle<CR>')
 
 -- vim.cmd[[
 -- augroup NEOTREE_AUGROUP

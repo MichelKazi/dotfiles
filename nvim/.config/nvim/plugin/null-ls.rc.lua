@@ -23,7 +23,6 @@ vim.api.nvim_create_user_command(
 null_ls.setup {
   sources = {
     null_ls.builtins.diagnostics.fish,
-    null_ls.builtins.terraform_fmt,
     null_ls.builtins.diagnostics.eslint_d.with({
       prefer_local = "node_modules/.bin",
     }),
