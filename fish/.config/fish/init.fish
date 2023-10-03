@@ -32,7 +32,10 @@ alias githubsetup='git config --local user.email "michel.m.kazi@gmail.com"; and 
 alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and git config --local user.name "MICHEL KAZI"' 
 
 ## Dotfile Configs
-alias ckitty='vim ~/dotfiles/kitty/.config/kitty.conf'
+alias skhdrc='vim ~/dotfiles/skhd/.config/skhd'
+alias yabairc='vim ~/dotfiles/yabai/.config/yabai'
+alias sketchybarrc='vim ~/dotfiles/yabai/.config/yabai'
+alias ckitty='vim ~/dotfiles/kitty/.config/kitty/kitty.conf'
 alias vrc='vim ~/dotfiles/nvim/.config/nvim/'
 alias dotpush='dotfiles; and ./deploy.bash; and back'
 alias dotpull='dotfiles; and git pull; and back'
