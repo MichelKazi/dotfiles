@@ -19,3 +19,5 @@ nvim/.config/nvim/sessions/*
 tags
 # Persistent undo
 [._]*.un~
+
+**/.DS_Store
