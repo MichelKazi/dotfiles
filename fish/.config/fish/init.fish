@@ -76,7 +76,7 @@ if test -e ~/.config/fish/secrets.fish
   source ~/.config/fish/secrets.fish
 end
 
-if test -e ~/.config/fish/k9s-alias.fish
+if test -e ~/k9s-alias.fish
   source ~/k9s-alias.fish
 end
 
