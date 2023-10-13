@@ -9,17 +9,21 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
+    'jemag/telescope-diff.nvim',
+    requires = { 'nvim-telescope/telescope.nvim' }
+  }
+  use {
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
-  use 'nvim-lualine/lualine.nvim' -- Statusline
-  use 'nvim-lua/plenary.nvim' -- Common utilities
-  use 'onsails/lspkind-nvim' -- vscode-like pictograms
-  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
-  use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/nvim-cmp' -- Completion
-  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
-  use 'neovim/nvim-lspconfig' -- LSP
+  use 'nvim-lualine/lualine.nvim'       -- Statusline
+  use 'nvim-lua/plenary.nvim'           -- Common utilities
+  use 'onsails/lspkind-nvim'            -- vscode-like pictograms
+  use 'hrsh7th/cmp-buffer'              -- nvim-cmp source for buffer words
+  use 'hrsh7th/cmp-nvim-lsp'            -- nvim-cmp source for neovim's built-in LSP
+  use 'hrsh7th/nvim-cmp'                -- Completion
+  use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
+  use 'neovim/nvim-lspconfig'           -- LSP
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
@@ -53,7 +57,7 @@ packer.startup(function(use)
   use 'simeji/winresizer'
 
   use 'lewis6991/gitsigns.nvim'
-  use 'dinhhuy258/git.nvim' -- For git blame & browse
+  use 'dinhhuy258/git.nvim'   -- For git blame & browse
 
   use 'folke/tokyonight.nvim' -- colorscheme
   use 'alexghergh/nvim-tmux-navigation'
@@ -61,9 +65,8 @@ packer.startup(function(use)
   use({
     'ray-x/navigator.lua',
     requires = {
-      { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+      { 'ray-x/guihua.lua',     run = 'cd lua/fzy && make' },
       { 'neovim/nvim-lspconfig' },
     },
   })
-
 end)
