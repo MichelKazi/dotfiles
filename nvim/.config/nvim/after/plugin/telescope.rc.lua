@@ -20,15 +20,16 @@ telescope.setup {
 }
 
 telescope.load_extension("file_browser")
+telescope.load_extension("diff")
 
 -- Telescope
 vim.keymap.set('n', '<leader>f',
   function()
     builtin.find_files(
       require('telescope.themes')
-        .get_dropdown({
-          previewer = false
-        })
+      .get_dropdown({
+        previewer = false
+      })
     )
   end)
 vim.keymap.set('n', ';f',
@@ -66,3 +67,9 @@ vim.keymap.set("n", "sf", function()
     layout_config = { height = 40 }
   })
 end)
+vim.keymap.set("n", "<leader>sC", function()
+  require("telescope").extensions.diff.diff_files({ hidden = true })
+end, { desc = "Compare 2 files" })
+vim.keymap.set("n", "<leader>sc", function()
+  require("telescope").extensions.diff.diff_current({ hidden = true })
+end, { desc = "Compare file with current" })
