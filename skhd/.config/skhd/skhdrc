@@ -50,7 +50,9 @@ shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
 
 # send window to monitor and follow focus
 shift + cmd - right  : yabai -m window --display east; yabai -m display --focus east
+shift + cmd - h  : yabai -m window --display east; yabai -m display --focus east
 shift + cmd - left  : yabai -m window --display west; yabai -m display --focus west
+shift + cmd - l  : yabai -m window --display west; yabai -m display --focus west
 shift + cmd - n : yabai -m window --display next; yabai -m display --focus next
 shift + cmd - left  : yabai -m window --display west; yabai -m display --focus west
 
