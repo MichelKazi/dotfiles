@@ -10,7 +10,7 @@ local enable_format_on_save = function(_, bufnr)
   vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
   vim.api.nvim_create_autocmd("BufWritePre", {
     group = augroup_format,
-    pattern = { "*.tfvars", "*.tf", "*.js", "*.jsx", "*.tsx" },
+    pattern = { "*.tfvars", "*.tf", "*.js", "*.jsx", "*.tsx", "*.go"},
     buffer = bufnr,
     callback = function()
       vim.lsp.buf.format({ bufnr = bufnr })
@@ -145,6 +145,11 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     severity_sort = true,
   }
 )
+
+nvim_lsp.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = "", Warn = " ", Hint = "", Info = " " }

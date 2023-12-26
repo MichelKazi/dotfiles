@@ -40,6 +40,32 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Post alt if tab is held down",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_alt"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "tab"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
