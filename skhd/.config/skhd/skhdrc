@@ -1,11 +1,19 @@
+# Script to check for NVIM
+# terminal_is_running_vim=$(./is-nvim.sh)
+
+# Vim like nav
+# ctrl - h : if [ "$terminal_is_running_vim" != "true" ]; then yabai -m window --focus west; fi
+# ctrl - j : if [ "$terminal_is_running_vim" != "true" ]; then yabai -m window --focus south; fi
+# ctrl - k : if [ "$terminal_is_running_vim" != "true" ]; then yabai -m window --focus north; fi
+# ctrl - l : if [ "$terminal_is_running_vim" != "true" ]; then yabai -m window --focus east; fi
+
+ctrl - h : yabai -m window --focus west
+ctrl - j : yabai -m window --focus south
+ctrl - k : yabai -m window --focus north
+ctrl - l : yabai -m window --focus east
+
 # Create new space
 ctrl + alt - n : yabai -m space --create
-
-# change window focus within space
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - h : yabai -m window --focus west
-alt - l : yabai -m window --focus east
 
 alt - s: yabai -m display --focus west
 alt - g: yabai -m display --focus east

@@ -1,3 +1,5 @@
+local vim = vim
+local api = vim.api
 local keymap = vim.keymap
 
 keymap.set('n', '<Esc><Esc>', '<Esc>:nohlsearch<CR><Esc>')
@@ -45,3 +47,31 @@ keymap.set('n', '<leader>dd', '"+dd')
 keymap.set('n', '<leader>p', '"+p')
 keymap.set('v', '<leader>p', '"+p')
 keymap.set('n', '<leader>P', '"+P')
+-- Yabai configs
+
+local direction_map = {
+  west = "h",
+  south = "j",
+  north = "k",
+  east = "l"
+}
+
+local function run_command(cmd)
+  vim.cmd('!' .. cmd)
+end
+
+local function focus_or_yabai(direction)
+  local prev = vim.api.nvim_get_current_win()
+
+  vim.cmd("wincmd " .. direction_map[direction])
+
+  if prev == vim.api.nvim_get_current_win() then
+    --[[ os.execute("yabai -m window --focus " .. direction) ]]
+    run_command("yabai -m window --focus " .. direction)
+  end
+end
+
+keymap.set('n', '<C-h>', function() focus_or_yabai("west") end, { noremap = true, silent = true })
+keymap.set('n', '<C-j>', function() focus_or_yabai("south") end, { noremap = true, silent = true })
+keymap.set('n', '<C-k>', function() focus_or_yabai("north") end, { noremap = true, silent = true })
+keymap.set('n', '<C-l>', function() focus_or_yabai("east") end, { noremap = true, silent = true })
