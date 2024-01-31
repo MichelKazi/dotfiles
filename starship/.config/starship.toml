@@ -1,6 +1,8 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """\
 []( fg:#7DF9AA)\
-[ 👾](bg:#7DF9AA fg:#090c0c)\
+[👾](bg:#7DF9AA fg:#090c0c)\
 [](fg:#7DF9AA bg:#1C3A5E)\
 $time\
 [](fg:#1C3A5E bg:#3B76F0)\
@@ -10,6 +12,7 @@ $git_branch\
 $git_status\
 $git_metrics\
 [](fg:#FCF392)\
+$python\
 $character\
 """
 
@@ -94,7 +97,12 @@ symbol = " "
 symbol = " "
 
 [python]
-symbol = " "
+format = """
+[ $symbol $version]($style)\
+"""
+symbol = ""
+python_binary = ['./venv/bin/python', 'python', 'python3', 'python2']
+style = "bg:#CC0A8B)"
 
 [ruby]
 symbol = " "

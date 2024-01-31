@@ -60,6 +60,7 @@ alias v='vim'
 alias vg='vim -p (git status --porcelain | awk \'{print $2}\')'
 alias readme='vim README.md'
 alias secrets='vim ~/.config/fish/passwords.fish'
+alias clouddocs="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 
 ## Sanity checks
 alias :wq='echo "You\'re not using VIM, pal"'
@@ -111,3 +112,8 @@ set -gx ZWIFT_SRC_HOME "$HOME/zwift"
 starship init fish | source
 
 set -gx GPG_TTY "/dev/ttys001"
+
+set -gx PYENV_ROOT $HOME/.pyenv
+set -gx fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
+set -gx XDG_CONFIG_HOME $HOME/.config/
