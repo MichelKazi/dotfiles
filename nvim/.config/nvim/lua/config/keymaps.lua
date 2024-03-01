@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 --
 local Util = require("lazyvim.util")
+local nav = require("nvim-tmux-navigation")
 
 local map = Util.safe_keymap_set
 
@@ -18,3 +19,8 @@ end, { desc = "Toggle tree (cwd)" })
 map("n", "<C-e>", function()
   require("neo-tree.command").execute({ toggle = true, dir = Util.root() })
 end, { desc = "Toggle tree (cwd)" })
+
+map("n", "C-h>", nav.NvimTmuxNavigateLeft, { desc = "Navigate left" })
+map("n", "C-j>", nav.NvimTmuxNavigateDown, { desc = "Navigate down" })
+map("n", "C-k>", nav.NvimTmuxNavigateUp, { desc = "Navigate up" })
+map("n", "C-l>", nav.NvimTmuxNavigateRight, { desc = "Navigate right" })
