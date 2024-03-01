@@ -20,6 +20,8 @@ return {
         -- this way you will only jump inside the snippet region
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
+        elseif require("copilot.suggestion").is_visible() then
+          require("copilot.suggestion").accept()
         elseif has_words_before() then
           cmp.complete()
         else
