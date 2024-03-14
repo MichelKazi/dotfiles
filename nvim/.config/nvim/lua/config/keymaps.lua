@@ -4,6 +4,7 @@
 --
 local Util = require("lazyvim.util")
 local tmux = require("nvim-tmux-navigation")
+local neotest = require("neotest")
 
 local map = Util.safe_keymap_set
 
@@ -35,3 +36,9 @@ end)
 map("n", "<C-l>", function()
   tmux.NvimTmuxNavigateRight()
 end)
+
+map("n", "<leader>tl", function()
+  require("neotest").run.run_last()
+end, { desc = "Run last test" })
+
+map("n", "<leader>tw", function() end, { desc = "Run and watch tests" })
