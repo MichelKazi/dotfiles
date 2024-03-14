@@ -16,6 +16,7 @@ alias docs='cd ~/Documents'
 alias projects='cd ~/projects'
 alias dotfiles='cd ~/dotfiles'
 alias ..='cd ..'
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 
 # GrEP
 alias wherethefuckis='grep -nri'
@@ -28,8 +29,8 @@ alias gff='git pull; and git pull origin master'
 alias fetchup='git fetch upstream'
 alias commit="git commit"
 # github setup to avoid clashing users with company bitbucket
-alias githubsetup='git config --local user.email "michel.m.kazi@gmail.com"; and git config --local user.name "michelkazi"' 
-alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and git config --local user.name "MICHEL KAZI"' 
+alias githubsetup='git config --local user.email "michel.m.kazi@gmail.com"; and git config --local user.name "michelkazi"'
+alias bitbucketsetup='git config --local user.email "Michel.Kazi@xandr.com"; and git config --local user.name "MICHEL KAZI"'
 
 ## Dotfile Configs
 alias skhdrc='vim ~/dotfiles/skhd/.config/skhd'
@@ -60,6 +61,7 @@ alias v='vim'
 alias vg='vim -p (git status --porcelain | awk \'{print $2}\')'
 alias readme='vim README.md'
 alias secrets='vim ~/.config/fish/passwords.fish'
+alias clouddocs="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 
 ## Sanity checks
 alias :wq='echo "You\'re not using VIM, pal"'
@@ -76,11 +78,11 @@ source ~/dotfiles/btf_colors/bobthefish-glyphs-custom-separators.fish
 source ~/dotfiles/btf_colors/bobthefish-theme-rigel.fish
 
 if test -e ~/.config/fish/secrets.fish
-  source ~/.config/fish/secrets.fish
+    source ~/.config/fish/secrets.fish
 end
 
 if test -e ~/k9s-alias.fish
-  source ~/k9s-alias.fish
+    source ~/k9s-alias.fish
 end
 
 ##### Development Configs
@@ -101,7 +103,7 @@ set NPM_PACKAGES "$HOME/.npm-packages"
 
 set PATH $NPM_PACKAGES/bin $PATH
 
-set MANPATH $NPM_PACKAGES/share/man $MANPATH  
+set MANPATH $NPM_PACKAGES/share/man $MANPATH
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -110,4 +112,9 @@ set -gx ZWIFT_SRC_HOME "$HOME/zwift"
 
 starship init fish | source
 
-set -gx GPG_TTY "/dev/ttys001"
+set -gx GPG_TTY /dev/ttys001
+
+set -gx PYENV_ROOT $HOME/.pyenv
+set -gx fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
+set -gx XDG_CONFIG_HOME $HOME/.config/

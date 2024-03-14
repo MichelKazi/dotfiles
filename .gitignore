@@ -21,3 +21,5 @@ tags
 [._]*.un~
 
 **/.DS_Store
+
+**/lazy-lock.json

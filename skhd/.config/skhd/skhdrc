@@ -7,10 +7,10 @@
 # ctrl - k : if [ "$terminal_is_running_vim" != "true" ]; then yabai -m window --focus north; fi
 # ctrl - l : if [ "$terminal_is_running_vim" != "true" ]; then yabai -m window --focus east; fi
 
-ctrl - h : yabai -m window --focus west
-ctrl - j : yabai -m window --focus south
-ctrl - k : yabai -m window --focus north
-ctrl - l : yabai -m window --focus east
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
 
 # Create new space
 ctrl + alt - n : yabai -m space --create
@@ -58,9 +58,9 @@ shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
 
 # send window to monitor and follow focus
 shift + cmd - right  : yabai -m window --display east; yabai -m display --focus east
-shift + cmd - h  : yabai -m window --display east; yabai -m display --focus east
+shift + cmd - h  : yabai -m window --display east; yabai -m display --focus west
 shift + cmd - left  : yabai -m window --display west; yabai -m display --focus west
-shift + cmd - l  : yabai -m window --display west; yabai -m display --focus west
+shift + cmd - l  : yabai -m window --display west; yabai -m display --focus east
 shift + cmd - n : yabai -m window --display next; yabai -m display --focus next
 shift + cmd - left  : yabai -m window --display west; yabai -m display --focus west
 

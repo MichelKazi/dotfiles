@@ -1,5 +1,2 @@
-require('michelkazi.base')
-require('michelkazi.mapping')
-require('michelkazi.plugin')
-require('michelkazi.highlight')
-require('michelkazi.colors')
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
