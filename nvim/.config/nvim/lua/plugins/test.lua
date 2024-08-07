@@ -1,10 +1,12 @@
 return {
   {
     "nvim-neotest/neotest",
-    dependencies = { "haydenmeade/neotest-jest" },
+    dependencies = {
+      "haydenmeade/neotest-jest",
+      "olimorris/neotest-rspec",
+    },
     opts = function(_, opts)
-      table.insert(
-        opts.adapters,
+      opts.adapters = {
         require("neotest-jest")({
           jestCommand = "npm run test:nocoverage --",
           jestConfigFile = function()
@@ -23,8 +25,9 @@ return {
             end
             return vim.fn.getcwd()
           end,
-        })
-      )
+        }),
+        require("neotest-rspec"),
+      }
     end,
   },
 }
