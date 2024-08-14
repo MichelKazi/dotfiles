@@ -1,5 +1,0 @@
-require('michelkazi.base')
-require('michelkazi.mapping')
-require('michelkazi.plugin')
-require('michelkazi.highlight')
-require('michelkazi.colors')

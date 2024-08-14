@@ -1,5 +1,5 @@
 local nvim_lsp = require("lspconfig")
-return {
+local ruby_config = {
   { "tpope/vim-rails" },
   {
     "neovim/nvim-lspconfig",
@@ -26,3 +26,5 @@ return {
     },
   },
 }
+
+return ruby_config
