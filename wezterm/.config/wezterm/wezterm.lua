@@ -1,52 +1,6 @@
 local wezterm = require("wezterm")
 local mux = wezterm.mux
 
--- Integration with neovim panes
-local function isViProcess(pane)
-	-- get_foreground_process_name On Linux, macOS and Windows,
-	-- the process can be queried to determine this path. Other operating systems
-	-- (notably, FreeBSD and other unix systems) are not currently supported
-	-- return pane:get_foreground_process_name():find('n?vim') ~= nil
-	-- Use get_title as it works for multiplexed sessions too
-	return pane:get_title():find("n?vim") ~= nil
-end
-
-local function conditionalActivatePane(window, pane, pane_direction, vim_direction)
-	local vim_pane_changed = false
-
-	if isViProcess(pane) then
-		local before = pane:get_cursor_position()
-		window:perform_action(
-			-- This should match the keybinds you set in Neovim.
-			wezterm.action.SendKey({ key = vim_direction, mods = "CTRL" }),
-			pane
-		)
-		wezterm.sleep_ms(100)
-		local after = pane:get_cursor_position()
-
-		if before.x ~= after.x and before.y ~= after.y then
-			vim_pane_changed = true
-		end
-	end
-
-	if not vim_pane_changed then
-		window:perform_action(wezterm.action.ActivatePaneDirection(pane_direction), pane)
-	end
-end
-
-wezterm.on("ActivatePaneDirection-right", function(window, pane)
-	conditionalActivatePane(window, pane, "Right", "l")
-end)
-wezterm.on("ActivatePaneDirection-left", function(window, pane)
-	conditionalActivatePane(window, pane, "Left", "h")
-end)
-wezterm.on("ActivatePaneDirection-up", function(window, pane)
-	conditionalActivatePane(window, pane, "Up", "k")
-end)
-wezterm.on("ActivatePaneDirection-down", function(window, pane)
-	conditionalActivatePane(window, pane, "Down", "j")
-end)
-
 local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
 custom.background = "#000000"
 custom.tab_bar.background = "#040404"
@@ -123,6 +77,19 @@ c.mouse_bindings = {
 		action = wezterm.action.OpenLinkAtMouseCursor,
 	},
 }
+
+local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
+
+smart_splits.apply_to_config(c, {
+
+	direction_keys = {
+		move = { "h", "j", "k", "l" },
+	},
+	modifiers = {
+		move = "CTRL", -- modifier to use for pane movement, e.g. CTRL+h to move left
+		resize = "CTRL|SHIFT", -- modifier to use for pane resize, e.g. META+h to resize to the left
+	},
+})
 
 wezterm.plugin.require("https://github.com/nekowinston/wezterm-bar").apply_to_config(c, {
 	position = "bottom",

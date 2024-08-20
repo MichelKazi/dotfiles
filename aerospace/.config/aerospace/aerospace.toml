@@ -51,6 +51,8 @@ cmd-h = 'macos-native-minimize'
 # Also stupid slack huddle command
 cmd-shift-h = 'macos-native-minimize'
 
+alt-backspace = 'aerospace close --quit-if-last-window'
+
 alt-backtick = 'exec-and-forget open /Applications/Wezterm.app'
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
@@ -117,18 +119,11 @@ backspace = ['close-all-windows-but-current', 'mode main']
 esc = ['reload-config', 'mode main']
 
 [workspace-to-monitor-force-assignment]
-# Even numbers on built-in retina display
-# Odd Numbers on plugged in wide monitor
-
-1 = 'dell'
-2 = 'built-in'
-3 = 'dell'
-4 = 'built-in'
-Code = 'dell'
-Messages = 'built-in'
-Meetings = 'built-in'
+Code = 'dell p3421w'
+Messages = ['built-in', 'dell s2722dc']
+Meetings = ['built-in', 'dell s2722dc']
 Notes = 'built-in'
-Web = 'built-in'
+Web = ['built-in', 'dell s2722dc']
 Entertainment = 'built-in'
 Private = 'built-in'
 

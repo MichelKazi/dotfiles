@@ -2,14 +2,65 @@ local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
 local metals_lspconfig = {
-  -- "scalameta/nvim-metals",
-  -- dependencies = {
-  --   "nvim-lua/plenary.nvim",
-  --   {
-  --     "j-hui/fidget.nvim",
-  --     opts = {},
-  --   },
-  -- },
+  {
+    "m00qek/baleia.nvim",
+    version = "*",
+    config = function()
+      vim.g.baleia = require("baleia").setup({})
+
+      -- Command to colorize the current buffer
+      vim.api.nvim_create_user_command("BaleiaColorize", function()
+        vim.g.baleia.once(vim.api.nvim_get_current_buf())
+      end, { bang = true })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        desc = "Force colorize on dap-repl",
+        pattern = "dap-repl",
+        group = vim.api.nvim_create_augroup("auto_colorize", { clear = true }),
+        callback = function()
+          vim.g.baleia.automatically(vim.api.nvim_get_current_buf())
+        end,
+      })
+
+      -- Command to show logs
+      vim.api.nvim_create_user_command("BaleiaLogs", vim.g.baleia.logger.show, { bang = true })
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function(self, opts)
+      -- Debug settings if you're using nvim-dap
+      local dap = require("dap")
+
+      dap.listeners.after["event_terminated"]["nvim-metals"] = function()
+        dap.repl.open()
+      end
+
+      dap.configurations.scala = {
+        {
+          type = "scala",
+          request = "launch",
+          name = "RunOrTest",
+          metals = {
+            runType = "runOrTestFile",
+            --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
+          },
+        },
+        {
+          type = "scala",
+          request = "launch",
+          name = "Test Target",
+          metals = {
+            runType = "testTarget",
+          },
+        },
+      }
+    end,
+  },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -23,7 +74,6 @@ local metals_lspconfig = {
     opts = {
       servers = {
         metals = {
-
           keys = {
             {
               "<leader>me",
@@ -130,31 +180,31 @@ local metals_lspconfig = {
               desc = "Hover worksheet",
             },
             {
-              "<leader>aa",
+              "<leader>Da",
               vim.diagnostic.setqflist,
               desc = "All workspace diagnostics",
             },
             {
-              "<leader>ae",
+              "<leader>De",
               function()
                 vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.E })
               end,
               desc = "All workspace errors",
             },
             {
-              "<leader>aw",
+              "<leader>Dw",
               function()
                 vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.W })
               end,
               desc = "All workspace warnings",
             },
             {
-              "<leader>d",
+              "<leader>D",
               vim.diagnostic.setloclist,
               desc = "Buffer diagnostics only",
             },
             {
-              "[c",
+              "Dn",
               function()
                 vim.diagnostic.goto_prev({ wrap = false })
               end,
@@ -216,9 +266,19 @@ local metals_lspconfig = {
               end,
               desc = "Run last",
             },
+            {
+              "<leader>md",
+              function()
+                local buf = vim.api.nvim_get_current_buf()
+                local enabled = vim.diagnostic.is_enabled()
+                vim.diagnostic.enable(not enabled, { bufnr = buf })
+              end,
+              desc = "Toggle diagnostics",
+            },
           },
           init_options = {
             statusBarProvider = "off",
+            disableColorOutput = false,
           },
           settings = {
             showImplicitArguments = true,
@@ -245,7 +305,6 @@ local metals_lspconfig = {
             callback = function()
               vim.b.autoformat = false
               metals.initialize_or_attach(metals_config)
-              require("notify")("lspconfig[Metals]")
             end,
             group = nvim_metals_group,
           })
